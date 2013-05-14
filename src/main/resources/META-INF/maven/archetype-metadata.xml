@@ -14,82 +14,86 @@
 				<include>.gitignore</include>
 			</includes>
 		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>core</directory>
+			<includes>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>core/src/main/assets</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>core/src/main/build</directory>
+			<includes>
+				<include>**/*.txt</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>core/src/main/java</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>core/src/main/resources</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>core/src/main/textures</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>desktop</directory>
+			<includes>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>desktop/src/main/java</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>desktop/src/main/assembly</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>html</directory>
+			<includes>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>html/src/main/java</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>html/src/main/webapp</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+			<excludes>
+				<exclude>**/*.ico</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>html/src/main/webapp</directory>
+			<includes>
+				<include>**/*.ico</include>
+			</includes>
+		</fileSet>
 	</fileSets>
-	<modules>
-		<module id="${rootArtifactId}-core" dir="core" name="${rootArtifactId}-core">
-			<fileSets>
-				<fileSet encoding="UTF-8">
-					<directory>src/main/assets</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>src/main/build</directory>
-					<includes>
-						<include>**/*.txt</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" packaged="true" encoding="UTF-8">
-					<directory>src/main/java</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/resources</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>src/main/textures</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-		<module id="${rootArtifactId}-desktop" dir="desktop" name="${rootArtifactId}-desktop">
-			<fileSets>
-				<fileSet filtered="true" packaged="true" encoding="UTF-8">
-					<directory>src/main/java</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/assembly</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-		<module id="${rootArtifactId}-html" dir="html" name="${rootArtifactId}.html">
-			<fileSets>
-				<fileSet filtered="true" packaged="true" encoding="UTF-8">
-					<directory>src/main/java</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/webapp</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-					<excludes>
-						<exclude>**/*.ico</exclude>
-					</excludes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>src/main/webapp</directory>
-					<includes>
-						<include>**/*.ico</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-	</modules>
 </archetype-descriptor>

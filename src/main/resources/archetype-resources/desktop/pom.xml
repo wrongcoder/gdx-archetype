@@ -7,11 +7,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>${groupId}</groupId>
-		<artifactId>${rootArtifactId}</artifactId>
+		<artifactId>${artifactId}</artifactId>
 		<version>${version}</version>
 	</parent>
 
-	<artifactId>${artifactId}</artifactId>
+	<artifactId>${artifactId}-desktop</artifactId>
 	<packaging>jar</packaging>
 	<name>${projectTitle} Desktop</name>
 
@@ -22,7 +22,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-core</artifactId>
+			<artifactId>${artifactId}-core</artifactId>
 			<classifier>min</classifier>
 			<version>${symbol_dollar}{project.version}</version>
 		</dependency>

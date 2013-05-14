@@ -8,23 +8,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>${groupId}</groupId>
-		<artifactId>${rootArtifactId}</artifactId>
+		<artifactId>${artifactId}</artifactId>
 		<version>${version}</version>
 	</parent>
 
-	<artifactId>${artifactId}</artifactId>
+	<artifactId>${artifactId}-html</artifactId>
 	<packaging>war</packaging>
 	<name>${projectTitle} HTML</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-core</artifactId>
+			<artifactId>${artifactId}-core</artifactId>
 			<version>${symbol_dollar}{project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-core</artifactId>
+			<artifactId>${artifactId}-core</artifactId>
 			<classifier>sources</classifier>
 			<version>${symbol_dollar}{project.version}</version>
 		</dependency>

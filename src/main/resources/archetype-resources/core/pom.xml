@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>${groupId}</groupId>
-		<artifactId>${rootArtifactId}</artifactId>
+		<artifactId>${artifactId}</artifactId>
 		<version>${version}</version>
 	</parent>
 
-	<artifactId>${artifactId}</artifactId>
+	<artifactId>${artifactId}-core</artifactId>
 	<packaging>jar</packaging>
 	<name>${projectTitle} Core</name>
 
