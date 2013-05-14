@@ -2,7 +2,8 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>${groupId}</groupId>
@@ -102,10 +103,10 @@
 						<option>-target ${symbol_dollar}{project.build.java.target}</option>
 						<!-- Keep Options -->
 						<option>-keep</option>
-						<option>class ${package}.core.Game {</option>
-						<option>public static ${package}.core.Game instance();</option>
-						<option>public static &lt;fields&gt;;</option>
-						<option>}</option>
+						<option>    class ${package}.core.Game {</option>
+						<option>        public static ${package}.core.Game instance();</option>
+						<option>        public static &lt;fields&gt;;</option>
+						<option>    }</option>
 						<!-- Optimization Options -->
 						<option>-optimizationpasses 10</option>
 						<option>-allowaccessmodification</option>
