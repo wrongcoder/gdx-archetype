@@ -1,0 +1,15 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<module rename-to='game'>
+	<inherits name='com.badlogic.gdx.backends.gdx_backends_gwt'/>
+
+	<source path="core"/>
+	<source path="html"/>
+	<public path="resources"/>
+
+	<entry-point class='${package}.html.HtmlDriver'/>
+
+	<set-configuration-property name="gdx.assetpath" value="core/target/gdx/assets"/>
+	<set-configuration-property name="gdx.assetoutputpath" value="html/target/gdx"/>
+</module>

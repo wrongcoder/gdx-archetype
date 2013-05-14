@@ -1,0 +1,128 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>${groupId}</groupId>
+		<artifactId>${rootArtifactId}</artifactId>
+		<version>${version}</version>
+	</parent>
+
+	<artifactId>${artifactId}</artifactId>
+	<packaging>jar</packaging>
+	<name>${projectTitle} Core</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.badlogic.gdx</groupId>
+			<artifactId>gdx</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>rebel.xml</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/assets</directory>
+				<targetPath>${symbol_dollar}{project.build.directory}/gdx/assets</targetPath>
+				<excludes>
+					<exclude>*.xcf</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>pack-loading-textures</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.badlogic.gdx.tools.imagepacker.TexturePacker2</mainClass>
+                            <arguments>
+                                <argument>${symbol_dollar}{project.basedir}/src/main/textures/loading</argument>
+                                <argument>${symbol_dollar}{project.build.directory}/gdx/assets/textures</argument>
+                                <argument>loading</argument>
+                            </arguments>
+                            <includePluginDependencies>true</includePluginDependencies>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+	                <dependency>
+		                <groupId>com.badlogic.gdx</groupId>
+		                <artifactId>gdx-tools</artifactId>
+		                <version>${symbol_dollar}{gdx.version}</version>
+	                </dependency>
+                </dependencies>
+            </plugin>
+			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<attach>true</attach>
+					<attachArtifactClassifier>min</attachArtifactClassifier>
+					<outputDirectory>${symbol_dollar}{project.build.directory}</outputDirectory>
+					<options>
+						<!-- Input/Output Options -->
+						<option>-dontskipnonpubliclibraryclasses</option>
+						<option>-dontskipnonpubliclibraryclassmembers</option>
+						<option>-target ${symbol_dollar}{project.build.java.target}</option>
+						<!-- Keep Options -->
+						<option>-keep</option>
+						<option>class ${package}.core.Game {</option>
+						<option>public static ${package}.core.Game instance();</option>
+						<option>public static &lt;fields&gt;;</option>
+						<option>}</option>
+						<!-- Optimization Options -->
+						<option>-optimizationpasses 10</option>
+						<option>-allowaccessmodification</option>
+						<option>-mergeinterfacesaggressively</option>
+						<!-- Obfuscation Options -->
+						<option>-printmapping ${symbol_dollar}{project.basedir}/src/main/build/proguard_map.txt</option>
+						<option>-applymapping ${symbol_dollar}{project.basedir}/src/main/build/proguard_map.txt</option>
+						<option>-overloadaggressively</option>
+						<option>-repackageclasses ''</option>
+						<option>-keepattributes SourceFile,LineNumberTable,Signature</option>
+						<option>-renamesourcefileattribute SourceFile</option>
+					</options>
+					<libs>
+						<lib>${symbol_dollar}{java.home}/lib/rt.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
