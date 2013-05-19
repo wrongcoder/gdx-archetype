@@ -92,6 +92,7 @@
 					<webResources>
 						<resource>
 							<directory>${symbol_dollar}{project.build.directory}/gdx/assets</directory>
+							<targetPath>assets</targetPath>
 						</resource>
 					</webResources>
 				</configuration>
