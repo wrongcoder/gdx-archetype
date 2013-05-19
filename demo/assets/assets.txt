@@ -1,0 +1,7 @@
+d:html/target/gdx/
+i:libgdx-logo.png
+t:version.json
+b:version.properties
+d:textures
+b:textures/loading.atlas
+i:textures/loading.png

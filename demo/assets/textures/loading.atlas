@@ -1,0 +1,19 @@
+
+loading.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+border
+  rotate: false
+  xy: 1, 32
+  size: 512, 65
+  orig: 512, 65
+  offset: 0, 0
+  index: -1
+text
+  rotate: false
+  xy: 515, 1
+  size: 416, 96
+  orig: 416, 96
+  offset: 0, 0
+  index: -1
