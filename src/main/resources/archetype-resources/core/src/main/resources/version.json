@@ -1,0 +1,9 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+{
+	"version": "${symbol_dollar}{project.version}",
+	"buildNumber": "${symbol_dollar}{buildNumber}",
+	"buildDate": "${symbol_dollar}{git.build.time}",
+	"commit": "${symbol_dollar}{git.commit.id.describe}"
+}

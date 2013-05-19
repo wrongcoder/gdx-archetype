@@ -23,8 +23,9 @@
 			<destName>${symbol_dollar}{parent.artifactId}.jar</destName>
 		</file>
 		<file>
-			<source>${symbol_dollar}{project.basedir}/../core/target/classes/version.properties</source>
+			<source>${symbol_dollar}{project.basedir}/../core/target/gdx/assets/version.json</source>
 			<outputDirectory>lib</outputDirectory>
+			<destName>version.txt</destName>
 		</file>
 	</files>
 </assembly>
