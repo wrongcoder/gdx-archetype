@@ -28,7 +28,14 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void show() {
-		Asset.loadAssets(assetManager());
+		Asset.queueAssets(assetManager());
+
+		final boolean assetsAlreadyLoaded = assetManager().update();
+		if (assetsAlreadyLoaded) {
+			nextScreen();
+			return;
+		}
+
 		batch = new SpriteBatch();
 		loadingBarRenderer = new ShapeRenderer();
 	}
@@ -53,7 +60,7 @@ public class LoadingScreen extends Screen {
 		}
 
 		if (fadeTimeLeft < 0) {
-			game().setScreen(new DemoScreen(game()));
+			nextScreen();
 		}
 		if (finishedLoading) {
 			fadeTimeLeft -= delta;
@@ -89,6 +96,10 @@ public class LoadingScreen extends Screen {
 		loadingBarRenderer.setColor(fadeColour);
 		loadingBarRenderer.rect(160, 217, width, 32);
 		loadingBarRenderer.end();
+	}
+
+	private void nextScreen() {
+		game().setScreen(new DemoScreen(game()));
 	}
 
 }
