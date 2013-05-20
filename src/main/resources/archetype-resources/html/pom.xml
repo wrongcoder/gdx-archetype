@@ -88,7 +88,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<packagingExcludes>WEB-INF/lib/**,WEB-INF/classes/**</packagingExcludes>
+					<packagingExcludes>WEB-INF/lib/**,WEB-INF/classes/**,WEB-INF/deploy/**</packagingExcludes>
 					<webResources>
 						<resource>
 							<directory>${symbol_dollar}{project.build.directory}/gdx/assets</directory>
