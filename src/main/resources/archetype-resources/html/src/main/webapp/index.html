@@ -5,14 +5,27 @@
 <html>
 <head>
 	<title>${projectTitle}</title>
+	<style>
+		body {
+			background-color: ${symbol_pound}000;
+		}
+
+		div, p {
+			color: ${symbol_pound}ccc;
+		}
+
+		#loading {
+			padding: 50px;
+		}
+	</style>
+	<script>
+		window.setTimeout(function () { document.getElementById("loading") && document.getElementById("loading").removeAttribute("style"); }, 3500);
+	</script>
 </head>
-<body style="background-color: black;">
+<body>
 <script src="game/game.nocache.js"></script>
-<script>
-	window.setTimeout(function () { document.getElementById("loading") && document.getElementById("loading").children[0].removeAttribute("style"); }, 3500);
-</script>
-<div id="loading" style="color: ${symbol_pound}ccc; padding: 50px;">
-	<div style="display: none">If the game does not load, please ensure that Flash and WebGL are enabled.</div>
+<div id="loading" style="display: none;">
+	<div>If the game does not load, please ensure that Flash and WebGL are enabled.</div>
 </div>
 </body>
 </html>
