@@ -15,10 +15,6 @@
 			background-color: ${symbol_pound}000;
 		}
 
-		div, p {
-			color: ${symbol_pound}ccc;
-		}
-
 		table {
 			display: none;
 		}
@@ -30,9 +26,18 @@
 		}
 
 		#loading {
+			color: ${symbol_pound}ccc;
 			font-size: 16px;
 			position: absolute;
 			top: 30px;
+			left: 10px;
+		}
+
+		#footer {
+			color: ${symbol_pound}666;
+			font-size: 12px;
+			position: absolute;
+			bottom: 5px;
 			left: 10px;
 		}
 	</style>
@@ -44,6 +49,9 @@
 <script src="game/game.nocache.js"></script>
 <div id="loading" style="display: none;">
 	<p>If the game does not load, please ensure that Flash and WebGL are enabled.</p>
+</div>
+<div id="footer">
+	<p id="version">&nbsp;</p>
 </div>
 </body>
 </html>

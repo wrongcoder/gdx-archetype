@@ -32,6 +32,7 @@ public class HtmlDriver extends GwtApplication {
 		@Override
 		public void run() {
 			removeLoadingMessage();
+			setVersionString();
 			centreGameCanvas();
 		}
 
@@ -39,6 +40,13 @@ public class HtmlDriver extends GwtApplication {
 			final Element loadingElement = Document.get().getElementById("loading");
 			if (loadingElement != null) {
 				loadingElement.removeFromParent();
+			}
+		}
+
+		private static void setVersionString() {
+			final Element versionElement = Document.get().getElementById("version");
+			if (versionElement != null) {
+				versionElement.setInnerText(Game.instance().getVersion());
 			}
 		}
 
