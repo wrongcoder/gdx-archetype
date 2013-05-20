@@ -16,7 +16,7 @@ public class Asset {
 	public static final String libgdxLogo = "libgdx-logo.png";
 
 	public static void loadAssets(final AssetManager assetManager) {
-		// Assets for LoadingScreen are loaded first
+		// Assets for LoadingScreen should be loaded first
 		assetManager.load(loadingAtlas, TextureAtlas.class);
 
 		// Remaining assets

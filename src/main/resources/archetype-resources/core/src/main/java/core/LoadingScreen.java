@@ -42,22 +42,14 @@ public class LoadingScreen extends Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-		if (assetManager().isLoaded(Asset.loadingAtlas)) {
-			final TextureAtlas atlas = assetManager().get(Asset.loadingAtlas);
-			loadingText = atlas.createSprite(Asset.loadingText);
-			loadingText.setPosition(192, 350);
-			loadingBorder = atlas.createSprite(Asset.loadingBorder);
-			loadingBorder.setPosition(144, 200);
+		boolean spritesLoaded = loadingText != null && loadingBorder != null;
+		if (!spritesLoaded) {
+			spritesLoaded = tryLoadSprites();
 		}
 
-		if (loadingText != null && loadingBorder != null) {
-			batch.begin();
-			loadingText.setColor(fadeColour);
-			loadingText.draw(batch);
-			loadingBorder.setColor(fadeColour);
-			loadingBorder.draw(batch);
-			batch.end();
-			drawLoadingBar(fadeAlpha);
+		if (spritesLoaded) {
+			drawSprites(fadeColour);
+			drawLoadingBar(fadeColour);
 		}
 
 		if (fadeTimeLeft < 0) {
@@ -68,11 +60,33 @@ public class LoadingScreen extends Screen {
 		}
 	}
 
-	private void drawLoadingBar(final float fadeAlpha) {
+	private boolean tryLoadSprites() {
+		if (assetManager().isLoaded(Asset.loadingAtlas)) {
+			final TextureAtlas atlas = assetManager().get(Asset.loadingAtlas);
+			loadingText = atlas.createSprite(Asset.loadingText);
+			loadingText.setPosition(192, 350);
+			loadingBorder = atlas.createSprite(Asset.loadingBorder);
+			loadingBorder.setPosition(144, 200);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private void drawSprites(final Color fadeColour) {
+		batch.begin();
+		loadingText.setColor(fadeColour);
+		loadingText.draw(batch);
+		loadingBorder.setColor(fadeColour);
+		loadingBorder.draw(batch);
+		batch.end();
+	}
+
+	private void drawLoadingBar(final Color fadeColour) {
 		final float progress = assetManager().getProgress();
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
-		loadingBarRenderer.setColor(fadeAlpha, fadeAlpha, fadeAlpha, 1);
+		loadingBarRenderer.setColor(fadeColour);
 		loadingBarRenderer.rect(160, 217, width, 32);
 		loadingBarRenderer.end();
 	}
