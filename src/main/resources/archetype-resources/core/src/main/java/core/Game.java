@@ -69,7 +69,7 @@ public class Game extends com.badlogic.gdx.Game {
 			if (buildNumber != null && !buildNumber.isEmpty() && !buildNumber.contains("${symbol_dollar}{")) {
 				version = "Build " + buildNumber;
 			} else if (commit != null && !commit.isEmpty() && !commit.contains("${symbol_dollar}{")) {
-				version = "Test build " + commit;
+				version = "Commit " + commit;
 			} else {
 				version = "Version " + versionNumber;
 			}
