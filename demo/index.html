@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Demo Project</title>
-  </head>
-  <body style="background-color: black;">
-    <script src="game/game.nocache.js"></script>
-    <script>
-      window.setTimeout(function () { document.getElementById("loading") && document.getElementById("loading").children[0].removeAttribute("style"); }, 3500);
-    </script>
-    <div id="loading" style="color: #ccc; padding: 50px;">
-      <div style="display: none">If the game does not load, please ensure that Flash and WebGL are enabled.</div>
-    </div>
-  </body>
+<head>
+	<title>Demo Project</title>
+	<style>
+		html {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color: #000;
+		}
+
+		table {
+			display: none;
+		}
+		body.loaded table {
+			display: table;
+		}
+		body.loaded table canvas {
+			border: 1px solid #333;
+		}
+
+		#loading {
+			color: #ccc;
+			font-size: 16px;
+			position: absolute;
+			top: 30px;
+			left: 10px;
+		}
+
+		#footer {
+			color: #666;
+			font-size: 12px;
+			position: absolute;
+			bottom: 5px;
+			left: 10px;
+		}
+	</style>
+	<script>
+		window.setTimeout(function () { document.getElementById("loading") && document.getElementById("loading").removeAttribute("style"); }, 5000);
+	</script>
+</head>
+<body>
+<script src="game/game.nocache.js"></script>
+<div id="loading" style="display: none;">
+	<p>If the game does not load, please ensure that Flash and WebGL are enabled.</p>
+</div>
+<div id="footer">
+	<p id="version">&nbsp;</p>
+</div>
+</body>
 </html>
