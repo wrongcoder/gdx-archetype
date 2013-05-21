@@ -28,4 +28,11 @@
 			<destName>version.txt</destName>
 		</file>
 	</files>
+	<fileSets>
+		<fileSet>
+			<directory>${symbol_dollar}{project.basedir}/src/main/scripts</directory>
+			<outputDirectory>/</outputDirectory>
+			<filtered>true</filtered>
+		</fileSet>
+	</fileSets>
 </assembly>

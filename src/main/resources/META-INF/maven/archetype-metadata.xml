@@ -68,6 +68,12 @@
 			</includes>
 		</fileSet>
 		<fileSet filtered="true" encoding="UTF-8">
+			<directory>desktop/src/main/scripts</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
 			<directory>html</directory>
 			<includes>
 				<include>pom.xml</include>
