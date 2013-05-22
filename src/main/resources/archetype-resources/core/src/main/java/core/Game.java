@@ -29,7 +29,7 @@ public class Game extends com.badlogic.gdx.Game {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		assetManager = new AssetManager();
 		version = loadVersion();
-		setScreen(new LoadingScreen(this));
+		setScreen(new LoadingScreen(this).setNextScreen(new DemoScreen(this)));
 		postInit.run();
 	}
 

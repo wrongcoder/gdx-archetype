@@ -22,8 +22,15 @@ public class LoadingScreen extends Screen {
 	private static final float fadeTime = 0.2f;
 	private float fadeTimeLeft = fadeTime;
 
+	private Screen nextScreen;
+
 	public LoadingScreen(final Game game) {
 		super(game);
+	}
+
+	public Screen setNextScreen(final Screen nextScreen) {
+		this.nextScreen = nextScreen;
+		return this;
 	}
 
 	@Override
@@ -99,7 +106,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void nextScreen() {
-		game().setScreen(new DemoScreen(game()));
+		game().setScreen(nextScreen);
 	}
 
 }
