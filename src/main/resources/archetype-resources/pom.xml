@@ -42,11 +42,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>${symbol_dollar}{project.build.java.target}</source>
-					<target>${symbol_dollar}{project.build.java.target}</target>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
@@ -75,6 +70,15 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>${symbol_dollar}{project.build.java.target}</source>
+						<target>${symbol_dollar}{project.build.java.target}</target>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
