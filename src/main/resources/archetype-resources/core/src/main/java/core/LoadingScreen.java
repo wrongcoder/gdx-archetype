@@ -101,7 +101,7 @@ public class LoadingScreen extends Screen {
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		loadingBarRenderer.setColor(fadeColour);
-		loadingBarRenderer.rect(160, 97, width, 32);
+		loadingBarRenderer.rect(160, 96, width, 32);
 		loadingBarRenderer.end();
 	}
 
