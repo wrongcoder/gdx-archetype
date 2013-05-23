@@ -48,6 +48,12 @@ public class LoadingScreen extends Screen {
 	}
 
 	@Override
+	public void hide() {
+		batch.dispose();
+		loadingBarRenderer.dispose();
+	}
+
+	@Override
 	public void render(final float delta) {
 		final boolean finishedLoading = assetManager().update();
 		final float fadeAlpha = fadeTimeLeft / fadeTime;
