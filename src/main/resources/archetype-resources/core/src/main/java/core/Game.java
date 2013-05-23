@@ -50,6 +50,22 @@ public class Game extends com.badlogic.gdx.Game {
 		Gdx.app.log(TAG, message, exception);
 	}
 
+	public void debug(final String message) {
+		Gdx.app.debug(TAG, message);
+	}
+
+	public void debug(final String message, final Exception exception) {
+		Gdx.app.debug(TAG, message, exception);
+	}
+
+	public void error(final String message) {
+		Gdx.app.error(TAG, message);
+	}
+
+	public void error(final String message, final Exception exception) {
+		Gdx.app.error(TAG, message, exception);
+	}
+
 	public String getVersion() {
 		return version;
 	}
@@ -90,7 +106,7 @@ public class Game extends com.badlogic.gdx.Game {
 			return version;
 
 		} catch (SerializationException e) {
-			Gdx.app.log(TAG, "Exception", e);
+			Gdx.app.error(TAG, "Exception", e);
 			return "(unknown version)";
 		}
 	}

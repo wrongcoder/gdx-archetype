@@ -29,6 +29,22 @@ public abstract class Screen implements com.badlogic.gdx.Screen {
 		game().log(message, exception);
 	}
 
+	public void debug(final String message) {
+		game().debug(message);
+	}
+
+	public void debug(final String message, final Exception exception) {
+		game().debug(message, exception);
+	}
+
+	public void error(final String message) {
+		game().error(message);
+	}
+
+	public void error(final String message, final Exception exception) {
+		game().error(message, exception);
+	}
+
 	@Override
 	public void resize(final int width, final int height) {
 	}
