@@ -21,6 +21,14 @@ public abstract class Screen implements com.badlogic.gdx.Screen {
 		return game().assetManager();
 	}
 
+	public void log(final String message) {
+		game().log(message);
+	}
+
+	public void log(final String message, final Exception exception) {
+		game().log(message, exception);
+	}
+
 	@Override
 	public void resize(final int width, final int height) {
 	}

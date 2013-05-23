@@ -18,6 +18,7 @@ public class Game extends com.badlogic.gdx.Game {
 
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
+	public static final String TAG = "${projectTitle}";
 
     private AssetManager assetManager;
 
@@ -39,6 +40,14 @@ public class Game extends com.badlogic.gdx.Game {
 
 	public AssetManager assetManager() {
 		return assetManager;
+	}
+
+	public void log(final String message) {
+		Gdx.app.log(TAG, message);
+	}
+
+	public void log(final String message, final Exception exception) {
+		Gdx.app.log(TAG, message, exception);
 	}
 
 	public String getVersion() {
@@ -81,7 +90,7 @@ public class Game extends com.badlogic.gdx.Game {
 			return version;
 
 		} catch (SerializationException e) {
-			Gdx.app.log("${projectTitle}", "Exception", e);
+			Gdx.app.log(TAG, "Exception", e);
 			return "(unknown version)";
 		}
 	}
