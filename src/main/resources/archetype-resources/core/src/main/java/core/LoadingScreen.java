@@ -78,9 +78,9 @@ public class LoadingScreen extends Screen {
 		if (assetManager().isLoaded(Asset.loadingAtlas)) {
 			final TextureAtlas atlas = assetManager().get(Asset.loadingAtlas);
 			loadingText = atlas.createSprite(Asset.loadingText);
-			loadingText.setPosition(192, 350);
+			loadingText.setPosition(80, 224);
 			loadingBorder = atlas.createSprite(Asset.loadingBorder);
-			loadingBorder.setPosition(144, 200);
+			loadingBorder.setPosition(144, 80);
 			return true;
 		} else {
 			return false;
@@ -101,7 +101,7 @@ public class LoadingScreen extends Screen {
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		loadingBarRenderer.setColor(fadeColour);
-		loadingBarRenderer.rect(160, 217, width, 32);
+		loadingBarRenderer.rect(160, 97, width, 32);
 		loadingBarRenderer.end();
 	}
 
