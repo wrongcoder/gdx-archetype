@@ -19,12 +19,12 @@ public class HtmlDriver extends GwtApplication {
 	}
 
 	@Override
-	public ApplicationListener getApplicationListener () {
+	public ApplicationListener getApplicationListener() {
 		return Game.instance();
 	}
 
 	@Override
-	public GwtApplicationConfiguration getConfig () {
+	public GwtApplicationConfiguration getConfig() {
 		return new GwtApplicationConfiguration(Game.WIDTH, Game.HEIGHT);
 	}
 
