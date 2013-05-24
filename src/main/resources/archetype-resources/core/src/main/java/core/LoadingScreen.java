@@ -35,9 +35,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void show() {
-		Asset.queueAssets(assetManager());
-
-		final boolean assetsAlreadyLoaded = assetManager().update();
+		final boolean assetsAlreadyLoaded = Asset.manager.update();
 		if (assetsAlreadyLoaded) {
 			nextScreen();
 			return;
@@ -55,7 +53,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		final boolean finishedLoading = assetManager().update();
+		final boolean finishedLoading = Asset.manager.update();
 		final float fadeAlpha = fadeTimeLeft / fadeTime;
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
@@ -81,8 +79,8 @@ public class LoadingScreen extends Screen {
 	}
 
 	private boolean tryLoadSprites() {
-		if (assetManager().isLoaded(Asset.loadingAtlas)) {
-			final TextureAtlas atlas = assetManager().get(Asset.loadingAtlas);
+		if (Asset.manager.isLoaded(Asset.loadingAtlas)) {
+			final TextureAtlas atlas = Asset.manager.get(Asset.loadingAtlas);
 			loadingText = atlas.createSprite(Asset.loadingText);
 			loadingText.setPosition(80, 224);
 			loadingBorder = atlas.createSprite(Asset.loadingBorder);
@@ -103,7 +101,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void drawLoadingBar(final Color fadeColour) {
-		final float progress = assetManager().getProgress();
+		final float progress = Asset.manager.getProgress();
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		loadingBarRenderer.setColor(fadeColour);

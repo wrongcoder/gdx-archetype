@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class Asset {
+	public static final AssetManager manager = new AssetManager();
 
 	public static final String loadingAtlas = "textures/loading.atlas";
 	public static final String loadingText = "text";
@@ -15,12 +16,12 @@ public class Asset {
 
 	public static final String libgdxLogo = "libgdx-logo.png";
 
-	public static void queueAssets(final AssetManager assetManager) {
+	static {
 		// Assets for LoadingScreen should be loaded first
-		assetManager.load(loadingAtlas, TextureAtlas.class);
+		manager.load(loadingAtlas, TextureAtlas.class);
 
 		// Remaining assets
-		assetManager.load(libgdxLogo, Texture.class);
+		manager.load(libgdxLogo, Texture.class);
 	}
 
 }

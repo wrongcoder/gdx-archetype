@@ -19,7 +19,7 @@ public class DemoScreen extends Screen {
 
 	@Override
 	public void show() {
-		texture = assetManager().get(Asset.libgdxLogo);
+		texture = Asset.manager.get(Asset.libgdxLogo);
 		batch = new SpriteBatch();
 	}
 

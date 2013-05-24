@@ -3,8 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.core;
 
-import com.badlogic.gdx.assets.AssetManager;
-
 public abstract class Screen implements com.badlogic.gdx.Screen {
 
 	private final Game game;
@@ -15,10 +13,6 @@ public abstract class Screen implements com.badlogic.gdx.Screen {
 
 	public Game game() {
 		return game;
-	}
-
-	public AssetManager assetManager() {
-		return game().assetManager();
 	}
 
 	public void log(final String message) {

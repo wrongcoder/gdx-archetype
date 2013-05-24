@@ -5,7 +5,6 @@ package ${package}.core;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
@@ -21,15 +20,12 @@ public class Game extends com.badlogic.gdx.Game {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 
-    private AssetManager assetManager;
-
 	private Game() {
 	}
 
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-		assetManager = new AssetManager();
 		version = loadVersion();
 		setScreen(new LoadingScreen(this).setNextScreen(new DemoScreen(this)));
 		postInit.run();
@@ -37,10 +33,6 @@ public class Game extends com.badlogic.gdx.Game {
 
 	public static Game instance() {
 		return instance;
-	}
-
-	public AssetManager assetManager() {
-		return assetManager;
 	}
 
 	public void log(final String message) {
