@@ -17,7 +17,6 @@ public class Game extends com.badlogic.gdx.Game {
 	private Runnable postInit = new EmptyRunnable();
 	private String version = "";
 
-	public static final String TAG = "${projectTitle}";
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 
@@ -34,30 +33,6 @@ public class Game extends com.badlogic.gdx.Game {
 
 	public static Game instance() {
 		return instance;
-	}
-
-	public void log(final String message) {
-		Gdx.app.log(TAG, message);
-	}
-
-	public void log(final String message, final Exception exception) {
-		Gdx.app.log(TAG, message, exception);
-	}
-
-	public void debug(final String message) {
-		Gdx.app.debug(TAG, message);
-	}
-
-	public void debug(final String message, final Exception exception) {
-		Gdx.app.debug(TAG, message, exception);
-	}
-
-	public void error(final String message) {
-		Gdx.app.error(TAG, message);
-	}
-
-	public void error(final String message, final Exception exception) {
-		Gdx.app.error(TAG, message, exception);
 	}
 
 	public String getVersion() {
@@ -100,7 +75,7 @@ public class Game extends com.badlogic.gdx.Game {
 			return version;
 
 		} catch (SerializationException e) {
-			Gdx.app.error(TAG, "Exception", e);
+			Log.error("Exception", e);
 			return "(unknown version)";
 		}
 	}
