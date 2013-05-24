@@ -1,12 +1,15 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.core;
+package ${package}.core.demoscreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import ${package}.core.Asset;
+import ${package}.core.Game;
+import ${package}.core.Screen;
 
 public class DemoScreen extends Screen {
 

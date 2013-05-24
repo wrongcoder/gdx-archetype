@@ -9,6 +9,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.SerializationException;
+import ${package}.core.demoscreen.DemoScreen;
 
 public class Game extends com.badlogic.gdx.Game {
 	private static final Game instance = new Game();
