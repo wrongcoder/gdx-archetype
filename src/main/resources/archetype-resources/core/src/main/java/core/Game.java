@@ -13,12 +13,13 @@ import com.badlogic.gdx.utils.SerializationException;
 
 public class Game extends com.badlogic.gdx.Game {
 	private static final Game instance = new Game();
-	private String version = "";
-	private Runnable postInit = new EmptyRunnable();
 
+	private Runnable postInit = new EmptyRunnable();
+	private String version = "";
+
+	public static final String TAG = "${projectTitle}";
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
-	public static final String TAG = "${projectTitle}";
 
     private AssetManager assetManager;
 
