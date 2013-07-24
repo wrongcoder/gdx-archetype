@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Build-Jdk: 1.7.0_15
+Build-Jdk: 1.7.0_21
 Built-By: Maven
 Created-By: Apache Maven 3.0.4
 Archiver-Version: Plexus Archiver
