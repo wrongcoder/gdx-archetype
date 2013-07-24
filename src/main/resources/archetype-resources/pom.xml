@@ -23,7 +23,7 @@
 			<id>gdx-nightlies</id>
 			<url>http://libgdx.badlogicgames.com/nightlies/maven</url>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
 		</repository>
 	</repositories>
@@ -32,7 +32,7 @@
 			<id>gdx-nightlies</id>
 			<url>http://libgdx.badlogicgames.com/nightlies/maven</url>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
