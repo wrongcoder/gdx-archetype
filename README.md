@@ -1,6 +1,16 @@
 # LibGDX Archetype
 
-This [Maven](https://maven.apache.org/) archetype contains my current best practices for LibGDX projects. Only desktop and html targets are supported because those are the only ones that I use. You are warned that I am not a professional game developer.
+This [Maven](https://maven.apache.org/) archetype contains my current best practices for LibGDX projects. Only desktop and html targets are supported because those are the only ones that I use.
+
+## What is it?
+
+In essence, this is my base code for [Ludum Dare](http://www.ludumdare.com/compo/). Having a properly working build system right off the bat means I don't have to spend the first night (or longer) tweaking it to get rid of irritations. It's also nice to have a bit of a starting point containing a few simple things I'd need to make any sort of game, but having a ton of sample code or features included is not the point.
+
+## What is it not?
+
+It's not a game engine, nor is it an advanced starting point for any particular type of game.
+
+There are lots of excellent game engines out there, some of which are even based on LibGDX. If you're looking for one of those, [Fixel-GDX](https://github.com/flixel-gdx/flixel-gdx) looks pretty good. Check it out.
 
 ## A demonstration
 
@@ -10,7 +20,7 @@ This [Maven](https://maven.apache.org/) archetype contains my current best pract
 ## Some features
 
 * all: executes TexturePacker2 as part of the generate-resources phase
-* all: uses AssetManager with a placeholder loading screen
+* all: uses AssetManager and displays a loading screen while update() runs
 * all: does not package source files inside the core JAR
 * all: only writes generated resources inside target directories
 * all: cleaned up dependencyManagement and pluginManagement
