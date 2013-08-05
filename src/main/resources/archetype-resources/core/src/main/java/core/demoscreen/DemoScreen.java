@@ -7,7 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import ${package}.core.Asset;
+import ${package}.core.asset.Asset;
 import ${package}.core.Game;
 import ${package}.core.Screen;
 
