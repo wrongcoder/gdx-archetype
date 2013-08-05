@@ -214,7 +214,7 @@
 	</profiles>
 
 	<modules>
-		<module>core</module>
+		${defaultModules}
 	</modules>
 
 </project>
