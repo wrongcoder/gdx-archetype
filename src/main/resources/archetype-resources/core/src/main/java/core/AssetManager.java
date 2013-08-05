@@ -7,14 +7,17 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class AssetManager extends com.badlogic.gdx.assets.AssetManager {
 
-	public static final String LIBGDX_LOGO = "libgdx-logo.png";
+	public static final String libgdxLogo = "libgdx-logo.png";
 
 	public void queueAssets() {
 		// Always load the loading screen assets first
 		LoadingScreen.queueAssets(this);
 
+		// Shared asset loaders and systems
+		Fonts.queueAssets(this);
+
 		// Other assets that have no home
-		load(LIBGDX_LOGO, Texture.class);
+		load(libgdxLogo, Texture.class);
 	}
 
 }
