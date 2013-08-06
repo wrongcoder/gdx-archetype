@@ -7,22 +7,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import ${package}.core.asset.Asset;
-import ${package}.core.Game;
+import ${package}.core.Registry;
 import ${package}.core.Screen;
+import ${package}.core.asset.Asset;
 
 public class DemoScreen extends Screen {
 
 	private Texture texture;
 	private SpriteBatch batch;
 
-	public DemoScreen(final Game game) {
-		super(game);
+	public DemoScreen(final Registry r) {
+		super(r);
 	}
 
 	@Override
 	public void show() {
-		texture = Asset.manager.get(Asset.libgdxLogo);
+		texture = r.assetManager.get(Asset.libgdxLogo);
 		batch = new SpriteBatch();
 	}
 

@@ -3,12 +3,11 @@
 #set( $symbol_escape = '\' )
 package ${package}.core.asset;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import ${package}.core.Registry;
 
 public class Asset {
-	public static final AssetManager manager = new AssetManager();
 
 	public static final String loadingAtlas = "textures/loading.atlas";
 	public static final String loadingText = "text";
@@ -16,12 +15,12 @@ public class Asset {
 
 	public static final String libgdxLogo = "libgdx-logo.png";
 
-	static {
+	public static void queueAssets(final Registry r) {
 		// Assets for LoadingScreen should be loaded first
-		manager.load(loadingAtlas, TextureAtlas.class);
+		r.assetManager.load(loadingAtlas, TextureAtlas.class);
 
 		// Remaining assets
-		manager.load(libgdxLogo, Texture.class);
+		r.assetManager.load(libgdxLogo, Texture.class);
 	}
 
 }

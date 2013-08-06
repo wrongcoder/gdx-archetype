@@ -5,14 +5,10 @@ package ${package}.core;
 
 public abstract class Screen implements com.badlogic.gdx.Screen {
 
-	private final Game game;
+	protected final Registry r;
 
-	public Screen(final Game game) {
-		this.game = game;
-	}
-
-	public Game game() {
-		return game;
+	public Screen(final Registry r) {
+		this.r = r;
 	}
 
 	@Override

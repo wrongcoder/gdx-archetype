@@ -30,7 +30,7 @@ public class Game extends com.badlogic.gdx.Game {
 		version = loadVersion();
 		postInit.run();
 		r.initialize();
-		setScreen(new LoadingScreen(this).setNextScreen(new DemoScreen(this)));
+		setScreen(new LoadingScreen(r).setNextScreen(new DemoScreen(r)));
 	}
 
 	public String getVersion() {

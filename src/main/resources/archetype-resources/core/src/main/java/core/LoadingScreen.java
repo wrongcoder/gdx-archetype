@@ -25,8 +25,8 @@ public class LoadingScreen extends Screen {
 
 	private Screen nextScreen;
 
-	public LoadingScreen(final Game game) {
-		super(game);
+	public LoadingScreen(final Registry r) {
+		super(r);
 	}
 
 	public Screen setNextScreen(final Screen nextScreen) {
@@ -36,14 +36,13 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void show() {
-		final boolean assetsAlreadyLoaded = Asset.manager.update();
-		if (assetsAlreadyLoaded) {
-			nextScreen();
-			return;
-		}
-
 		batch = new SpriteBatch();
 		loadingBarRenderer = new ShapeRenderer();
+
+		final boolean assetsAlreadyLoaded = r.assetManager.update();
+		if (assetsAlreadyLoaded) {
+			nextScreen();
+		}
 	}
 
 	@Override
@@ -54,7 +53,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		final boolean finishedLoading = Asset.manager.update();
+		final boolean finishedLoading = r.assetManager.update();
 		final float fadeAlpha = fadeTimeLeft / fadeTime;
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
@@ -80,8 +79,8 @@ public class LoadingScreen extends Screen {
 	}
 
 	private boolean tryLoadSprites() {
-		if (Asset.manager.isLoaded(Asset.loadingAtlas)) {
-			final TextureAtlas atlas = Asset.manager.get(Asset.loadingAtlas);
+		if (r.assetManager.isLoaded(Asset.loadingAtlas)) {
+			final TextureAtlas atlas = r.assetManager.get(Asset.loadingAtlas);
 			loadingText = atlas.createSprite(Asset.loadingText);
 			loadingText.setPosition(80, 224);
 			loadingBorder = atlas.createSprite(Asset.loadingBorder);
@@ -102,7 +101,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void drawLoadingBar(final Color fadeColour) {
-		final float progress = Asset.manager.getProgress();
+		final float progress = r.assetManager.getProgress();
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		loadingBarRenderer.setColor(fadeColour);
@@ -111,7 +110,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void nextScreen() {
-		game().setScreen(nextScreen);
+		r.game.setScreen(nextScreen);
 	}
 
 }
