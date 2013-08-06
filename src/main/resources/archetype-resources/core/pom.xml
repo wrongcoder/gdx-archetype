@@ -54,35 +54,35 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>pack-loading-textures</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>com.badlogic.gdx.tools.imagepacker.TexturePacker2</mainClass>
-                            <arguments>
-                                <argument>${symbol_dollar}{project.basedir}/src/main/textures/loading</argument>
-                                <argument>${symbol_dollar}{project.build.directory}/gdx/assets/textures</argument>
-                                <argument>loading</argument>
-                            </arguments>
-                            <includePluginDependencies>true</includePluginDependencies>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-	                <dependency>
-		                <groupId>com.badlogic.gdx</groupId>
-		                <artifactId>gdx-tools</artifactId>
-		                <version>${symbol_dollar}{gdx.version}</version>
-	                </dependency>
-                </dependencies>
-            </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>pack-loading-textures</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>com.badlogic.gdx.tools.imagepacker.TexturePacker2</mainClass>
+							<arguments>
+								<argument>${symbol_dollar}{project.basedir}/src/main/textures/loading</argument>
+								<argument>${symbol_dollar}{project.build.directory}/gdx/assets/textures</argument>
+								<argument>loading</argument>
+							</arguments>
+							<includePluginDependencies>true</includePluginDependencies>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.badlogic.gdx</groupId>
+						<artifactId>gdx-tools</artifactId>
+						<version>${symbol_dollar}{gdx.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 			<plugin>
 				<groupId>com.github.wvengen</groupId>
 				<artifactId>proguard-maven-plugin</artifactId>
