@@ -3,8 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.core;
 
-import com.badlogic.gdx.assets.AssetManager;
-import ${package}.core.asset.Asset;
+import ${package}.core.asset.AssetManager;
 
 /** Registry and initializer of global resources */
 public class Registry {
@@ -18,18 +17,21 @@ public class Registry {
 	private boolean initialized = false;
 
 	public Registry() {
+		// This happens before Gdx initialization
 		game = new Game(this);
 		assetManager = new AssetManager();
 	}
 
 	/** Call exactly once in {@link Game#create()} */
 	public void initialize() {
+		// This happens after Gdx initialization
+
 		if (initialized) {
 			throw new IllegalStateException();
 		}
 		initialized = true;
 
-		Asset.queueAssets(this);
+		assetManager.queueAssets();
 	}
 
 }

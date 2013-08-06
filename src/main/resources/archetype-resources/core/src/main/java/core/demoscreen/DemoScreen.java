@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import ${package}.core.Registry;
 import ${package}.core.Screen;
-import ${package}.core.asset.Asset;
+import ${package}.core.asset.AssetManager;
 
 public class DemoScreen extends Screen {
 
@@ -22,7 +22,7 @@ public class DemoScreen extends Screen {
 
 	@Override
 	public void show() {
-		texture = r.assetManager.get(Asset.libgdxLogo);
+		texture = r.assetManager.get(AssetManager.LIBGDX_LOGO);
 		batch = new SpriteBatch();
 	}
 

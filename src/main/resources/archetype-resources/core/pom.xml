@@ -36,7 +36,7 @@
 				<directory>src/main/assets</directory>
 				<targetPath>${symbol_dollar}{project.build.directory}/gdx/assets</targetPath>
 				<excludes>
-					<exclude>*.xcf</exclude>
+					<exclude>**/*.xcf</exclude>
 				</excludes>
 			</resource>
 		</resources>

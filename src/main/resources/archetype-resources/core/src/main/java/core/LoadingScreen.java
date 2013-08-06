@@ -6,13 +6,16 @@ package ${package}.core;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import ${package}.core.asset.Asset;
+import ${package}.core.asset.AssetManager;
 
 public class LoadingScreen extends Screen {
+
+	public static final String LOADING_BORDER_ASSET = "loading-screen/border.png";
+	public static final String LOADING_TEXT_ASSET = "loading-screen/text.png";
 
 	private SpriteBatch batch;
 
@@ -60,15 +63,9 @@ public class LoadingScreen extends Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-		boolean spritesLoaded = loadingText != null && loadingBorder != null;
-		if (!spritesLoaded) {
-			spritesLoaded = tryLoadSprites();
-		}
-
-		if (spritesLoaded) {
-			drawSprites(fadeColour);
-			drawLoadingBar(fadeColour);
-		}
+		tryLoadSprites();
+		drawSprites(fadeColour);
+		drawLoadingBar(fadeColour);
 
 		if (fadeTimeLeft < 0) {
 			nextScreen();
@@ -78,25 +75,27 @@ public class LoadingScreen extends Screen {
 		}
 	}
 
-	private boolean tryLoadSprites() {
-		if (r.assetManager.isLoaded(Asset.loadingAtlas)) {
-			final TextureAtlas atlas = r.assetManager.get(Asset.loadingAtlas);
-			loadingText = atlas.createSprite(Asset.loadingText);
+	private void tryLoadSprites() {
+		if (loadingText == null && r.assetManager.isLoaded(LOADING_TEXT_ASSET)) {
+			loadingText = new Sprite(r.assetManager.<Texture>get(LOADING_TEXT_ASSET));
 			loadingText.setPosition(80, 224);
-			loadingBorder = atlas.createSprite(Asset.loadingBorder);
+		}
+		if (loadingBorder == null && r.assetManager.isLoaded(LOADING_BORDER_ASSET)) {
+			loadingBorder = new Sprite(r.assetManager.<Texture>get(LOADING_BORDER_ASSET));
 			loadingBorder.setPosition(144, 80);
-			return true;
-		} else {
-			return false;
 		}
 	}
 
 	private void drawSprites(final Color fadeColour) {
 		batch.begin();
-		loadingText.setColor(fadeColour);
-		loadingText.draw(batch);
-		loadingBorder.setColor(fadeColour);
-		loadingBorder.draw(batch);
+		if (loadingText != null) {
+			loadingText.setColor(fadeColour);
+			loadingText.draw(batch);
+		}
+		if (loadingBorder != null) {
+			loadingBorder.setColor(fadeColour);
+			loadingBorder.draw(batch);
+		}
 		batch.end();
 	}
 
@@ -111,6 +110,11 @@ public class LoadingScreen extends Screen {
 
 	private void nextScreen() {
 		r.game.setScreen(nextScreen);
+	}
+
+	public static void queueAssets(final AssetManager assetManager) {
+		assetManager.load(LOADING_TEXT_ASSET, Texture.class);
+		assetManager.load(LOADING_BORDER_ASSET, Texture.class);
 	}
 
 }
