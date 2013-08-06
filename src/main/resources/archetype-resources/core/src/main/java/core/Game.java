@@ -13,28 +13,24 @@ import com.badlogic.gdx.utils.SerializationException;
 import ${package}.core.demoscreen.DemoScreen;
 
 public class Game extends com.badlogic.gdx.Game {
-	private static final Game instance = new Game();
 	private static final Logger logger = new Logger("${projectTitle}");
+
+	private final Registry r;
 
 	private Runnable postInit = new EmptyRunnable();
 	private String version = "";
 
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 600;
-
-	private Game() {
+	public Game(final Registry r) {
+		this.r = r;
 	}
 
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		version = loadVersion();
-		setScreen(new LoadingScreen(this).setNextScreen(new DemoScreen(this)));
 		postInit.run();
-	}
-
-	public static Game instance() {
-		return instance;
+		r.initialize();
+		setScreen(new LoadingScreen(this).setNextScreen(new DemoScreen(this)));
 	}
 
 	public String getVersion() {

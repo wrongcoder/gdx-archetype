@@ -5,22 +5,22 @@ package ${package}.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import ${package}.core.Game;
+import ${package}.core.Registry;
 
 public class DesktopDriver {
 
 	public static void main(final String[] args) throws Exception {
-		final Game game = Game.instance();
+		final Registry r = new Registry();
 
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = Game.WIDTH;
-		config.height = Game.HEIGHT;
+		config.width = Registry.WIDTH;
+		config.height = Registry.HEIGHT;
 		config.useGL20 = true;
 		config.resizable = false;
 		config.fullscreen = false;
 		config.title = "${projectTitle}";
 
-		new LwjglApplication(game, config);
+		new LwjglApplication(r.game, config);
 	}
 
 }

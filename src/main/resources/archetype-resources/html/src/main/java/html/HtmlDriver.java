@@ -8,27 +8,36 @@ import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import ${package}.core.Game;
+import ${package}.core.Registry;
 
 public class HtmlDriver extends GwtApplication {
 
+	private Registry r = new Registry();
+
 	@Override
 	public void onModuleLoad() {
+		r.game.setPostInit(new WebPageSetup(r));
 		super.onModuleLoad();
-		Game.instance().setPostInit(new WebPageSetup());
 	}
 
 	@Override
 	public ApplicationListener getApplicationListener() {
-		return Game.instance();
+		return r.game;
 	}
 
 	@Override
 	public GwtApplicationConfiguration getConfig() {
-		return new GwtApplicationConfiguration(Game.WIDTH, Game.HEIGHT);
+		return new GwtApplicationConfiguration(Registry.WIDTH, Registry.HEIGHT);
 	}
 
 	private static class WebPageSetup implements Runnable {
+
+		private final Registry r;
+
+		private WebPageSetup(final Registry r) {
+			this.r = r;
+		}
+
 		@Override
 		public void run() {
 			removeLoadingMessage();
@@ -43,10 +52,10 @@ public class HtmlDriver extends GwtApplication {
 			}
 		}
 
-		private static void setVersionString() {
+		private void setVersionString() {
 			final Element versionElement = Document.get().getElementById("version");
 			if (versionElement != null) {
-				versionElement.setInnerText(Game.instance().getVersion());
+				versionElement.setInnerText(r.game.getVersion());
 			}
 		}
 
@@ -55,8 +64,8 @@ public class HtmlDriver extends GwtApplication {
 			if (tableElement != null) {
 				final String style = tableElement.getAttribute("style")
 						+ " position: absolute;"
-						+ " top: 50%; margin-top: -" + Game.HEIGHT / 2 + "px;"
-						+ " left: 50%; margin-left: -" + Game.WIDTH / 2 + "px;";
+						+ " top: 50%; margin-top: -" + Registry.HEIGHT / 2 + "px;"
+						+ " left: 50%; margin-left: -" + Registry.WIDTH / 2 + "px;";
 				tableElement.setAttribute("style", style);
 			}
 			final Element bodyElement = Document.get().getElementsByTagName("body").getItem(0);

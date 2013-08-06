@@ -104,9 +104,8 @@
 						<option>-target ${symbol_dollar}{project.build.java.target}</option>
 						<!-- Keep Options -->
 						<option>-keep</option>
-						<option>    class ${package}.core.Game {</option>
-						<option>        public static ${package}.core.Game instance();</option>
-						<option>        public static &lt;fields&gt;;</option>
+						<option>    class ${package}.core.Registry {</option>
+						<option>        public final &lt;fields&gt;;</option>
 						<option>    }</option>
 						<!-- Optimization Options -->
 						<option>-optimizationpasses 10</option>
