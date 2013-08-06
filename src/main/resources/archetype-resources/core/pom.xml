@@ -59,7 +59,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>pack-loading-textures</id>
+						<id>pack-textures</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>java</goal>
@@ -67,9 +67,9 @@
 						<configuration>
 							<mainClass>com.badlogic.gdx.tools.imagepacker.TexturePacker2</mainClass>
 							<arguments>
-								<argument>${symbol_dollar}{project.basedir}/src/main/textures/loading</argument>
-								<argument>${symbol_dollar}{project.build.directory}/gdx/assets/textures</argument>
-								<argument>loading</argument>
+								<argument>${symbol_dollar}{project.basedir}/src/main/textures</argument>
+								<argument>${symbol_dollar}{project.build.directory}/gdx/assets</argument>
+								<argument>textures</argument>
 							</arguments>
 							<includePluginDependencies>true</includePluginDependencies>
 						</configuration>
