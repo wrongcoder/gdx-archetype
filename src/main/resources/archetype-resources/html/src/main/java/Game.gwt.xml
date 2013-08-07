@@ -10,6 +10,8 @@
 
 	<entry-point class='${package}.html.HtmlDriver'/>
 
+	<set-property name="compiler.stackMode" value="strip"/>
+
 	<set-configuration-property name="gdx.assetpath" value="core/target/gdx/assets"/>
 	<set-configuration-property name="gdx.assetoutputpath" value="html/target/gdx"/>
 </module>
