@@ -3,6 +3,8 @@
 #set( $symbol_escape = '\' )
 package ${package}.core;
 
+import com.badlogic.gdx.utils.Logger;
+
 /** Registry and initializer of global resources */
 public class Registry {
 
@@ -10,6 +12,7 @@ public class Registry {
 	public static final int HEIGHT = 600;
 
 	public final Game game;
+	public final Logger log;
 	public final AssetManager assetManager;
 
 	private boolean initialized = false;
@@ -17,6 +20,7 @@ public class Registry {
 	public Registry() {
 		// This happens before Gdx initialization
 		game = new Game(this);
+		log = new Logger("${projectTitle}", Logger.DEBUG);
 		assetManager = new AssetManager();
 	}
 

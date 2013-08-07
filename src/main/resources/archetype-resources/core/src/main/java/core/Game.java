@@ -13,7 +13,6 @@ import com.badlogic.gdx.utils.SerializationException;
 import ${package}.core.demoscreen.DemoScreen;
 
 public class Game extends com.badlogic.gdx.Game {
-	private static final Logger logger = new Logger("${projectTitle}");
 
 	private final Registry r;
 
@@ -27,9 +26,9 @@ public class Game extends com.badlogic.gdx.Game {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		r.initialize();
 		version = loadVersion();
 		postInit.run();
-		r.initialize();
 		setScreen(new LoadingScreen(r).setNextScreen(new DemoScreen(r)));
 	}
 
@@ -47,7 +46,7 @@ public class Game extends com.badlogic.gdx.Game {
 		}
 	}
 
-	private static String loadVersion() {
+	private String loadVersion() {
 		try {
 			final FileHandle versionFile = Gdx.files.internal("version.json");
 			final JsonValue versionRoot = new JsonReader().parse(versionFile);
@@ -73,7 +72,7 @@ public class Game extends com.badlogic.gdx.Game {
 			return version;
 
 		} catch (SerializationException e) {
-			logger.error("Exception", e);
+			r.log.error("Exception", e);
 			return "(unknown version)";
 		}
 	}
