@@ -3,8 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.core;
 
-import ${package}.core.asset.AssetManager;
-
 /** Registry and initializer of global resources */
 public class Registry {
 

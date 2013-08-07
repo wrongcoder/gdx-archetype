@@ -7,9 +7,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import ${package}.core.AssetManager;
 import ${package}.core.Registry;
 import ${package}.core.Screen;
-import ${package}.core.asset.AssetManager;
 
 public class DemoScreen extends Screen {
 

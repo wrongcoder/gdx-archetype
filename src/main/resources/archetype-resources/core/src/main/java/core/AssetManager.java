@@ -1,10 +1,9 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.core.asset;
+package ${package}.core;
 
 import com.badlogic.gdx.graphics.Texture;
-import ${package}.core.LoadingScreen;
 
 public class AssetManager extends com.badlogic.gdx.assets.AssetManager {
 
