@@ -29,16 +29,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.badlogic.gdx</groupId>
+			<groupId>com.badlogicgames.gdx</groupId>
 			<artifactId>gdx</artifactId>
 			<classifier>sources</classifier>
 		</dependency>
 		<dependency>
-			<groupId>com.badlogic.gdx</groupId>
+			<groupId>com.badlogicgames.gdx</groupId>
 			<artifactId>gdx-backend-gwt</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.badlogic.gdx</groupId>
+			<groupId>com.badlogicgames.gdx</groupId>
 			<artifactId>gdx-backend-gwt</artifactId>
 			<classifier>sources</classifier>
 		</dependency>
