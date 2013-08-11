@@ -42,6 +42,35 @@ There are two places assets can go:
 	page on the LibGDX wiki for more information.
 
 
+Testing the HTML target
+-------------------------------------------------------------------------------
+
+Generally, you should develop using the desktop target, and just check the
+html target every once in a while. Developing using the GWT SuperDev mode
+is another possibility.
+
+To start up a web server to test the html target:
+
+	${artifactId}${symbol_dollar} mvn -P html package tomcat7:run
+
+	[INFO] --- tomcat7-maven-plugin:2.1:run (default-cli) @ ${artifactId}-html ---
+	[INFO] Running war on http://localhost:8080/${artifactId}
+	[INFO] Creating Tomcat server configuration at /path/to/${artifactId}/html/target/tomcat
+	[INFO] create webapp with contextPath: /${artifactId}
+	Aug 10, 2013 6:10:23 PM org.apache.coyote.AbstractProtocol init
+	INFO: Initializing ProtocolHandler ["http-bio-8080"]
+	Aug 10, 2013 6:10:23 PM org.apache.catalina.core.StandardService startInternal
+	INFO: Starting service Tomcat
+	Aug 10, 2013 6:10:23 PM org.apache.catalina.core.StandardEngine startInternal
+	INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+	Aug 10, 2013 6:10:25 PM org.apache.coyote.AbstractProtocol start
+	INFO: Starting ProtocolHandler ["http-bio-8080"]
+
+Now you can load http://localhost:8080/${artifactId} in your web browser.
+
+Press ^C to stop the web server.
+
+
 Distribution
 -------------------------------------------------------------------------------
 
