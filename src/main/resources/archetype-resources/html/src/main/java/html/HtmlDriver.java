@@ -10,14 +10,15 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import ${package}.core.Registry;
 
-public class HtmlDriver extends GwtApplication {
+public class HtmlDriver extends GwtApplication implements Runnable {
 
-	private final Registry r = new Registry();
+	private final Registry r = new Registry(this);
 
 	@Override
 	public void onModuleLoad() {
-		r.game.setPostInit(new WebPageSetup(r));
 		super.onModuleLoad();
+		centreGameCanvas();
+		removeLoadingMessage();
 	}
 
 	@Override
@@ -30,49 +31,42 @@ public class HtmlDriver extends GwtApplication {
 		return new GwtApplicationConfiguration(Registry.WIDTH, Registry.HEIGHT);
 	}
 
-	private static class WebPageSetup implements Runnable {
+	@Override
+	public void run() {
+		setVersionString();
+		markCanvasLoaded();
+	}
 
-		private final Registry r;
-
-		private WebPageSetup(final Registry r) {
-			this.r = r;
+	private static void centreGameCanvas() {
+		final Element tableElement = Document.get().getElementsByTagName("table").getItem(0);
+		if (tableElement != null) {
+			final String style = tableElement.getAttribute("style")
+					+ " position: absolute;"
+					+ " top: 50%; margin-top: -" + Registry.HEIGHT / 2 + "px;"
+					+ " left: 50%; margin-left: -" + Registry.WIDTH / 2 + "px;";
+			tableElement.setAttribute("style", style);
 		}
+	}
 
-		@Override
-		public void run() {
-			removeLoadingMessage();
-			setVersionString();
-			centreGameCanvas();
+	private static void removeLoadingMessage() {
+		final Element loadingElement = Document.get().getElementById("loading");
+		if (loadingElement != null) {
+			loadingElement.removeFromParent();
 		}
+	}
 
-		private static void removeLoadingMessage() {
-			final Element loadingElement = Document.get().getElementById("loading");
-			if (loadingElement != null) {
-				loadingElement.removeFromParent();
-			}
+	private void setVersionString() {
+		final Element versionElement = Document.get().getElementById("version");
+		if (versionElement != null) {
+			versionElement.setInnerText(r.game.getVersion());
 		}
+	}
 
-		private void setVersionString() {
-			final Element versionElement = Document.get().getElementById("version");
-			if (versionElement != null) {
-				versionElement.setInnerText(r.game.getVersion());
-			}
-		}
-
-		private static void centreGameCanvas() {
-			final Element tableElement = Document.get().getElementsByTagName("table").getItem(0);
-			if (tableElement != null) {
-				final String style = tableElement.getAttribute("style")
-						+ " position: absolute;"
-						+ " top: 50%; margin-top: -" + Registry.HEIGHT / 2 + "px;"
-						+ " left: 50%; margin-left: -" + Registry.WIDTH / 2 + "px;";
-				tableElement.setAttribute("style", style);
-			}
-			final Element bodyElement = Document.get().getElementsByTagName("body").getItem(0);
-			if (bodyElement != null) {
-				bodyElement.removeAttribute("style");
-				bodyElement.addClassName("loaded");
-			}
+	private static void markCanvasLoaded() {
+		final Element bodyElement = Document.get().getElementsByTagName("body").getItem(0);
+		if (bodyElement != null) {
+			bodyElement.removeAttribute("style");
+			bodyElement.addClassName("loaded");
 		}
 	}
 

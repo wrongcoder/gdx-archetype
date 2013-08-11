@@ -15,7 +15,6 @@ public class Game extends com.badlogic.gdx.Game {
 
 	private final Registry r;
 
-	private Runnable postInit = new EmptyRunnable();
 	private String version = "";
 
 	public Game(final Registry r) {
@@ -25,24 +24,13 @@ public class Game extends com.badlogic.gdx.Game {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-		r.initialize();
 		version = loadVersion();
-		postInit.run();
+		r.initialize();
 		setScreen(new LoadingScreen(r).setNextScreen(new DemoScreen(r)));
 	}
 
 	public String getVersion() {
 		return version;
-	}
-
-	public void setPostInit(final Runnable postInit) {
-		this.postInit = postInit;
-	}
-
-	private static class EmptyRunnable implements Runnable {
-		@Override
-		public void run() {
-		}
 	}
 
 	private String loadVersion() {
