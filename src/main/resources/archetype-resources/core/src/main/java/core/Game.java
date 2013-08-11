@@ -8,7 +8,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.Logger;
 import com.badlogic.gdx.utils.SerializationException;
 import ${package}.core.demoscreen.DemoScreen;
 

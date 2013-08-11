@@ -12,7 +12,7 @@ import ${package}.core.Registry;
 
 public class HtmlDriver extends GwtApplication {
 
-	private Registry r = new Registry();
+	private final Registry r = new Registry();
 
 	@Override
 	public void onModuleLoad() {
