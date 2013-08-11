@@ -6,6 +6,7 @@ package ${package}.html;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import ${package}.core.Registry;
@@ -17,7 +18,7 @@ public class HtmlDriver extends GwtApplication implements Runnable {
 	@Override
 	public void onModuleLoad() {
 		super.onModuleLoad();
-		centreGameCanvas();
+		centreGameDisplay();
 		removeLoadingMessage();
 	}
 
@@ -35,9 +36,10 @@ public class HtmlDriver extends GwtApplication implements Runnable {
 	public void run() {
 		setVersionString();
 		markCanvasLoaded();
+		removeInternetExplorerNotice();
 	}
 
-	private static void centreGameCanvas() {
+	private static void centreGameDisplay() {
 		final Element tableElement = Document.get().getElementsByTagName("table").getItem(0);
 		if (tableElement != null) {
 			final String style = tableElement.getAttribute("style")
@@ -67,6 +69,13 @@ public class HtmlDriver extends GwtApplication implements Runnable {
 		if (bodyElement != null) {
 			bodyElement.removeAttribute("style");
 			bodyElement.addClassName("loaded");
+		}
+	}
+
+	private static void removeInternetExplorerNotice() {
+		final Element ie10Element = Document.get().getElementById("ie10");
+		if (ie10Element != null) {
+			ie10Element.removeFromParent();
 		}
 	}
 

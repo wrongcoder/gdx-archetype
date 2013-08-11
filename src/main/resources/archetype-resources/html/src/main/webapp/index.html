@@ -42,6 +42,15 @@
 			left: 30px;
 		}
 
+		${symbol_pound}ie10 {
+			color: ${symbol_pound}ccc;
+			font-size: 18px;
+			font-family: sans-serif;
+			position: absolute;
+			top: 50px;
+			left: 30px;
+		}
+
 		${symbol_pound}sm2-container {
 			position: absolute;
 			top: 50%;
@@ -56,8 +65,8 @@
 		${symbol_pound}sm2-container embed,
 		${symbol_pound}sm2-container object {
 			position: absolute;
-			top: -500px;
-			right: -500px;
+			top: -9999px;
+			left: -9999px;
 			height: 48px;
 			width: 48px;
 		}
@@ -83,7 +92,7 @@
 <body>
 <div id="sm2-container"></div>
 <div id="loading">
-	<p>Please ensure that JavaScript, Flash, and WebGL are enabled.</p>
+	<p>Please ensure that JavaScript, Flash, and WebGL are available and enabled.</p>
 </div>
 <script>
 	(function hideLoadingMessage() {
@@ -91,6 +100,11 @@
 		loading && loading.setAttribute("style", "display: none");
 	}());
 </script>
+<!--[if lte IE 10]>
+<div id="ie10">
+	<p>Internet Explorer 10 and below is not supported.</p>
+</div>
+<![endif]-->
 <div id="footer">
 	<p id="version">&nbsp;</p>
 </div>
