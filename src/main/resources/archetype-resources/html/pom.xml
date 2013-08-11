@@ -122,7 +122,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<skip>false</skip>
-					<path>/${symbol_dollar}{parent.artifactId}</path>
+					<path>/${symbol_dollar}{project.parent.artifactId}</path>
 					<warSourceDirectory>${symbol_dollar}{project.build.directory}/${symbol_dollar}{project.build.finalName}</warSourceDirectory>
 				</configuration>
 			</plugin>

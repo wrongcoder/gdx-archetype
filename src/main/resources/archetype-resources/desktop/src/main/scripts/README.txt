@@ -4,7 +4,7 @@
 
 ${projectTitle}
 
-Double-click on ${symbol_dollar}{parent.artifactId}.jar to start the game.
+Double-click on ${symbol_dollar}{project.parent.artifactId}.jar to start the game.
 
 If it doesn't work, you may need to install Java: http://java.com/en/download/index.jsp
 

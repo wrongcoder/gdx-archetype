@@ -20,7 +20,7 @@
 		<file>
 			<source>${symbol_dollar}{project.build.directory}/${symbol_dollar}{project.build.finalName}.jar</source>
 			<outputDirectory>/</outputDirectory>
-			<destName>${symbol_dollar}{parent.artifactId}.jar</destName>
+			<destName>${symbol_dollar}{project.parent.artifactId}.jar</destName>
 		</file>
 		<file>
 			<source>${symbol_dollar}{project.basedir}/../core/target/gdx/assets/version.json</source>
