@@ -26,6 +26,7 @@ There are lots of excellent game engines out there, some of which are even based
 * all: does not package source files inside the core JAR
 * all: only writes generated resources inside target directories
 * all: has cleaned up dependencyManagement and pluginManagement blocks
+* desktop: includes a Launch4j EXE to help Windows users locate a JRE
 * desktop: includes a JRE re-launcher for JVMs that don't provide a big enough heap
 * desktop: produces a ZIP containing a double-clickable JAR and a lib folder -- no more fat-JARs lumping everything together
 * desktop: automatically passes the core module through ProGuard

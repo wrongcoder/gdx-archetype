@@ -84,6 +84,30 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>launch4j</goal>
+						</goals>
+						<configuration>
+							<headerType>gui</headerType>
+							<outfile>${symbol_dollar}{project.build.directory}/${project.build.finalName}.exe</outfile>
+							<jar>${symbol_dollar}{project.parent.artifactId}.jar</jar>
+							<dontWrapJar>true</dontWrapJar>
+							<chdir>.</chdir>
+							<jre>
+								<minVersion>${symbol_dollar}{project.build.java.target}.0</minVersion>
+								<initialHeapSize>512</initialHeapSize>
+								<maxHeapSize>512</maxHeapSize>
+							</jre>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
