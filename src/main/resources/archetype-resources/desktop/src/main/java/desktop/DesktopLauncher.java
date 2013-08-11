@@ -33,7 +33,7 @@ public class DesktopLauncher {
 					javaw.exists() ? javaw.getPath() : java.getPath(),
 					"-Xmx384m",
 					"-jar",
-					jarPath
+					unWindowsPath(jarPath)
 			);
 			processBuilder.directory(home);
 
@@ -48,6 +48,14 @@ public class DesktopLauncher {
 
 			final Process process = processBuilder.start();
 			System.exit(process.waitFor());
+		}
+	}
+
+	private static String unWindowsPath(final String path) {
+		if (path.matches("/[A-Za-z]:/.*")) {
+			return path.substring(1);
+		} else {
+			return path;
 		}
 	}
 
