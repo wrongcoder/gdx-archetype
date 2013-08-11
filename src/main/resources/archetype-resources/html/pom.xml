@@ -82,6 +82,8 @@
 					<disableCastChecking>true</disableCastChecking>
 					<optimizationLevel>9</optimizationLevel>
 					<runTarget>index.html</runTarget>
+					<persistentunitcache>true</persistentunitcache>
+					<persistentunitcachedir>${symbol_dollar}{project.build.directory}</persistentunitcachedir>
 				</configuration>
 			</plugin>
 			<plugin>
