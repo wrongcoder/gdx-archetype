@@ -12,16 +12,60 @@
 			background-color: #000;
 		}
 
+		body table {
+			background-color: #333;
+		}
+
+		body table div.gwt-Label {
+			color: #ccc;
+			font-size: 18px;
+			font-family: sans-serif;
+		}
+
+		body.loaded table {
+			background-color: #000;
+		}
+
 		body.loaded table canvas {
 			border: 1px solid #333;
 		}
 
 		#loading {
 			color: #ccc;
-			font-size: 16px;
+			font-size: 18px;
+			font-family: sans-serif;
 			position: absolute;
-			top: 30px;
-			left: 10px;
+			top: 20px;
+			left: 30px;
+		}
+
+		#ie10 {
+			color: #ccc;
+			font-size: 18px;
+			font-family: sans-serif;
+			position: absolute;
+			top: 50px;
+			left: 30px;
+		}
+
+		#sm2-container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -24px;
+			margin-left: -24px;
+			height: 48px;
+			width: 48px;
+			z-index: 10;
+		}
+
+		#sm2-container embed,
+		#sm2-container object {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+			height: 48px;
+			width: 48px;
 		}
 
 		#footer {
@@ -33,14 +77,31 @@
 		}
 	</style>
 	<script>
-		window.setTimeout(function () { document.getElementById("loading") && document.getElementById("loading").removeAttribute("style"); }, 5000);
+		window.setTimeout(function showLoadingMessage() {
+			var loading = document.getElementById("loading");
+			loading && loading.removeAttribute("style");
+		}, 5000);
 	</script>
+	<script src="game/soundmanager2-setup.js"></script>
+	<script src="game/soundmanager2-jsmin.js"></script>
+	<script src="game/game.nocache.js"></script>
 </head>
 <body>
-<script src="game/game.nocache.js"></script>
-<div id="loading" style="display: none;">
-	<p>If the game does not load, please ensure that Flash and WebGL are enabled.</p>
+<div id="sm2-container"></div>
+<div id="loading">
+	<p>Please ensure that JavaScript, Flash, and WebGL are available and enabled.</p>
 </div>
+<script>
+	(function hideLoadingMessage() {
+		var loading = document.getElementById("loading");
+		loading && loading.setAttribute("style", "display: none");
+	}());
+</script>
+<!--[if lte IE 10]>
+<div id="ie10">
+	<p>Internet Explorer 10 and below is not supported.</p>
+</div>
+<![endif]-->
 <div id="footer">
 	<p id="version">&nbsp;</p>
 </div>
