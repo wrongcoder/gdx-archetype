@@ -19,6 +19,12 @@
 			background-color: ${symbol_pound}333;
 		}
 
+		body table div.gwt-Label {
+			color: ${symbol_pound}ccc;
+			font-size: 16px;
+			font-family: sans-serif;
+		}
+
 		body.loaded table {
 			background-color: ${symbol_pound}000;
 		}
@@ -28,11 +34,29 @@
 		}
 
 		#loading {
-			color: ${symbol_pound}ddd;
+			color: ${symbol_pound}ccc;
 			font-size: 16px;
+			font-family: sans-serif;
 			position: absolute;
-			top: 30px;
+			top: 20px;
 			left: 30px;
+		}
+
+		${symbol_pound}sm2-container {
+			position: absolute;
+			top: 283px;
+			left: 383px;
+			height: 48px;
+			width: 48px;
+		}
+
+		${symbol_pound}sm2-container embed,
+		${symbol_pound}sm2-container object {
+			position: absolute;
+			top: -500px;
+			right: -500px;
+			height: 48px;
+			width: 48px;
 		}
 
 		#footer {
@@ -46,11 +70,12 @@
 	<script>
 		window.setTimeout(function () { document.getElementById("loading") && document.getElementById("loading").removeAttribute("style"); }, 5000);
 	</script>
+	<script src="game/soundmanager2-setup.js"></script>
+	<script src="game/soundmanager2-jsmin.js"></script>
+	<script src="game/game.nocache.js"></script>
 </head>
 <body>
-<script src="game/soundmanager2-setup.js"></script>
-<script src="game/soundmanager2-jsmin.js"></script>
-<script src="game/game.nocache.js"></script>
+<div id="sm2-container"></div>
 <div id="loading" style="display: none;">
 	<p>If the game does not load, please ensure that Flash and WebGL are enabled.</p>
 </div>
