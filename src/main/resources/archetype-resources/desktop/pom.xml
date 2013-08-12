@@ -96,9 +96,12 @@
 						<configuration>
 							<headerType>gui</headerType>
 							<outfile>${symbol_dollar}{project.build.directory}/${project.build.finalName}.exe</outfile>
-							<jar>${symbol_dollar}{project.parent.artifactId}.jar</jar>
 							<dontWrapJar>true</dontWrapJar>
 							<chdir>.</chdir>
+							<jar>${symbol_dollar}{project.parent.artifactId}.jar</jar>
+							<classPath>
+								<mainClass>${package}.desktop.DesktopDriver</mainClass>
+							</classPath>
 							<jre>
 								<minVersion>${symbol_dollar}{project.build.java.target}.0</minVersion>
 								<initialHeapSize>512</initialHeapSize>
