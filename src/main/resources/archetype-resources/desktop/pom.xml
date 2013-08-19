@@ -99,6 +99,7 @@
 							<dontWrapJar>true</dontWrapJar>
 							<chdir>.</chdir>
 							<jar>${symbol_dollar}{project.parent.artifactId}.jar</jar>
+							<cmdLine>logfile</cmdLine>
 							<classPath>
 								<mainClass>${package}.desktop.DesktopDriver</mainClass>
 							</classPath>

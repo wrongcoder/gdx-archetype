@@ -15,25 +15,26 @@ import java.util.Date;
 public class DesktopDriver {
 
 	public static void main(final String[] args) {
-		try {
-			final FileOutputStream logOutputStream = new FileOutputStream("${artifactId}.log", true);
-			final PrintStream logStream = new PrintStream(logOutputStream);
-			System.setOut(logStream);
-			System.setErr(logStream);
-		} catch (final FileNotFoundException e) {
-			System.err.println("Unable to open log file");
-			e.printStackTrace(System.err);
-		}
+		if (args.length > 0 && "logfile".equals(args[0])) {
+			try {
+				final FileOutputStream logOutputStream = new FileOutputStream("${artifactId}.log", true);
+				final PrintStream logStream = new PrintStream(logOutputStream);
+				System.setOut(logStream);
+				System.setErr(logStream);
+			} catch (final FileNotFoundException e) {
+				System.err.println("Unable to open log file");
+				e.printStackTrace(System.err);
+			}
 
-		System.out.println();
-		System.out.println();
-		System.out.println("**********");
-		System.out.println("Launched at " + new Date());
+			System.out.println();
+			System.out.println("**********");
+			System.out.println("Launched at " + new Date());
+		}
 
 		try {
 			start();
 		} catch (final Throwable t) {
-			System.err.println("Caught an uncaught exception at " + new Date());
+			System.err.println("Uncaught exception at " + new Date());
 			t.printStackTrace(System.err);
 		}
 	}

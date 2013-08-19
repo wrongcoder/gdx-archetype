@@ -61,7 +61,8 @@ public class DesktopLauncher {
 				"-Xms512m",
 				"-cp",
 				unWindowsPath(jarPath),
-				"${package}.desktop.DesktopDriver"
+				"${package}.desktop.DesktopDriver",
+				"logfile"
 		);
 		processBuilder.directory(home);
 
