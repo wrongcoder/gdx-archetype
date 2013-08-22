@@ -17,6 +17,7 @@ public class Fonts {
 	public static final String sansLargeBoldFont = "fonts/liberation-sans-24-bold.fnt";
 	public static final String sansHugeFont = "fonts/liberation-sans-48.fnt";
 	public static final String sansHugeBoldFont = "fonts/liberation-sans-48-bold.fnt";
+	public static final String pixelFont = "fonts/pixel-font.fnt";
 
 	public static void queueAssets(final AssetManager assetManager) {
 		assetManager.load(monoSmallFont, BitmapFont.class);
@@ -28,6 +29,7 @@ public class Fonts {
 		assetManager.load(sansLargeBoldFont, BitmapFont.class);
 		assetManager.load(sansHugeFont, BitmapFont.class);
 		assetManager.load(sansHugeBoldFont, BitmapFont.class);
+		assetManager.load(pixelFont, BitmapFont.class);
 	}
 
 }
