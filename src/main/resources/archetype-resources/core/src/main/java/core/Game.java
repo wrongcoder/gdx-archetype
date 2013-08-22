@@ -9,7 +9,6 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.SerializationException;
-import ${package}.core.game.DemoScreen;
 
 public class Game extends com.badlogic.gdx.Game {
 
@@ -26,7 +25,7 @@ public class Game extends com.badlogic.gdx.Game {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		version = loadVersion();
 		r.initialize();
-		setScreen(new LoadingScreen(r).setNextScreen(new DemoScreen(r)));
+		setScreen(new LoadingScreen(r).setNextScreen(new MainMenuScreen(r)));
 	}
 
 	public String getVersion() {
