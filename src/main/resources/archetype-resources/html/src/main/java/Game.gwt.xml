@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 <module rename-to='game'>
 	<inherits name='com.badlogic.gdx.backends.gdx_backends_gwt'/>
+	<inherits name="aurelienribon.tweenengine"/>
 
 	<source path="core"/>
 	<source path="html"/>

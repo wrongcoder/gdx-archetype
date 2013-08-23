@@ -26,6 +26,10 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>gdx-archetype-wrongcoder</id>
+			<url>https://raw.github.com/wrongcoder/gdx-archetype/mvn/</url>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -230,6 +234,18 @@
 				<groupId>com.google.gwt</groupId>
 				<artifactId>gwt-servlet</artifactId>
 				<version>${symbol_dollar}{gwt.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.vdxp.maven.com.google.code.java-universal-tween-engine</groupId>
+				<artifactId>tween-engine-api</artifactId>
+				<version>6.3.3</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vdxp.maven.com.google.code.java-universal-tween-engine</groupId>
+				<artifactId>tween-engine-api</artifactId>
+				<classifier>sources</classifier>
+				<version>6.3.3</version>
 			</dependency>
 
 			<dependency>

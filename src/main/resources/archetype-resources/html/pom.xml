@@ -52,6 +52,12 @@
 			<artifactId>gwt-servlet</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.vdxp.maven.com.google.code.java-universal-tween-engine</groupId>
+			<artifactId>tween-engine-api</artifactId>
+			<classifier>sources</classifier>
+		</dependency>
 	</dependencies>
 
 	<build>
