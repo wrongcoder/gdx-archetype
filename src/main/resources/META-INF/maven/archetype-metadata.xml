@@ -28,6 +28,9 @@
 			<includes>
 				<include>**</include>
 			</includes>
+			<excludes>
+				<exclude>**/*.xcf</exclude>
+			</excludes>
 		</fileSet>
 		<fileSet encoding="UTF-8">
 			<directory>core/src/main/build</directory>
