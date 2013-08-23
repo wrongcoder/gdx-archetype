@@ -43,7 +43,7 @@ public class LoadingScreen extends Screen {
 		batch = new SpriteBatch();
 		loadingBarRenderer = new ShapeRenderer();
 
-		final boolean assetsAlreadyLoaded = r.assetManager.update();
+		final boolean assetsAlreadyLoaded = r.assetManager.update(10);
 		if (assetsAlreadyLoaded) {
 			nextScreen();
 		}
@@ -63,7 +63,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		final boolean finishedLoading = r.assetManager.update();
+		final boolean finishedLoading = r.assetManager.update(10);
 		final float fadeAlpha = fadeTimeLeft / fadeTime;
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
