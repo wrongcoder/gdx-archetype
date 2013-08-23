@@ -10,6 +10,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class LoadingScreen extends Screen {
 
@@ -51,6 +53,12 @@ public class LoadingScreen extends Screen {
 	public void hide() {
 		batch.dispose();
 		loadingBarRenderer.dispose();
+
+		// Hack around libGDX issue 1640
+		final Skin skin = r.assetManager.get(AssetManager.ui);
+		final TextButton.TextButtonStyle style = skin.get(TextButton.TextButtonStyle.class);
+		style.pressedOffsetX = 3;
+		style.pressedOffsetY = -3;
 	}
 
 	@Override
