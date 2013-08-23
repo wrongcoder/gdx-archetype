@@ -1,0 +1,15 @@
+{
+	"com.badlogic.gdx.graphics.Color": {
+		"dark": { "r": 0, "g": 0, "b": 0, "a": 1 }
+	},
+	"com.badlogic.gdx.graphics.g2d.BitmapFont": {
+		"default": { "file": "fonts/pixel-font.fnt" }
+	},
+	"com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
+		"default": {
+			"up": "ui/button-up", "down": "ui/button-down",
+			"font": "default", "fontColor": "dark",
+			"pressedOffsetX": 3, "pressedOffsetY": -3
+		}
+	}
+}

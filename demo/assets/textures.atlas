@@ -1,0 +1,21 @@
+
+textures.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+ui/button-down
+  rotate: false
+  xy: 2, 2
+  size: 56, 56
+  split: 20, 16, 20, 16
+  orig: 56, 56
+  offset: 0, 0
+  index: -1
+ui/button-up
+  rotate: false
+  xy: 60, 2
+  size: 56, 56
+  split: 16, 20, 16, 20
+  orig: 56, 56
+  offset: 0, 0
+  index: -1
