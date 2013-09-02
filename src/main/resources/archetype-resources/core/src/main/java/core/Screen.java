@@ -3,6 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.core;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 public abstract class Screen implements com.badlogic.gdx.Screen {
 
 	protected final Registry r;
@@ -33,6 +36,13 @@ public abstract class Screen implements com.badlogic.gdx.Screen {
 
 	@Override
 	public void dispose() {
+	}
+
+	public static void drawCentred(final BitmapFont font, final SpriteBatch batch, final String text, final float x, final float y) {
+		final BitmapFont.TextBounds bounds = font.getBounds(text);
+		final float centreX = x - bounds.width / 2;
+		final float centreY = y + bounds.height / 2;
+		font.draw(batch, text, centreX, centreY);
 	}
 
 }

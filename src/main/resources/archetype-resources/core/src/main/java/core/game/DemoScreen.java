@@ -40,11 +40,4 @@ public class DemoScreen extends Screen {
 		batch.end();
 	}
 
-	private static void drawCentred(final BitmapFont font, final SpriteBatch batch, final String text, final float x, final float y) {
-		final BitmapFont.TextBounds bounds = font.getBounds(text);
-		final float centreX = x - bounds.width / 2;
-		final float centreY = y + bounds.height / 2;
-		font.draw(batch, text, centreX, centreY);
-	}
-
 }
