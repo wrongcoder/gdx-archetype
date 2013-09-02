@@ -27,7 +27,7 @@ public class Registry {
 	public Registry(final Runnable platformInitializer) {
 		// This happens before Gdx initialization
 		this.game = new Game(this);
-		this.log = new Logger("${projectTitle}", Logger.DEBUG);
+		this.log = new Logger("${artifactId}", Logger.DEBUG);
 		this.assetManager = new AssetManager();
 		this.platformInitializer = platformInitializer;
 	}
