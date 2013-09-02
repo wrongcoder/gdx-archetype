@@ -83,6 +83,11 @@ public class DesktopDriver {
 			}
 		}
 
+		@Override
+		public float fixFloat(final float f) {
+			return f;
+		}
+
 	}
 
 }
