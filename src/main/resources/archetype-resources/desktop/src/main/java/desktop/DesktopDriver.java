@@ -40,7 +40,7 @@ public class DesktopDriver {
 	}
 
 	private static void start() {
-		final Registry r = new Registry();
+		final Registry r = new Registry("desktop");
 
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = Registry.WIDTH;

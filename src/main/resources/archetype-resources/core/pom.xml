@@ -119,6 +119,7 @@
 						<!-- Keep Options -->
 						<option>-keep</option>
 						<option>    class ${package}.core.Registry {</option>
+						<option>        public &lt;init&gt;(...);</option>
 						<option>        public final &lt;fields&gt;;</option>
 						<option>    }</option>
 						<!-- Optimization Options -->

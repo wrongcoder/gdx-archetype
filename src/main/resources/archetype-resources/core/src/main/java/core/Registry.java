@@ -17,18 +17,20 @@ public class Registry {
 	public final Logger log;
 	public final AssetManager assetManager;
 
+	public final String platformId;
 	public final Runnable platformInitializer;
 	private boolean initialized = false;
 
-	public Registry() {
-		this(null);
+	public Registry(final String platformId) {
+		this(platformId, null);
 	}
 
-	public Registry(final Runnable platformInitializer) {
+	public Registry(final String platformId, final Runnable platformInitializer) {
 		// This happens before Gdx initialization
 		this.game = new Game(this);
 		this.log = new Logger("${artifactId}", Logger.DEBUG);
 		this.assetManager = new AssetManager();
+		this.platformId = platformId;
 		this.platformInitializer = platformInitializer;
 	}
 
