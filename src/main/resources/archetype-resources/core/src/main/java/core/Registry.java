@@ -48,8 +48,12 @@ public class Registry {
 		}
 	}
 
+	public Preferences getPreferences() {
+		return Gdx.app.getPreferences("${groupId}.${artifactId}");
+	}
+
 	public String getClientId() {
-		final Preferences preferences = Gdx.app.getPreferences("${projectTitle}");
+		final Preferences preferences = getPreferences();
 
 		String clientId = preferences.getString("clientId", "");
 		if (clientId.isEmpty()) {
