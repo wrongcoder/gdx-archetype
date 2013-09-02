@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.desktop;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import ${package}.core.PlatformSupport;
@@ -49,6 +50,10 @@ public class DesktopDriver {
 		config.useGL20 = true;
 		config.resizable = false;
 		config.fullscreen = false;
+		config.addIcon("icons/gamepad-64x.png", Files.FileType.Classpath);
+		config.addIcon("icons/gamepad-48x.png", Files.FileType.Classpath);
+		config.addIcon("icons/gamepad-32x.png", Files.FileType.Classpath);
+		config.addIcon("icons/gamepad-16x.png", Files.FileType.Classpath);
 		config.title = "${projectTitle}";
 
 		new LwjglApplication(r.game, config);

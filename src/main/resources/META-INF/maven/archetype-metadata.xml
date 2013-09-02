@@ -80,6 +80,12 @@
 				<include>**</include>
 			</includes>
 		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>desktop/src/main/resources</directory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory>desktop/src/main/scripts</directory>
 			<includes>

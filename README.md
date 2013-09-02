@@ -109,7 +109,7 @@ Everything original to this LibGDX Archetype project is:
 
 ## Credits
 
-This archetype is loosely based on the original [LibGDX archetype](https://github.com/libgdx/libgdx-maven-archetype) and includes the same sample images, favicon.ico and libgdx-logo.png.
+This archetype is loosely based on the original [LibGDX archetype](https://github.com/libgdx/libgdx-maven-archetype) and includes the same sample image libgdx-logo.png.
 
 Thanks to [Badlogic Games](http://www.badlogicgames.com) and contributors for their work on [LibGDX](http://libgdx.badlogicgames.com/). Other than the relatively minor polish introduced by this project, everything is due to the capabilities of this library. Thanks also to the contributors of the LibGDX wiki and various bloggers across the net for explaining how to use it.
 
