@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
 
 /**
@@ -67,9 +68,14 @@ public class DesktopLauncher {
 		processBuilder.directory(home);
 
 		try {
-			processBuilder.inheritIO();
-		} catch (NoSuchMethodError e) {
+			processBuilder.getClass().getMethod("inheritIO").invoke(processBuilder);
+		} catch (InvocationTargetException e) {
+			// Unexpected: ProcessBuilder#inheritIO() throws no checked exceptions
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
 			// JDK 6
+		} catch (IllegalAccessException e) {
+			// Security manager
 		}
 
 		final Process process = processBuilder.start();
