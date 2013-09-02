@@ -17,21 +17,16 @@ public class Registry {
 	public final Logger log;
 	public final AssetManager assetManager;
 
-	public final String platformId;
-	public final Runnable platformInitializer;
+	public final PlatformSupport platformSupport;
+
 	private boolean initialized = false;
 
-	public Registry(final String platformId) {
-		this(platformId, null);
-	}
-
-	public Registry(final String platformId, final Runnable platformInitializer) {
+	public Registry(final PlatformSupport platformSupport) {
 		// This happens before Gdx initialization
 		this.game = new Game(this);
 		this.log = new Logger("${artifactId}", Logger.DEBUG);
 		this.assetManager = new AssetManager();
-		this.platformId = platformId;
-		this.platformInitializer = platformInitializer;
+		this.platformSupport = platformSupport;
 	}
 
 	/** Call exactly once in {@link Game#create()} */
@@ -45,9 +40,7 @@ public class Registry {
 
 		assetManager.queueAssets();
 
-		if (platformInitializer != null) {
-			platformInitializer.run();
-		}
+		platformSupport.initializePlatform();
 	}
 
 	public Preferences getPreferences() {

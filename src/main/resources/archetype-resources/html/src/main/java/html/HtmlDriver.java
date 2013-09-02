@@ -8,11 +8,12 @@ import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import ${package}.core.PlatformSupport;
 import ${package}.core.Registry;
 
-public class HtmlDriver extends GwtApplication implements Runnable {
+public class HtmlDriver extends GwtApplication {
 
-	private final Registry r = new Registry("html", this);
+	private final Registry r = new Registry(new HtmlPlatformSupport());
 
 	@Override
 	public void onModuleLoad() {
@@ -29,13 +30,6 @@ public class HtmlDriver extends GwtApplication implements Runnable {
 	@Override
 	public GwtApplicationConfiguration getConfig() {
 		return new GwtApplicationConfiguration(Registry.WIDTH, Registry.HEIGHT);
-	}
-
-	@Override
-	public void run() {
-		setVersionString();
-		markCanvasLoaded();
-		removeInternetExplorerNotice();
 	}
 
 	private static void centreGameDisplay() {
@@ -75,6 +69,20 @@ public class HtmlDriver extends GwtApplication implements Runnable {
 		final Element ie10Element = Document.get().getElementById("ie10");
 		if (ie10Element != null) {
 			ie10Element.removeFromParent();
+		}
+	}
+
+	private class HtmlPlatformSupport implements PlatformSupport {
+		@Override
+		public String getPlatformId() {
+			return "html";
+		}
+
+		@Override
+		public void initializePlatform() {
+			setVersionString();
+			markCanvasLoaded();
+			removeInternetExplorerNotice();
 		}
 	}
 

@@ -5,6 +5,7 @@ package ${package}.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import ${package}.core.PlatformSupport;
 import ${package}.core.Registry;
 
 import java.io.FileNotFoundException;
@@ -40,7 +41,7 @@ public class DesktopDriver {
 	}
 
 	private static void start() {
-		final Registry r = new Registry("desktop");
+		final Registry r = new Registry(new DesktopPlatformSupport());
 
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = Registry.WIDTH;
@@ -51,6 +52,17 @@ public class DesktopDriver {
 		config.title = "${projectTitle}";
 
 		new LwjglApplication(r.game, config);
+	}
+
+	private static class DesktopPlatformSupport implements PlatformSupport {
+		@Override
+		public String getPlatformId() {
+			return "desktop";
+		}
+
+		@Override
+		public void initializePlatform() {
+		}
 	}
 
 }

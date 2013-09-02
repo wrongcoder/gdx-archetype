@@ -122,6 +122,10 @@
 						<option>        public &lt;init&gt;(...);</option>
 						<option>        public final &lt;fields&gt;;</option>
 						<option>    }</option>
+						<option>-keep</option>
+						<option>    interface ${package}.core.PlatformSupport {</option>
+						<option>        public &lt;methods&gt;;</option>
+						<option>    }</option>
 						<!-- Optimization Options -->
 						<option>-optimizationpasses 10</option>
 						<option>-allowaccessmodification</option>
