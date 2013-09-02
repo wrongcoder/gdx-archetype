@@ -63,7 +63,7 @@ public class DesktopLauncher {
 				"-cp",
 				unWindowsPath(jarPath),
 				"${package}.desktop.DesktopDriver",
-				"logfile"
+				"production"
 		);
 		processBuilder.directory(home);
 

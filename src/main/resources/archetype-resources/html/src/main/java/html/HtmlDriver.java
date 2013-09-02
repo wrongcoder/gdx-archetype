@@ -3,7 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.html;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.google.gwt.dom.client.Document;
@@ -83,6 +85,7 @@ public class HtmlDriver extends GwtApplication {
 			setVersionString();
 			markCanvasLoaded();
 			removeInternetExplorerNotice();
+			Gdx.app.setLogLevel(Application.LOG_ERROR);
 		}
 	}
 

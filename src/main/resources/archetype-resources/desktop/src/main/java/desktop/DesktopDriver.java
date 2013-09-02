@@ -3,7 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.desktop;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import ${package}.core.PlatformSupport;
@@ -17,7 +19,9 @@ import java.util.Date;
 public class DesktopDriver {
 
 	public static void main(final String[] args) {
-		if (args.length > 0 && "logfile".equals(args[0])) {
+		final boolean production = (args.length > 0 && "production".equals(args[0]));
+
+		if (production) {
 			try {
 				final FileOutputStream logOutputStream = new FileOutputStream("${artifactId}.log", true);
 				final PrintStream logStream = new PrintStream(logOutputStream);
@@ -34,15 +38,15 @@ public class DesktopDriver {
 		}
 
 		try {
-			start();
+			start(production);
 		} catch (final Throwable t) {
 			System.err.println("Uncaught exception at " + new Date());
 			t.printStackTrace(System.err);
 		}
 	}
 
-	private static void start() {
-		final Registry r = new Registry(new DesktopPlatformSupport());
+	private static void start(final boolean production) {
+		final Registry r = new Registry(new DesktopPlatformSupport(production));
 
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = Registry.WIDTH;
@@ -60,6 +64,13 @@ public class DesktopDriver {
 	}
 
 	private static class DesktopPlatformSupport implements PlatformSupport {
+
+		private final boolean production;
+
+		private DesktopPlatformSupport(final boolean production) {
+			this.production = production;
+		}
+
 		@Override
 		public String getPlatformId() {
 			return "desktop";
@@ -67,7 +78,11 @@ public class DesktopDriver {
 
 		@Override
 		public void initializePlatform() {
+			if (production) {
+				Gdx.app.setLogLevel(Application.LOG_ERROR);
+			}
 		}
+
 	}
 
 }

@@ -106,7 +106,7 @@
 							<chdir>.</chdir>
 							<jar>${symbol_dollar}{project.parent.artifactId}.jar</jar>
 							<icon>../core/src/main/assets/icons/favicon.ico</icon>
-							<cmdLine>logfile</cmdLine>
+							<cmdLine>production</cmdLine>
 							<classPath>
 								<mainClass>${package}.desktop.DesktopDriver</mainClass>
 							</classPath>
