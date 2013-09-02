@@ -55,6 +55,7 @@ public class MainMenuScreen extends Screen {
 
 	@Override
 	public void hide() {
+		stage.dispose();
 		Gdx.input.setInputProcessor(null);
 	}
 

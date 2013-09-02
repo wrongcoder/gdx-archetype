@@ -31,6 +31,11 @@ public class DemoScreen extends Screen {
 	}
 
 	@Override
+	public void hide() {
+		batch.dispose();
+	}
+
+	@Override
 	public void render(final float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
