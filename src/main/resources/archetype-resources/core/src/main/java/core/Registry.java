@@ -19,28 +19,12 @@ public class Registry {
 
 	public final PlatformSupport platformSupport;
 
-	private boolean initialized = false;
-
 	public Registry(final PlatformSupport platformSupport) {
 		// This happens before Gdx initialization
 		this.game = new Game(this);
 		this.log = new Logger("${artifactId}", Logger.DEBUG);
 		this.assetManager = new AssetManager();
 		this.platformSupport = platformSupport;
-	}
-
-	/** Call exactly once in {@link Game#create()} */
-	public void initialize() {
-		if (initialized) {
-			throw new IllegalStateException();
-		}
-		initialized = true;
-
-		// This happens after Gdx initialization
-
-		assetManager.queueAssets();
-
-		platformSupport.initializePlatform();
 	}
 
 	public Preferences getPreferences() {

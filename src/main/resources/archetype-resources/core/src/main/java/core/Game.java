@@ -26,7 +26,8 @@ public class Game extends com.badlogic.gdx.Game {
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		loadVersion();
-		r.initialize();
+		r.assetManager.queueAssets();
+		r.platformSupport.initializePlatform();
 		setScreen(new LoadingScreen(r).setNextScreen(new MainMenuScreen(r)));
 	}
 
