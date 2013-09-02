@@ -6,7 +6,6 @@ package ${package}.html;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import ${package}.core.Registry;
