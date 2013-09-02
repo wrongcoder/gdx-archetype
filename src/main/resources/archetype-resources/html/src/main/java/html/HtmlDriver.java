@@ -53,7 +53,7 @@ public class HtmlDriver extends GwtApplication {
 	private void setVersionString() {
 		final Element versionElement = Document.get().getElementById("version");
 		if (versionElement != null) {
-			versionElement.setInnerText(r.game.getVersion());
+			versionElement.setInnerText(r.game.getFullVersion());
 		}
 	}
 

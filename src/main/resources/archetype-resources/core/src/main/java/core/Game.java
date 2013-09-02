@@ -14,7 +14,9 @@ public class Game extends com.badlogic.gdx.Game {
 
 	private final Registry r;
 
-	private String version = "";
+	private String fullVersion;
+	private String shortVersion;
+	private String versionId;
 
 	public Game(final Registry r) {
 		this.r = r;
@@ -23,43 +25,36 @@ public class Game extends com.badlogic.gdx.Game {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-		version = loadVersion();
+		loadVersion();
 		r.initialize();
 		setScreen(new LoadingScreen(r).setNextScreen(new MainMenuScreen(r)));
 	}
 
-	public String getVersion() {
-		return version;
+	public String getFullVersion() {
+		return fullVersion;
 	}
 
-	private String loadVersion() {
+	public String getShortVersion() {
+		return shortVersion;
+	}
+
+	public String getVersionId() {
+		return versionId;
+	}
+
+	private void loadVersion() {
 		try {
 			final FileHandle versionFile = Gdx.files.internal("version.json");
-			final JsonValue versionRoot = new JsonReader().parse(versionFile);
-			final String versionNumber = versionRoot.get("version").asString();
-			final String buildNumber = versionRoot.get("buildNumber").asString();
-			final String buildDate = versionRoot.get("buildDate").asString();
-			final String commit = versionRoot.get("commit").asString();
-
-			String version;
-
-			if (buildNumber != null && !buildNumber.isEmpty() && !buildNumber.contains("${symbol_dollar}{")) {
-				version = "Build " + buildNumber;
-			} else if (commit != null && !commit.isEmpty() && !commit.contains("${symbol_dollar}{")) {
-				version = "Commit " + commit;
-			} else {
-				version = "Version " + versionNumber;
-			}
-
-			if (buildDate != null && !buildDate.isEmpty() && !buildDate.contains("${symbol_dollar}{")) {
-				version += " (" + buildDate + ")";
-			}
-
-			return version;
-
-		} catch (SerializationException e) {
-			r.log.error("Exception", e);
-			return "(unknown version)";
+			final JsonValue version = new JsonReader().parse(versionFile);
+			final VersionStrings versionStrings = new VersionStrings(version);
+			fullVersion = versionStrings.fullVersion;
+			shortVersion = versionStrings.shortVersion;
+			versionId = versionStrings.versionId;
+		} catch (final SerializationException e) {
+			r.log.error("Error reading version number", e);
+			fullVersion = "(unknown)";
+			shortVersion = "(unknown)";
+			versionId = "unknown";
 		}
 	}
 
