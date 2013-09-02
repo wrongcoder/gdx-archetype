@@ -42,6 +42,25 @@ There are two places assets can go:
 	page on the LibGDX wiki for more information.
 
 
+Building
+-------------------------------------------------------------------------------
+
+This project has two build targets: desktop and html. These targets are tied
+to Maven profiles of the same name.
+
+There is also an additional Maven profile named dev. The dev profile puts
+the GWT compiler into draft compile mode and enables the PRETTY output style.
+
+To produce a typical development build, execute:
+
+	${artifactId}${symbol_dollar} mvn -P desktop,html,dev clean package
+
+Now you can pick up the build artifacts:
+
+	* __desktop/target/${artifactId}-desktop-[version].zip__
+	* __html/target/${artifactId}-html-[version].war__
+
+
 Testing the HTML target
 -------------------------------------------------------------------------------
 
@@ -49,7 +68,7 @@ Generally, you should develop using the desktop target, and just check the
 html target every once in a while. Developing using the GWT SuperDev mode
 is another possibility.
 
-To start up a web server to test the html target:
+To start up a web server to test the html target, execute:
 
 	${artifactId}${symbol_dollar} mvn -P html,dev clean package tomcat7:run
 
@@ -82,7 +101,7 @@ Distribution
 	advised to set an appropriate user-facing version number. Note that it is
 	a best practice to avoid reusing non-SNAPSHOT version numbers.
 
-3.	Update the ProGuard map by running the `package` phase of the build:
+3.	Update the ProGuard map by running the `package` phase of the core build:
 
 		${artifactId}${symbol_dollar} mvn clean package
 
