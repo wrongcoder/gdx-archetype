@@ -51,7 +51,7 @@ is another possibility.
 
 To start up a web server to test the html target:
 
-	${artifactId}${symbol_dollar} mvn -P html package tomcat7:run
+	${artifactId}${symbol_dollar} mvn -P html,dev clean package tomcat7:run
 
 	[INFO] --- tomcat7-maven-plugin:2.1:run (default-cli) @ ${artifactId}-html ---
 	[INFO] Running war on http://localhost:8080/${artifactId}
@@ -119,6 +119,8 @@ Distribution
 		[INFO] ------------------------------------------------------------------------
 		[INFO] BUILD SUCCESS
 		[INFO] ------------------------------------------------------------------------
+
+    Using the `dev` profile is not recommended for release builds.
 
 5.	Collect the distribution artifacts from each target directory.
 
