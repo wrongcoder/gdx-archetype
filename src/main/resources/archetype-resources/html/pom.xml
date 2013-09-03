@@ -83,6 +83,7 @@
 					</execution>
 				</executions>
 				<configuration>
+					<module>${package}.Game</module>
 					<logLevel>INFO</logLevel>
 					<style>OBFUSCATED</style>
 					<disableCastChecking>true</disableCastChecking>
@@ -144,6 +145,7 @@
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>gwt-maven-plugin</artifactId>
 						<configuration>
+							<module>${package}.GameDev</module>
 							<style>PRETTY</style>
 							<optimizationLevel>0</optimizationLevel>
 							<draftCompile>true</draftCompile>
