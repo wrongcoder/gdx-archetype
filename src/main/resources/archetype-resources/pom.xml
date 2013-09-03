@@ -277,7 +277,7 @@
 	</profiles>
 
 	<modules>
-		${defaultModules}
+		<module>core</module>
 	</modules>
 
 </project>
