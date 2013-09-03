@@ -1,15 +1,15 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-<module rename-to='game'>
-	<inherits name='com.badlogic.gdx.backends.gdx_backends_gwt'/>
+<module rename-to="game">
+	<inherits name="com.badlogic.gdx.backends.gdx_backends_gwt"/>
 	<inherits name="aurelienribon.tweenengine"/>
 
 	<source path="core"/>
 	<source path="html"/>
 	<public path="resources"/>
 
-	<entry-point class='${package}.html.HtmlDriver'/>
+	<entry-point class="${package}.html.HtmlDriver"/>
 
 	<set-property name="compiler.stackMode" value="strip"/>
 
