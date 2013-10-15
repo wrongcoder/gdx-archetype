@@ -38,7 +38,7 @@ There are two places assets can go:
 *	__core/src/main/textures__: Any images placed in here will automatically
 	be packed into a TextureAtlas file named textures.pack, which in turn
 	will be available through Gdx.files.internal or AssetManager. See the
-	[TexturePacker](http://code.google.com/p/libgdx/wiki/TexturePacker)
+	[TexturePacker](https://github.com/libgdx/libgdx/wiki/Texture-packer)
 	page on the LibGDX wiki for more information.
 
 
