@@ -9,7 +9,7 @@
 		"default": {
 			"up": "ui/button-up", "down": "ui/button-down",
 			"font": "default", "fontColor": "dark",
-			"pressedOffsetX": 3, "pressedOffsetY": -3
+			"pressedOffsetX": 2, "pressedOffsetY": -2
 		}
 	}
 }
