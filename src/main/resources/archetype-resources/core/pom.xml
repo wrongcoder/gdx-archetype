@@ -97,52 +97,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin>
-				<groupId>com.github.wvengen</groupId>
-				<artifactId>proguard-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>proguard</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<attach>true</attach>
-					<attachArtifactClassifier>min</attachArtifactClassifier>
-					<outputDirectory>${symbol_dollar}{project.build.directory}</outputDirectory>
-					<options>
-						<!-- Input/Output Options -->
-						<option>-dontskipnonpubliclibraryclasses</option>
-						<option>-dontskipnonpubliclibraryclassmembers</option>
-						<option>-target ${symbol_dollar}{project.build.java.target}</option>
-						<!-- Keep Options -->
-						<option>-keep</option>
-						<option>    class ${package}.core.Registry {</option>
-						<option>        public &lt;init&gt;(...);</option>
-						<option>        public final &lt;fields&gt;;</option>
-						<option>    }</option>
-						<option>-keep</option>
-						<option>    interface ${package}.core.PlatformSupport {</option>
-						<option>        public &lt;methods&gt;;</option>
-						<option>    }</option>
-						<!-- Optimization Options -->
-						<option>-optimizationpasses 10</option>
-						<option>-allowaccessmodification</option>
-						<option>-mergeinterfacesaggressively</option>
-						<!-- Obfuscation Options -->
-						<option>-printmapping ${symbol_dollar}{project.basedir}/src/main/build/proguard_map.txt</option>
-						<option>-applymapping ${symbol_dollar}{project.basedir}/src/main/build/proguard_map.txt</option>
-						<option>-overloadaggressively</option>
-						<option>-repackageclasses ''</option>
-						<option>-keepattributes SourceFile,LineNumberTable,Signature</option>
-						<option>-renamesourcefileattribute SourceFile</option>
-					</options>
-					<libs>
-						<lib>${symbol_dollar}{java.home}/lib/rt.jar</lib>
-					</libs>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 </project>

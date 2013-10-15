@@ -29,12 +29,6 @@
 				<exclude>**/*.xcf</exclude>
 			</excludes>
 		</fileSet>
-		<fileSet encoding="UTF-8">
-			<directory>core/src/main/build</directory>
-			<includes>
-				<include>**/*.txt</include>
-			</includes>
-		</fileSet>
 		<fileSet filtered="true" packaged="true" encoding="UTF-8">
 			<directory>core/src/main/java</directory>
 			<includes>
@@ -63,6 +57,12 @@
 			<directory>desktop</directory>
 			<includes>
 				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>desktop/src/main/build</directory>
+			<includes>
+				<include>**/*.txt</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="true" packaged="true" encoding="UTF-8">
