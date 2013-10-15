@@ -1,6 +1,6 @@
 {
 	"version": "1.0.0.BUILD-SNAPSHOT",
 	"buildNumber": "${buildNumber}",
-	"buildDate": "2013-09-02 22:49:04 PDT",
-	"commit": "470f48b"
+	"buildDate": "2013-10-14 22:26:24 PDT",
+	"commit": "eef072d"
 }
