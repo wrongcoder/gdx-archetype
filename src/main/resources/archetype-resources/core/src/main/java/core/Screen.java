@@ -45,4 +45,8 @@ public abstract class Screen implements com.badlogic.gdx.Screen {
 		font.draw(batch, text, centreX, centreY);
 	}
 
+	public static void drawCentred(final BitmapFont font, final SpriteBatch batch, final String text, final float y) {
+		drawCentred(font, batch, text, Registry.WIDTH / 2, y);
+	}
+
 }
