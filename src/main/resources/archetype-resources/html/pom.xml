@@ -146,7 +146,7 @@
 						<artifactId>gwt-maven-plugin</artifactId>
 						<configuration>
 							<module>${package}.GameDev</module>
-							<style>PRETTY</style>
+							<style>DETAILED</style>
 							<optimizationLevel>0</optimizationLevel>
 							<draftCompile>true</draftCompile>
 						</configuration>

@@ -49,7 +49,7 @@ This project has two build targets: desktop and html. These targets are tied
 to Maven profiles of the same name.
 
 There is also an additional Maven profile named dev. The dev profile puts
-the GWT compiler into draft compile mode and enables the PRETTY output style.
+the GWT compiler into draft compile mode and enables the DETAILED output style.
 
 To produce a typical development build, execute:
 
