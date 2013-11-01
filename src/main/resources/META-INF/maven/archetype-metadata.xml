@@ -56,13 +56,8 @@
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory>desktop</directory>
 			<includes>
+				<include>.gitignore</include>
 				<include>pom.xml</include>
-			</includes>
-		</fileSet>
-		<fileSet encoding="UTF-8">
-			<directory>desktop/src/main/build</directory>
-			<includes>
-				<include>**/*.txt</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="true" packaged="true" encoding="UTF-8">
