@@ -10,10 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class AssetManager extends com.badlogic.gdx.assets.AssetManager {
 
-	public static final String textures = "textures.atlas";
-	public static final String ui = "ui.json";
+	public static final String TEXTURES = "textures.atlas";
+	public static final String UI = "ui.json";
 
-	public static final String libgdxLogo = "libgdx-logo.png";
+	public static final String LIBGDX_LOGO = "libgdx-logo.png";
 
 	public void queueAssets() {
 		// Always load the loading screen assets first
@@ -23,10 +23,10 @@ public class AssetManager extends com.badlogic.gdx.assets.AssetManager {
 		Fonts.queueAssets(this);
 
 		// Other assets that have no home
-		load(textures, TextureAtlas.class);
-		load(ui, Skin.class, new SkinLoader.SkinParameter(textures));
+		load(TEXTURES, TextureAtlas.class);
+		load(UI, Skin.class, new SkinLoader.SkinParameter(TEXTURES));
 
-		load(libgdxLogo, Texture.class);
+		load(LIBGDX_LOGO, Texture.class);
 	}
 
 }

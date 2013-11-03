@@ -29,7 +29,7 @@ public class CreditsScreen extends Screen {
 	private boolean done = false;
 
 	private float top = 0;
-	private static final float speed = 90; // pixels per second
+	private static final float SPEED = 90; // pixels per second
 
 	static {
 		Tween.registerAccessor(CreditsScreen.class, new CreditsScreenTweenAccessor());
@@ -56,11 +56,11 @@ public class CreditsScreen extends Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		tweenManager = new TweenManager();
-		mainTitleFont = r.assetManager.get(Fonts.sansHugeBoldFont);
-		sectionTitleFont = r.assetManager.get(Fonts.sansLargeBoldFont);
-		normalFont = r.assetManager.get(Fonts.sansMediumFont);
-		boldFont = r.assetManager.get(Fonts.sansMediumBoldFont);
-		smallFont = r.assetManager.get(Fonts.sansSmallFont);
+		mainTitleFont = r.assetManager.get(Fonts.SANS_HUGE_BOLD);
+		sectionTitleFont = r.assetManager.get(Fonts.SANS_LARGE_BOLD);
+		normalFont = r.assetManager.get(Fonts.SANS_MEDIUM);
+		boldFont = r.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
+		smallFont = r.assetManager.get(Fonts.SANS_SMALL);
 		Gdx.input.setInputProcessor(new CreditsScreenInputHandler());
 
 		float nextY = 0;
@@ -68,7 +68,7 @@ public class CreditsScreen extends Screen {
 			nextY = text.init(nextY);
 		}
 
-		final float duration = (-nextY + Registry.HEIGHT) / speed;
+		final float duration = (-nextY + Registry.HEIGHT) / SPEED;
 		Tween.to(this, 0, duration)
 				.target(-nextY + Registry.HEIGHT)
 				.ease(Linear.INOUT)

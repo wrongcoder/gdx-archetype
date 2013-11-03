@@ -25,8 +25,8 @@ public class DemoScreen extends Screen {
 
 	@Override
 	public void show() {
-		texture = r.assetManager.get(AssetManager.libgdxLogo);
-		font = r.assetManager.get(Fonts.sansMediumBoldFont);
+		texture = r.assetManager.get(AssetManager.LIBGDX_LOGO);
+		font = r.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
 		batch = new SpriteBatch();
 	}
 

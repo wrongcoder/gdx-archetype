@@ -171,7 +171,7 @@ public class MusicSystemTest {
 
 		when(music1.isPlaying()).thenReturn(true);
 		when(music2.isPlaying()).thenReturn(true);
-		system.update(MusicSystem.crossFadeSeconds / 2);
+		system.update(MusicSystem.CROSS_FADE_SECONDS / 2);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
 		verify(music2, atLeastOnce()).setVolume(volume2.capture());
 		assertThat(volume1.getValue(), new IsGreaterThan(0.1f));
@@ -179,7 +179,7 @@ public class MusicSystemTest {
 
 		when(music1.isPlaying()).thenReturn(true);
 		when(music2.isPlaying()).thenReturn(true);
-		system.update(MusicSystem.crossFadeSeconds / 2);
+		system.update(MusicSystem.CROSS_FADE_SECONDS / 2);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
 		verify(music2, atLeastOnce()).setVolume(volume2.capture());
 		assertThat(volume1.getValue(), new IsCloseTo(0));
@@ -194,7 +194,7 @@ public class MusicSystemTest {
 
 		system.play(music2);
 		when(music2.isPlaying()).thenReturn(true);
-		system.update(MusicSystem.crossFadeSeconds * 1f / 8f);
+		system.update(MusicSystem.CROSS_FADE_SECONDS * 1f / 8f);
 
 		system.play(music3);
 		when(music3.isPlaying()).thenReturn(true);
@@ -215,7 +215,7 @@ public class MusicSystemTest {
 
 		system.play(music2);
 		when(music2.isPlaying()).thenReturn(true);
-		system.update(MusicSystem.crossFadeSeconds * 7f / 8f);
+		system.update(MusicSystem.CROSS_FADE_SECONDS * 7f / 8f);
 
 		system.play(music3);
 		when(music3.isPlaying()).thenReturn(true);

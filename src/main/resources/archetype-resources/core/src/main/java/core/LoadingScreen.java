@@ -24,8 +24,8 @@ public class LoadingScreen extends Screen {
 	private Sprite loadingBorder;
 	private ShapeRenderer loadingBarRenderer;
 
-	private static final float fadeTime = 0.2f;
-	private float fadeTimeLeft = fadeTime;
+	private static final float FADE_TIME = 0.2f;
+	private float fadeTimeLeft = FADE_TIME;
 
 	private Screen nextScreen;
 
@@ -55,7 +55,7 @@ public class LoadingScreen extends Screen {
 		loadingBarRenderer.dispose();
 
 		// Hacks around libGDX issue 1640
-		final Skin skin = r.assetManager.get(AssetManager.ui);
+		final Skin skin = r.assetManager.get(AssetManager.UI);
 		final TextButton.TextButtonStyle style = skin.get(TextButton.TextButtonStyle.class);
 		style.pressedOffsetX = r.platformSupport.fixFloat(style.pressedOffsetX);
 		style.pressedOffsetY = r.platformSupport.fixFloat(style.pressedOffsetY);
@@ -64,7 +64,7 @@ public class LoadingScreen extends Screen {
 	@Override
 	public void render(final float delta) {
 		final boolean finishedLoading = r.assetManager.update(10);
-		final float fadeAlpha = fadeTimeLeft / fadeTime;
+		final float fadeAlpha = fadeTimeLeft / FADE_TIME;
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
 		Gdx.gl.glClearColor(0, 0, 0, 0);

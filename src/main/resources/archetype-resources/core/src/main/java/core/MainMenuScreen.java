@@ -25,7 +25,7 @@ public class MainMenuScreen extends Screen {
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
 
-		final Skin uiSkin = r.assetManager.get(AssetManager.ui, Skin.class);
+		final Skin uiSkin = r.assetManager.get(AssetManager.UI, Skin.class);
 
 		final TextButton startButton = new TextButton("Start", uiSkin);
 		startButton.setSize(300, 48);

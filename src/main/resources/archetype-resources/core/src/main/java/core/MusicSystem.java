@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class MusicSystem {
 
-	public static final float crossFadeSeconds = 2.5f;
+	public static final float CROSS_FADE_SECONDS = 2.5f;
 
 	private Music previousMusic = null;
 	private float previousFadeOutSeconds = 0;
@@ -53,15 +53,15 @@ public class MusicSystem {
 			if (previousFadeOutSeconds < 0) {
 				previousMusic.stop();
 			} else {
-				previousMusic.setVolume(previousFadeOutSeconds / crossFadeSeconds);
+				previousMusic.setVolume(previousFadeOutSeconds / CROSS_FADE_SECONDS);
 			}
 		}
-		if (currentFadeInSeconds < crossFadeSeconds && isPlaying(currentMusic)) {
+		if (currentFadeInSeconds < CROSS_FADE_SECONDS && isPlaying(currentMusic)) {
 			currentFadeInSeconds += delta;
-			if (currentFadeInSeconds > crossFadeSeconds) {
+			if (currentFadeInSeconds > CROSS_FADE_SECONDS) {
 				currentMusic.setVolume(1);
 			} else {
-				currentMusic.setVolume(currentFadeInSeconds / crossFadeSeconds);
+				currentMusic.setVolume(currentFadeInSeconds / CROSS_FADE_SECONDS);
 			}
 		}
 	}
@@ -87,12 +87,12 @@ public class MusicSystem {
 			nextMusic.setVolume(0);
 			currentFadeInSeconds = 0;
 		} else if (isPlaying(currentMusic)) { /* previous is not playing */
-			previousFadeOutSeconds = crossFadeSeconds;
+			previousFadeOutSeconds = CROSS_FADE_SECONDS;
 			nextMusic.setVolume(0);
 			currentFadeInSeconds = 0;
 		} else { /* neither are playing */
 			nextMusic.setVolume(1);
-			currentFadeInSeconds = crossFadeSeconds;
+			currentFadeInSeconds = CROSS_FADE_SECONDS;
 		}
 
 		previousMusic = currentMusic;
