@@ -7,9 +7,9 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public class VersionStrings {
 
-	public String fullVersion;
-	public String shortVersion;
-	public String versionId;
+	public final String fullVersion;
+	public final String shortVersion;
+	public final String versionId;
 
 	public VersionStrings(final JsonValue version) {
 		final String versionNumber = getValue(version, "version");
