@@ -101,30 +101,7 @@ Distribution
 	advised to set an appropriate user-facing version number. Note that it is
 	a best practice to avoid reusing non-SNAPSHOT version numbers.
 
-3.	Update the ProGuard map by running the `package` phase of the core build:
-
-		${artifactId}${symbol_dollar} mvn clean package
-
-		[INFO] --- proguard-maven-plugin:2.0.6:proguard (default) @ ${artifactId}-core ---
-		[INFO] execute ProGuard
-		 [proguard] ProGuard, version 4.8
-		 [proguard] Reading program jar [${artifactId}-core.jar] (filtered)
-		 [proguard] Reading library jar [gdx.jar]
-		 [proguard] Reading library jar [rt.jar]
-		 [proguard] Preparing output jar [${artifactId}-core-min.jar]
-		 [proguard]   Copying resources from program jar [${artifactId}-core.jar] (filtered)
-		[INFO] ------------------------------------------------------------------------
-		[INFO] Reactor Summary:
-		[INFO]
-		[INFO] ${projectTitle} Parent ................ SUCCESS [0.386s]
-		[INFO] ${projectTitle} Core .................. SUCCESS [3.345s]
-		[INFO] ------------------------------------------------------------------------
-		[INFO] BUILD SUCCESS
-		[INFO] ------------------------------------------------------------------------
-
-	You should now commit core/src/main/build/proguard_map.txt to source control.
-
-4.	Run the `package` phase for all the targets you require:
+3.	Run the `package` phase for all the targets you require:
 
 		${artifactId}${symbol_dollar} mvn -P desktop,html package
 
@@ -139,13 +116,15 @@ Distribution
 		[INFO] BUILD SUCCESS
 		[INFO] ------------------------------------------------------------------------
 
+    You should now commit desktop/src/main/build/proguard_map.txt to source control.
+
     Using the `dev` profile is not recommended for release builds.
 
-5.	Collect the distribution artifacts from each target directory.
+4.	Collect the distribution artifacts from each target directory.
 
 	* __desktop/target/${artifactId}-desktop-[version].zip__
 	* __html/target/${artifactId}-html-[version].war__
 
-6.	To deploy the html target, unzip the war file into any directory that is served
+5.	To deploy the html target, unzip the war file into any directory that is served
 	out by a web server. You can also deploy the war file to any Servlet 3 container.
 
