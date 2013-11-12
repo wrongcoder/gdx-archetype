@@ -56,10 +56,10 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			margin-top: -24px;
-			margin-left: -24px;
-			height: 48px;
-			width: 48px;
+			margin-top: -72px;
+			margin-left: -96px;
+			height: 144px;
+			width: 192px;
 			z-index: 10;
 		}
 
@@ -68,13 +68,16 @@
 			left: -9999px;
 		}
 
-		${symbol_pound}sm2-container embed,
-		${symbol_pound}sm2-container object {
+		${symbol_pound}sm2movie {
 			position: absolute;
 			top: -9999px;
 			left: -9999px;
-			height: 48px;
-			width: 48px;
+		}
+
+		${symbol_pound}sm2-container.swf_timedout ${symbol_pound}sm2movie {
+			position: relative;
+			top: 0;
+			left: 0;
 		}
 
 		${symbol_pound}footer {
@@ -104,6 +107,16 @@
 	(function hideLoadingMessage() {
 		var loading = document.getElementById("loading");
 		loading && loading.setAttribute("style", "display: none");
+	}());
+	(function enableUseFlashBlock() {
+		function waitForSoundManager() {
+			if (soundManager) {
+				soundManager.useFlashBlock = true;
+			} else {
+				window.setTimeout(waitForSoundManager, 100);
+			}
+		}
+		window.setTimeout(waitForSoundManager, 0);
 	}());
 </script>
 <!--[if lte IE 10]>
