@@ -31,7 +31,7 @@ i:textures.png:699:image/png
 d:icons:0:application/unknown
 b:icons/favicon.ico:32542:application/unknown
 t:com/badlogic/gdx/graphics/g3d/shaders/default.fragment.glsl:5043:application/unknown
-t:com/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl:8738:application/unknown
+t:com/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl:8755:application/unknown
 t:com/badlogic/gdx/graphics/g3d/shaders/depth.fragment.glsl:549:application/unknown
 t:com/badlogic/gdx/graphics/g3d/shaders/depth.vertex.glsl:2687:application/unknown
 t:com/badlogic/gdx/utils/arial-15.fnt:21743:application/unknown
