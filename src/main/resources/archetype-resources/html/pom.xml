@@ -17,18 +17,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>${groupId}</groupId>
-			<artifactId>${artifactId}-core</artifactId>
-			<version>${symbol_dollar}{project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${groupId}</groupId>
-			<artifactId>${artifactId}-core</artifactId>
-			<classifier>sources</classifier>
-			<version>${symbol_dollar}{project.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>com.badlogicgames.gdx</groupId>
 			<artifactId>gdx</artifactId>
 			<classifier>sources</classifier>
@@ -51,6 +39,18 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${artifactId}-core</artifactId>
+			<version>${symbol_dollar}{project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${artifactId}-core</artifactId>
+			<classifier>sources</classifier>
+			<version>${symbol_dollar}{project.version}</version>
 		</dependency>
 
 		<dependency>
