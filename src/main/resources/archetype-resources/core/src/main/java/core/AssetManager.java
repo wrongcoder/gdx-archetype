@@ -22,6 +22,9 @@ public class AssetManager extends com.badlogic.gdx.assets.AssetManager {
 		// Shared asset loaders and systems
 		Fonts.queueAssets(this);
 
+		// Screen-specific assets
+		MainMenuScreen.queueAssets(this);
+
 		// Other assets that have no home
 		load(TEXTURES, TextureAtlas.class);
 		load(UI, Skin.class, new SkinLoader.SkinParameter(TEXTURES));

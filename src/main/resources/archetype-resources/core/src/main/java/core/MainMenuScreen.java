@@ -4,6 +4,7 @@
 package ${package}.core;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -13,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import ${package}.core.game.DemoScreen;
 
 public class MainMenuScreen extends Screen {
+
+	private static final String BUTTON_CLICK = "ui/button.wav";
 
 	private Stage stage;
 
@@ -26,6 +29,7 @@ public class MainMenuScreen extends Screen {
 		Gdx.input.setInputProcessor(stage);
 
 		final Skin uiSkin = r.assetManager.get(AssetManager.UI, Skin.class);
+		final Sound buttonClick = r.assetManager.get(BUTTON_CLICK, Sound.class);
 
 		final TextButton startButton = new TextButton("Start", uiSkin);
 		startButton.setSize(300, 48);
@@ -33,6 +37,7 @@ public class MainMenuScreen extends Screen {
 		startButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
+				buttonClick.play();
 				r.game.setScreen(new DemoScreen(r));
 			}
 		});
@@ -43,6 +48,7 @@ public class MainMenuScreen extends Screen {
 		creditsButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
+				buttonClick.play();
 				final CreditsScreen creditsScreen = new CreditsScreen(r);
 				r.game.setScreen(creditsScreen);
 				creditsScreen.setNextScreen(MainMenuScreen.this);
@@ -66,6 +72,10 @@ public class MainMenuScreen extends Screen {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		stage.act(delta);
 		stage.draw();
+	}
+
+	public static void queueAssets(final AssetManager assetManager) {
+		assetManager.load(BUTTON_CLICK, Sound.class);
 	}
 
 }

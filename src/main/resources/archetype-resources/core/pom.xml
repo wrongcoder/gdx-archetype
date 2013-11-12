@@ -51,6 +51,7 @@
 				<targetPath>${symbol_dollar}{project.build.directory}/gdx/assets</targetPath>
 				<excludes>
 					<exclude>**/*.xcf</exclude>
+					<exclude>**/*.sfxr</exclude>
 				</excludes>
 			</resource>
 		</resources>
