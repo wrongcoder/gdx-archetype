@@ -112,9 +112,9 @@
 					<execution>
 						<phase>initialize</phase>
 						<configuration>
-							<tasks>
+							<target>
 								<mkdir dir="${symbol_dollar}{project.build.directory}/gdx/assets"/>
-							</tasks>
+							</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>

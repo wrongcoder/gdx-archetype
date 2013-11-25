@@ -78,10 +78,10 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<mkdir dir="${symbol_dollar}{project.basedir}/src/main/build"/>
 								<touch file="${symbol_dollar}{project.basedir}/src/main/build/proguard_map.txt"/>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 				</executions>
