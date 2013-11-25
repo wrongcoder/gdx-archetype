@@ -74,15 +74,15 @@
 				<executions>
 					<execution>
 						<phase>initialize</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
 						<configuration>
 							<tasks>
 								<mkdir dir="${symbol_dollar}{project.basedir}/src/main/build"/>
 								<touch file="${symbol_dollar}{project.basedir}/src/main/build/proguard_map.txt"/>
 							</tasks>
 						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
 					</execution>
 				</executions>
 			</plugin>
