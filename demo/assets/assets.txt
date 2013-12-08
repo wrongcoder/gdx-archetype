@@ -15,7 +15,7 @@ i:fonts/liberation-sans-24.png:10435:image/png
 i:fonts/liberation-sans-48.png:22866:image/png
 t:fonts/pixel-font.fnt:8692:application/unknown
 i:fonts/liberation-sans-18-bold.png:7402:image/png
-i:fonts/pixel-font.png:1398:image/png
+i:fonts/pixel-font.png:1492:image/png
 t:fonts/liberation-sans-18.fnt:11428:application/unknown
 t:fonts/liberation-sans-24-bold.fnt:11506:application/unknown
 t:fonts/liberation-mono-16.fnt:11427:application/unknown
@@ -27,6 +27,8 @@ t:textures.atlas:723:application/unknown
 i:libgdx-logo.png:78970:image/png
 t:ui.json:715:application/unknown
 t:version.json:136:application/unknown
+d:ui:0:application/unknown
+a:ui/button.wav:5442:audio/x-wav
 i:textures.png:699:image/png
 d:icons:0:application/unknown
 b:icons/favicon.ico:32542:application/unknown
