@@ -16,6 +16,7 @@ import ${package}.core.game.DemoScreen;
 public class MainMenuScreen extends Screen {
 
 	private static final String BUTTON_CLICK = "ui/button.wav";
+	private static final float BUTTON_CLICK_VOLUME = 0.2f;
 
 	private Stage stage;
 
@@ -37,7 +38,7 @@ public class MainMenuScreen extends Screen {
 		startButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
-				buttonClick.play();
+				buttonClick.play(BUTTON_CLICK_VOLUME);
 				r.game.setScreen(new DemoScreen(r));
 			}
 		});
@@ -48,7 +49,7 @@ public class MainMenuScreen extends Screen {
 		creditsButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
-				buttonClick.play();
+				buttonClick.play(BUTTON_CLICK_VOLUME);
 				final CreditsScreen creditsScreen = new CreditsScreen(r);
 				r.game.setScreen(creditsScreen);
 				creditsScreen.setNextScreen(MainMenuScreen.this);
