@@ -2,6 +2,16 @@
 
 This [Maven](https://maven.apache.org/) [archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) contains my current best practices for [LibGDX](http://libgdx.badlogicgames.com/) projects. Only desktop and html targets are supported because those are the only ones that I use.
 
+## Ludum Dare!
+
+It's the end of Submission Hour. The entry has been submitted. You've made some last-minute changes. Quick, make the final build!
+
+```shell
+$ mvn -P desktop,html package
+$ scp desktop/target/game.zip html/target/game.war webhost.example.com:
+$ ssh webhost.example.com unzip -d LD48 game.war
+```
+
 ## What is it?
 
 Professional software developers disagree about a lot of things that don't really matter. Very often, all choices are equally valid, but each developer prefers the one that they proposed anyway.
