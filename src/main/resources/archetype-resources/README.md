@@ -61,6 +61,29 @@ Now you can pick up the build artifacts:
 	* __html/target/${artifactId}-html-[version].war__
 
 
+Developing
+-------------------------------------------------------------------------------
+
+Execute the ${package}.desktop.DesktopDriver main class. Make
+changes and recompile. Close the window then re-execute the main class to see
+the changes take effect.
+
+To avoid having to restart in some cases, your development environment may be
+able to reload classes using
+[JVM HotSwap](https://www.jetbrains.com/idea/webhelp/debugger-hotswap.html).
+
+Alternatively, you could use the
+[Spring Loaded](https://github.com/spring-projects/spring-loaded) Java agent
+to reload modified class files automatically. To do this, pass these arguments
+to the JVM:
+
+	-noverify -javaagent:${symbol_dollar}{MAVEN_REPOSITORY}/org/springframework/springloaded/1.1.5.RELEASE/springloaded-1.1.5.RELEASE.jar
+
+where `${symbol_dollar}{MAVEN_REPOSITORY}` is your local Maven repository, usually
+${symbol_dollar}HOME/.m2/repository. (If you're using IntelliJ IDEA, the
+`${symbol_dollar}{MAVEN_REPOSITORY}` will be replaced for you automatically.)
+
+
 Testing the HTML target
 -------------------------------------------------------------------------------
 
