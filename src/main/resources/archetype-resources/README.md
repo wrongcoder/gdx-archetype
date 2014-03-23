@@ -6,7 +6,7 @@ Before you begin
 -------------------------------------------------------------------------------
 
 1.	You must generate the TextureAtlas assets before running the project
-	for the first time. To do this, run the `compile` phase of the build:
+	for the first time. To do this, run the _compile_ phase of the build:
 
 		${artifactId}${symbol_dollar} mvn compile
 
@@ -20,10 +20,10 @@ Before you begin
 
 	If you're using IntelliJ IDEA, you can instead open the Maven Projects
 	tab, navigate down to ${projectTitle} Parent > Lifecycle, then
-	double-click on `compile`.
+	double-click on _compile_.
 
 	You should do this every time you change anything inside the
-	core/src/main/textures directory.
+	_core/src/main/textures_ directory.
 
 
 Assets
@@ -45,10 +45,10 @@ There are two places assets can go:
 Building
 -------------------------------------------------------------------------------
 
-This project has two build targets: desktop and html. These targets are tied
-to Maven profiles of the same name.
+This project has two build targets: _desktop_ and _html_. These targets are
+tied to Maven profiles of the same name.
 
-There is also an additional Maven profile named dev. The dev profile puts
+There is also an additional Maven profile named _dev_. The _dev_ profile puts
 the GWT compiler into draft compile mode and enables the DETAILED output style.
 
 To produce a typical development build, execute:
@@ -57,14 +57,14 @@ To produce a typical development build, execute:
 
 Now you can pick up the build artifacts:
 
-	* __desktop/target/${artifactId}-desktop-[version].zip__
-	* __html/target/${artifactId}-html-[version].war__
+* desktop/target/${artifactId}-desktop-[version].zip
+* html/target/${artifactId}-html-[version].war
 
 
 Developing
 -------------------------------------------------------------------------------
 
-Execute the ${package}.desktop.DesktopDriver main class. Make
+Execute the _${package}.desktop.DesktopDriver_ main class. Make
 changes and recompile. Close the window then re-execute the main class to see
 the changes take effect.
 
@@ -80,18 +80,18 @@ to the JVM:
 	-noverify -javaagent:${symbol_dollar}{MAVEN_REPOSITORY}/org/springframework/springloaded/1.1.5.RELEASE/springloaded-1.1.5.RELEASE.jar
 
 where `${symbol_dollar}{MAVEN_REPOSITORY}` is your local Maven repository, usually
-${symbol_dollar}HOME/.m2/repository. (If you're using IntelliJ IDEA, the
+_${symbol_dollar}HOME/.m2/repository_. (If you're using IntelliJ IDEA, the
 `${symbol_dollar}{MAVEN_REPOSITORY}` will be replaced for you automatically.)
 
 
 Testing the HTML target
 -------------------------------------------------------------------------------
 
-Generally, you should develop using the desktop target, and just check the
-html target every once in a while. Developing using the GWT SuperDev mode
+Generally, you should develop using the _desktop_ target, and just check the
+_html_ target every once in a while. Developing using the GWT SuperDev mode
 is another possibility.
 
-To start up a web server to test the html target, execute:
+To start up a web server to test the _html_ target, execute:
 
 	${artifactId}${symbol_dollar} mvn -P html,dev clean package tomcat7:run
 
@@ -108,7 +108,9 @@ To start up a web server to test the html target, execute:
 	Aug 10, 2013 6:10:25 PM org.apache.coyote.AbstractProtocol start
 	INFO: Starting ProtocolHandler ["http-bio-8080"]
 
-Now you can load http://localhost:8080/${artifactId} in your web browser.
+Now you can load
+[http://localhost:8080/${artifactId}](http://localhost:8080/${artifactId})
+in your web browser.
 
 Press ^C to stop the web server.
 
@@ -124,7 +126,7 @@ Distribution
 	advised to set an appropriate user-facing version number. Note that it is
 	a best practice to avoid reusing non-SNAPSHOT version numbers.
 
-3.	Run the `package` phase for all the targets you require:
+3.	Run the _package_ phase for all the targets you require:
 
 		${artifactId}${symbol_dollar} mvn -P desktop,html package
 
@@ -139,15 +141,17 @@ Distribution
 		[INFO] BUILD SUCCESS
 		[INFO] ------------------------------------------------------------------------
 
-    You should now commit desktop/src/main/build/proguard_map.txt to source control.
+    You should now commit _desktop/src/main/build/proguard_map.txt_
+    to source control.
 
-    Using the `dev` profile is not recommended for release builds.
+    Using the _dev_ profile is __not recommended__ for release builds.
 
 4.	Collect the distribution artifacts from each target directory.
 
-	* __desktop/target/${artifactId}-desktop-[version].zip__
-	* __html/target/${artifactId}-html-[version].war__
+	* desktop/target/${artifactId}-desktop-[version].zip
+	* html/target/${artifactId}-html-[version].war
 
-5.	To deploy the html target, unzip the war file into any directory that is served
-	out by a web server. You can also deploy the war file to any Servlet 3 container.
+5.	To deploy the html target, unzip the war file into any directory that is
+	served out by a web server. You can also deploy the war file to any
+	Servlet 3 container.
 
