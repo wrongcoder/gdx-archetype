@@ -69,12 +69,12 @@ public class DesktopLauncher {
 
 		try {
 			processBuilder.getClass().getMethod("inheritIO").invoke(processBuilder);
-		} catch (InvocationTargetException e) {
+		} catch (final InvocationTargetException e) {
 			// Unexpected: ProcessBuilder#inheritIO() throws no checked exceptions
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+		} catch (final NoSuchMethodException e) {
 			// JDK 6
-		} catch (IllegalAccessException e) {
+		} catch (final IllegalAccessException e) {
 			// Security manager
 		}
 
@@ -101,7 +101,7 @@ public class DesktopLauncher {
 	private static Integer getExitCode(final Process process) {
 		try {
 			return process.exitValue();
-		} catch (IllegalThreadStateException e) {
+		} catch (final IllegalThreadStateException e) {
 			return null;
 		}
 	}
@@ -109,7 +109,7 @@ public class DesktopLauncher {
 	private static void sleep(final long millis) {
 		try {
 			Thread.sleep(millis);
-		} catch (InterruptedException e) {
+		} catch (final InterruptedException e) {
 			// Ignore
 		}
 	}
