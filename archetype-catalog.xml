@@ -6,7 +6,7 @@
     <archetype>
       <groupId>com.vdxp</groupId>
       <artifactId>gdx-archetype</artifactId>
-      <version>1.0.7.RELEASE</version>
+      <version>1.0.8.RELEASE</version>
       <description>LibGDX archetype</description>
     </archetype>
   </archetypes>
