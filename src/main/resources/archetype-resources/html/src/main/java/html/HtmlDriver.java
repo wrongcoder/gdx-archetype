@@ -75,10 +75,6 @@ public class HtmlDriver extends GwtApplication {
 	}
 
 	private class HtmlPlatformSupport implements PlatformSupport {
-		@Override
-		public String getPlatformId() {
-			return "html";
-		}
 
 		@Override
 		public void initializePlatform() {

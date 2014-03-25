@@ -5,8 +5,6 @@ package ${package}.core;
 
 public interface PlatformSupport {
 
-	public String getPlatformId();
-
 	public void initializePlatform();
 
 	/** Hacks around libGDX issue 1640 */

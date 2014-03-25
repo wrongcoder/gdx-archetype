@@ -72,11 +72,6 @@ public class DesktopDriver {
 		}
 
 		@Override
-		public String getPlatformId() {
-			return "desktop";
-		}
-
-		@Override
 		public void initializePlatform() {
 			if (production) {
 				Gdx.app.setLogLevel(Application.LOG_ERROR);
