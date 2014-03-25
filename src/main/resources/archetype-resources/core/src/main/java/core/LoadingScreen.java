@@ -51,14 +51,19 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void hide() {
-		batch.dispose();
-		loadingBarRenderer.dispose();
-
 		// Hacks around libGDX issue 1640
 		final Skin skin = r.assetManager.get(AssetManager.UI);
 		final TextButton.TextButtonStyle style = skin.get(TextButton.TextButtonStyle.class);
 		style.pressedOffsetX = r.platformSupport.fixFloat(style.pressedOffsetX);
 		style.pressedOffsetY = r.platformSupport.fixFloat(style.pressedOffsetY);
+
+		dispose();
+	}
+
+	@Override
+	public void dispose() {
+		batch.dispose();
+		loadingBarRenderer.dispose();
 	}
 
 	@Override

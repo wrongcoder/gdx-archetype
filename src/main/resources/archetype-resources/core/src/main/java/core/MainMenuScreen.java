@@ -32,8 +32,12 @@ public class MainMenuScreen extends Screen {
 
 	@Override
 	public void show() {
-		stage = new Stage();
+		stage = makeMainMenuStage();
 		Gdx.input.setInputProcessor(stage);
+	}
+
+	private Stage makeMainMenuStage() {
+		final Stage stage = new Stage();
 
 		final Skin uiSkin = r.assetManager.get(AssetManager.UI, Skin.class);
 		final Sound buttonClick = r.assetManager.get(BUTTON_CLICK, Sound.class);
@@ -91,10 +95,17 @@ public class MainMenuScreen extends Screen {
 
 		stage.addAction(Actions.alpha(0));
 		stage.addAction(Actions.fadeIn(FADE_IN_SECONDS));
+
+		return stage;
 	}
 
 	@Override
 	public void hide() {
+		dispose();
+	}
+
+	@Override
+	public void dispose() {
 		stage.dispose();
 		Gdx.input.setInputProcessor(null);
 	}
