@@ -8,6 +8,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -16,6 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import ${package}.core.game.DemoScreen;
 
 public class MainMenuScreen extends Screen {
+
+	private static final float FADE_IN_SECONDS = 0.1f;
+	private static final float FADE_OUT_SECONDS = 0.085f;
 
 	private static final String BUTTON_CLICK = "ui/button.wav";
 	private static final float BUTTON_CLICK_VOLUME = 0.2f;
@@ -43,7 +47,15 @@ public class MainMenuScreen extends Screen {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
 				buttonClick.play(BUTTON_CLICK_VOLUME);
-				r.game.setScreen(new DemoScreen(r));
+				stage.addAction(Actions.sequence(
+						Actions.fadeOut(FADE_OUT_SECONDS),
+						Actions.run(new Runnable() {
+							@Override
+							public void run() {
+								r.game.setScreen(new DemoScreen(r));
+							}
+						})
+				));
 			}
 		});
 
@@ -52,9 +64,17 @@ public class MainMenuScreen extends Screen {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
 				buttonClick.play(BUTTON_CLICK_VOLUME);
-				final CreditsScreen creditsScreen = new CreditsScreen(r);
-				r.game.setScreen(creditsScreen);
-				creditsScreen.setNextScreen(MainMenuScreen.this);
+				stage.addAction(Actions.sequence(
+						Actions.fadeOut(FADE_OUT_SECONDS),
+						Actions.run(new Runnable() {
+							@Override
+							public void run() {
+								final CreditsScreen creditsScreen = new CreditsScreen(r);
+								r.game.setScreen(creditsScreen);
+								creditsScreen.setNextScreen(MainMenuScreen.this);
+							}
+						})
+				));
 			}
 		});
 
@@ -68,6 +88,9 @@ public class MainMenuScreen extends Screen {
 
 		stage.addActor(table);
 		table.setFillParent(true);
+
+		stage.addAction(Actions.alpha(0));
+		stage.addAction(Actions.fadeIn(FADE_IN_SECONDS));
 	}
 
 	@Override
