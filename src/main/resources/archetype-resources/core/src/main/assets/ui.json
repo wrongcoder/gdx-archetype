@@ -4,18 +4,23 @@
 		"light": { "r": 1, "g": 1, "b": 1, "a": 1 }
 	},
 	"com.badlogic.gdx.graphics.g2d.BitmapFont": {
-		"default": { "file": "fonts/pixel-font.fnt" }
+		"pixel": { "file": "fonts/pixel-font.fnt" },
+		"sansHugeBold": { "file": "fonts/liberation-sans-48-bold.fnt" }
+	},
+	"com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+		"default": { "font": "pixel" },
+		"title": { "font": "sansHugeBold" }
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
 		"default": {
 			"up": "ui/button-up", "down": "ui/button-down",
-			"font": "default", "fontColor": "dark",
+			"font": "pixel", "fontColor": "dark",
 			"pressedOffsetX": 2, "pressedOffsetY": -2
 		}
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle": {
 		"default": {
-			"font": "default", "fontColor": "light",
+			"font": "pixel", "fontColor": "light",
 			"background": "ui/textfield-enabled",
 			"disabledBackground": "ui/textfield-disabled",
 			"cursor": "ui/cursor"

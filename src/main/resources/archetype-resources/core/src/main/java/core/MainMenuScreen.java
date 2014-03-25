@@ -8,7 +8,9 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import ${package}.core.game.DemoScreen;
@@ -32,9 +34,11 @@ public class MainMenuScreen extends Screen {
 		final Skin uiSkin = r.assetManager.get(AssetManager.UI, Skin.class);
 		final Sound buttonClick = r.assetManager.get(BUTTON_CLICK, Sound.class);
 
+		final Table table = new Table();
+
+		final Label titleLabel = new Label("${projectTitle}", uiSkin, "title");
+
 		final TextButton startButton = new TextButton("Start", uiSkin);
-		startButton.setSize(300, 48);
-		startButton.setPosition(250, 175);
 		startButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
@@ -44,8 +48,6 @@ public class MainMenuScreen extends Screen {
 		});
 
 		final TextButton creditsButton = new TextButton("Credits", uiSkin);
-		creditsButton.setSize(300, 48);
-		creditsButton.setPosition(250, 75);
 		creditsButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(final ChangeEvent event, final Actor actor) {
@@ -56,8 +58,16 @@ public class MainMenuScreen extends Screen {
 			}
 		});
 
-		stage.addActor(startButton);
-		stage.addActor(creditsButton);
+		table.defaults().padTop(50);
+
+		table.add(titleLabel).padBottom(150);
+		table.row();
+		table.add(startButton).size(300, 48);
+		table.row();
+		table.add(creditsButton).size(300, 48);
+
+		stage.addActor(table);
+		table.setFillParent(true);
 	}
 
 	@Override
