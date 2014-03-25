@@ -82,11 +82,12 @@ public class DesktopLauncher {
 		final long processStartTime = System.currentTimeMillis();
 
 		while (System.currentTimeMillis() < processStartTime + 5000) {
+			sleep(500);
+
 			final Integer exitCode = getExitCode(process);
 			if (exitCode != null && exitCode != 0) {
 				throw new IllegalStateException("Exit code: " + exitCode);
 			}
-			sleep(500);
 		}
 	}
 
