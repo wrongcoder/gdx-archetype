@@ -56,7 +56,12 @@ public class MainMenuScreen extends Screen {
 						Actions.run(new Runnable() {
 							@Override
 							public void run() {
-								r.game.setScreen(new DemoScreen(r));
+								Gdx.app.postRunnable(new Runnable() {
+									@Override
+									public void run() {
+										r.game.setScreen(new DemoScreen(r));
+									}
+								});
 							}
 						})
 				));
@@ -73,9 +78,14 @@ public class MainMenuScreen extends Screen {
 						Actions.run(new Runnable() {
 							@Override
 							public void run() {
-								final CreditsScreen creditsScreen = new CreditsScreen(r);
-								r.game.setScreen(creditsScreen);
-								creditsScreen.setNextScreen(MainMenuScreen.this);
+								Gdx.app.postRunnable(new Runnable() {
+									@Override
+									public void run() {
+										final CreditsScreen creditsScreen = new CreditsScreen(r);
+										r.game.setScreen(creditsScreen);
+										creditsScreen.setNextScreen(MainMenuScreen.this);
+									}
+								});
 							}
 						})
 				));
