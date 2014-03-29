@@ -97,7 +97,7 @@ On a real game project, the html target may feel a bit slower than the desktop t
 
 Everything original to this LibGDX Archetype project is:
 
-    Copyright © 2013 wrongcoder
+    Copyright © 2014 wrongcoder
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
