@@ -61,7 +61,7 @@ public class DesktopLauncher {
 				"-Xmx512m",
 				"-Xms512m",
 				"-cp",
-				unWindowsPath(jarPath),
+				fixWindowsPath(jarPath),
 				"${package}.desktop.DesktopDriver",
 				"production"
 		);
@@ -91,7 +91,7 @@ public class DesktopLauncher {
 		}
 	}
 
-	private static String unWindowsPath(final String path) {
+	private static String fixWindowsPath(final String path) {
 		if (path.matches("/[A-Za-z]:/.*")) {
 			return path.substring(1);
 		} else {
