@@ -81,7 +81,7 @@ Alternatively, you could use the
 to reload modified class files automatically. To do this, pass these arguments
 to the JVM:
 
-	-noverify -javaagent:${symbol_dollar}{MAVEN_REPOSITORY}/org/springframework/springloaded/1.1.5.RELEASE/springloaded-1.1.5.RELEASE.jar
+	-noverify -javaagent:${symbol_dollar}{MAVEN_REPOSITORY}/org/springframework/springloaded/${springloadedVersion}/springloaded-${springloadedVersion}.jar
 
 where `${symbol_dollar}{MAVEN_REPOSITORY}` is your local Maven repository, usually
 _${symbol_dollar}HOME/.m2/repository_. (If you're using IntelliJ IDEA, the
