@@ -1,3 +1,7 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
 README for ${projectTitle} developers
 ===============================================================================
 
@@ -155,3 +159,21 @@ Distribution
 	served out by a web server. You can also deploy the war file to any
 	Servlet 3 container.
 
+
+Troubleshooting
+-------------------------------------------------------------------------------
+
+${symbol_pound}${symbol_pound}${symbol_pound} (Linux) Help! I get an IOException at build time.
+
+	Caused by: java.io.IOException: Cannot run program ".m2/repository/com/akathist/maven/plugins/launch4j/launch4j-maven-plugin/1.5.2/launch4j-maven-plugin-1.5.2-workdir-linux/bin/windres": error=2, No such file or directory
+
+Launch4j ships as a 32-bit executable. You must install the 32-bit libc6 on
+your system to run it.
+
+On a modern multiarch distribution, `aptitude install libc6:i386` should take
+care of it. See
+[https://wiki.debian.org/Multiarch/HOWTO](https://wiki.debian.org/Multiarch/HOWTO)
+for details.
+
+On non-multiarch distributions, try looking for a package named something
+like `ia32-libs`.
