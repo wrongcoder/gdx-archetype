@@ -5,13 +5,11 @@ package ${package}.core;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class LoadingScreen extends Screen {
 
@@ -51,12 +49,6 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void hide() {
-		// Hacks around libGDX issue 1640
-		final Skin skin = r.assetManager.get(AssetManager.UI);
-		final TextButton.TextButtonStyle style = skin.get(TextButton.TextButtonStyle.class);
-		style.pressedOffsetX = r.platformSupport.fixFloat(style.pressedOffsetX);
-		style.pressedOffsetY = r.platformSupport.fixFloat(style.pressedOffsetY);
-
 		dispose();
 	}
 
@@ -73,7 +65,7 @@ public class LoadingScreen extends Screen {
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
 		Gdx.gl.glClearColor(0, 0, 0, 0);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		tryLoadSprites();
 		drawSprites(fadeColour);

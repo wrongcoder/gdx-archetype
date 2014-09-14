@@ -51,7 +51,6 @@ public class DesktopDriver {
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = Registry.WIDTH;
 		config.height = Registry.HEIGHT;
-		config.useGL20 = true;
 		config.resizable = false;
 		config.fullscreen = false;
 		config.addIcon("icons/gamepad-64x.png", Files.FileType.Classpath);
@@ -76,11 +75,6 @@ public class DesktopDriver {
 			if (production) {
 				Gdx.app.setLogLevel(Application.LOG_ERROR);
 			}
-		}
-
-		@Override
-		public float fixFloat(final float f) {
-			return f;
 		}
 
 	}

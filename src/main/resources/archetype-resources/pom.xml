@@ -14,8 +14,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.java.target>1.6</project.build.java.target>
-		<gdx.version>0.9.9</gdx.version>
-		<gwt.version>2.5.1</gwt.version>
+		<gdx.version>1.0.0</gdx.version>
+		<gwt.version>2.6.1</gwt.version>
 	</properties>
 
 	<repositories>

@@ -80,7 +80,7 @@
 							<goal>java</goal>
 						</goals>
 						<configuration>
-							<mainClass>com.badlogic.gdx.tools.imagepacker.TexturePacker2</mainClass>
+							<mainClass>com.badlogic.gdx.tools.texturepacker.TexturePacker</mainClass>
 							<arguments>
 								<argument>${symbol_dollar}{project.basedir}/src/main/textures</argument>
 								<argument>${symbol_dollar}{project.build.directory}/gdx/assets</argument>

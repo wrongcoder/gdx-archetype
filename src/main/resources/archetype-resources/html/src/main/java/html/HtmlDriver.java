@@ -84,15 +84,6 @@ public class HtmlDriver extends GwtApplication {
 			Gdx.app.setLogLevel(Application.LOG_ERROR);
 		}
 
-		@Override
-		public float fixFloat(final float f) {
-			return forceReBox(f);
-		}
-
-		public native Float forceReBox(final float f) /*-{
-			return f;
-		}-*/;
-
 	}
 
 }
