@@ -5,7 +5,7 @@
 
 	<groupId>com.vdxp</groupId>
 	<artifactId>gdx-archetype</artifactId>
-	<version>1.0.10.RELEASE</version>
+	<version>1.0.12.RELEASE</version>
 	<packaging>maven-archetype</packaging>
 
 	<properties>
