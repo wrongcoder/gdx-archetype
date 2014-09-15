@@ -6,7 +6,7 @@
 	<requiredProperties>
 		<requiredProperty key="projectTitle"/>
 		<requiredProperty key="springloadedVersion">
-			<defaultValue>1.1.5.RELEASE</defaultValue>
+			<defaultValue>1.2.0.RELEASE</defaultValue>
 		</requiredProperty>
 	</requiredProperties>
 	<fileSets>
