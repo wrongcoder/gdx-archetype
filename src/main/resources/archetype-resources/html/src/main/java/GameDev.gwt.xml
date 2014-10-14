@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.6.1//EN" "https://raw.githubusercontent.com/gwtproject/gwt/2.6.1/distro-source/core/src/gwt-module.dtd">
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit ${googlewebtoolkitVersion}//EN" "https://raw.githubusercontent.com/gwtproject/gwt/${googlewebtoolkitVersion}/distro-source/core/src/gwt-module.dtd">
 <module rename-to="game">
 	<inherits name="${package}.Game"/>
 
