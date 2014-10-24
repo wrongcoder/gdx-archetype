@@ -6,7 +6,7 @@
 	<requiredProperties>
 		<requiredProperty key="projectTitle"/>
 		<requiredProperty key="springloadedVersion">
-			<defaultValue>1.2.0.RELEASE</defaultValue>
+			<defaultValue>1.2.1.RELEASE</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="googlewebtoolkitVersion">
 			<defaultValue>2.6.1</defaultValue>
