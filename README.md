@@ -14,15 +14,19 @@ $ ssh webhost.example.com unzip -d LD48 game.war
 
 ## What is it?
 
+Tabs or spaces? Gradle or Maven? Screen or MyScreen? Streamlined bare-bones basics or full-blown demo project?
+
 Professional software developers disagree about a lot of things that don't really matter. Very often, all choices are equally valid, but each developer prefers the one that they proposed anyway.
 
-In essence, this is my base code for [Ludum Dare](http://www.ludumdare.com/compo/). Having a properly working build system right off the bat means I'm not going to spend the first night (or longer) tweaking the build to get rid of irritations. Having a bit of a starting point, containing a few simple things I'd need to make any sort of game, named and laid out the way I like, is nice as well.
+This is my base code for [Ludum Dare](http://www.ludumdare.com/compo/). Having a properly working build system right off the bat means I don't have to spend the first night (or longer) tweaking the build to get rid of irritations. Having a bit of a starting point, containing a few simple things I'd need to make any sort of game, named and laid out the way I like, is nice as well.
 
 On the other hand, having a ton of sample code or features included is not the point of this project.
 
 ## What is it not?
 
 It's not a complete game engine, at least not any more than LibGDX itself is, nor is it an advanced starting point for any particular type of game.
+
+It's not the way to start projects that is recommended by the LibGDX developers. See the [LibGDX Wiki](https://github.com/libgdx/libgdx/wiki/) for their [Gradle-based setup guide](https://github.com/libgdx/libgdx/wiki/Project-Setup-Gradle).
 
 There are lots of excellent game engines out there, some of which are even based on LibGDX. If you're looking for one of those, [Fixel-GDX](https://github.com/flixel-gdx/flixel-gdx) looks pretty good. Check it out. And there's nothing wrong with [Unity3D](http://unity3d.com/unity/download/) or [GameMaker](http://www.yoyogames.com/studio) or anything else, either. Use whatever you like.
 
@@ -43,7 +47,7 @@ On a real game project, the html target may feel a bit slower than the desktop t
 * all: only writes generated resources inside target directories
 * all: has cleaned up dependencyManagement and pluginManagement blocks
 * desktop: includes a Launch4j EXE to help Windows users locate a JRE
-* desktop: includes a JRE re-launcher for older JVMs that don't provide a big enough heap
+* desktop: includes a JRE re-launcher for ancient JVMs that don't provide a big enough heap
 * desktop: produces a ZIP containing a double-clickable JAR and a lib folder (no more huge fat-JARs)
 * desktop: automatically passes the core module through ProGuard
 * html: enables SoundManager2 click-to-flash support
