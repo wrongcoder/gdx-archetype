@@ -31,6 +31,7 @@
 					<version>2.2</version>
 					<configuration>
 						<settingsFile>src/test/resources/projects/build/settings.xml</settingsFile>
+						<showVersion>true</showVersion>
 					</configuration>
 				</plugin>
 			</plugins>
