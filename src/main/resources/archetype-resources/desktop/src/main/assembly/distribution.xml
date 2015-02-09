@@ -31,6 +31,11 @@
 			<destName>${symbol_dollar}{project.parent.artifactId}.exe</destName>
 		</file>
 		<file>
+			<source>${symbol_dollar}{project.build.directory}/${symbol_dollar}{project.build.finalName}/${symbol_dollar}{project.parent.name}.app/Contents/MacOS/JavaAppLauncher</source>
+			<outputDirectory>${symbol_dollar}{project.parent.name}.app/Contents/MacOS</outputDirectory>
+			<fileMode>755</fileMode>
+		</file>
+		<file>
 			<source>${symbol_dollar}{project.basedir}/../core/target/gdx/assets/version.json</source>
 			<outputDirectory>lib</outputDirectory>
 			<destName>version.txt</destName>
@@ -38,6 +43,14 @@
 		</file>
 	</files>
 	<fileSets>
+		<fileSet>
+			<directory>${symbol_dollar}{project.build.directory}/${symbol_dollar}{project.build.finalName}/${symbol_dollar}{project.parent.name}.app</directory>
+			<outputDirectory>${symbol_dollar}{project.parent.name}.app</outputDirectory>
+			<excludes>
+				<exclude>Contents/Java/**/*</exclude>
+				<exclude>Contents/Resources/**/*</exclude>
+			</excludes>
+		</fileSet>
 		<fileSet>
 			<directory>${symbol_dollar}{project.basedir}/src/main/scripts</directory>
 			<outputDirectory>/</outputDirectory>

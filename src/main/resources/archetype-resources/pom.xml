@@ -9,7 +9,7 @@
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
 	<packaging>pom</packaging>
-	<name>${projectTitle} Parent</name>
+	<name>${projectTitle}</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,6 +35,13 @@
 		<pluginRepository>
 			<id>sonatype-snapsots</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>gdx-archetype-wrongcoder</id>
+			<url>https://raw.github.com/wrongcoder/gdx-archetype/mvn/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -166,6 +173,11 @@
 					<groupId>com.akathist.maven.plugins.launch4j</groupId>
 					<artifactId>launch4j-maven-plugin</artifactId>
 					<version>1.6</version>
+				</plugin>
+				<plugin>
+					<groupId>io.github.appbundler</groupId>
+					<artifactId>appbundle-maven-plugin</artifactId>
+					<version>1.0-SNAPSHOT</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

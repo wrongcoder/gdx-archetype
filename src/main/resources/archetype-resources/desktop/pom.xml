@@ -224,6 +224,30 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>io.github.appbundler</groupId>
+				<artifactId>appbundle-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+						<configuration>
+							<bundleName>${symbol_dollar}{project.parent.name}</bundleName>
+							<mainClass>${package}.desktop.DesktopDriver</mainClass>
+							<jvmArguments>
+								<argument>production</argument>
+							</jvmArguments>
+							<jvmVersion>${symbol_dollar}{project.build.java.target}+</jvmVersion>
+							<workingDirectory>${symbol_dollar}APP_ROOT/..</workingDirectory>
+							<additionalClasspath>
+								<classpath>../../../${symbol_dollar}{project.parent.artifactId}.jar</classpath>
+							</additionalClasspath>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
