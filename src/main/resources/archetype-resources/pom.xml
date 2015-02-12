@@ -28,7 +28,7 @@
 		</repository>
 		<repository>
 			<id>gdx-archetype-wrongcoder</id>
-			<url>https://raw.github.com/wrongcoder/gdx-archetype/mvn/</url>
+			<url>https://raw.githubusercontent.com/wrongcoder/gdx-archetype/mvn/</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -41,7 +41,7 @@
 		</pluginRepository>
 		<pluginRepository>
 			<id>gdx-archetype-wrongcoder</id>
-			<url>https://raw.github.com/wrongcoder/gdx-archetype/mvn/</url>
+			<url>https://raw.githubusercontent.com/wrongcoder/gdx-archetype/mvn/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
