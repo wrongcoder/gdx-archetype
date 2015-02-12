@@ -4,11 +4,17 @@
 
 ${projectTitle}
 
-Windows: Double-click on ${symbol_dollar}{project.parent.artifactId}.exe to start the game.
+Windows:
+Double-click on ${symbol_dollar}{project.parent.artifactId}.exe to start the game.
 
-Mac OS X: Double-click on ${symbol_dollar}{project.parent.name}.app to start the game.
+Mac OS X 10.7+:
+Double-click on ${symbol_dollar}{project.parent.name}.app to start the game.
 
-Other OS: Double-click on ${symbol_dollar}{project.parent.artifactId}.jar to start the game.
+Mac OS X 10.5+:
+Double-click on ${symbol_dollar}{project.parent.artifactId}.jar to start the game.
+
+Linux:
+Double-click on ${symbol_dollar}{project.parent.artifactId}.jar to start the game.
 
 If it doesn't work, you may need to install Java: http://java.com/en/download/index.jsp
 
