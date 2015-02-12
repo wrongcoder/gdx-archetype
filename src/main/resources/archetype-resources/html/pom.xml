@@ -89,6 +89,7 @@
 					<runTarget>index.html</runTarget>
 					<persistentunitcache>true</persistentunitcache>
 					<persistentunitcachedir>${symbol_dollar}{project.build.directory}</persistentunitcachedir>
+					<extraJvmArgs>-Xmx4G -Dgwt.jjs.permutationWorkerFactory=com.google.gwt.dev.ThreadedPermutationWorkerFactory</extraJvmArgs>
 				</configuration>
 			</plugin>
 			<plugin>
