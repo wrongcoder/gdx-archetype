@@ -14,7 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.java.target>1.6</project.build.java.target>
-		<gdx.version>1.5.3</gdx.version>
+		<gdx.version>1.5.4</gdx.version>
 		<gwt.version>${googlewebtoolkitVersion}</gwt.version>
 	</properties>
 
