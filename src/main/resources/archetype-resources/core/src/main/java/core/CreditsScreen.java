@@ -7,8 +7,8 @@ import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenAccessor;
 import aurelienribon.tweenengine.TweenCallback;
+import aurelienribon.tweenengine.TweenEquations;
 import aurelienribon.tweenengine.TweenManager;
-import aurelienribon.tweenengine.equations.Linear;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.GL20;
@@ -71,7 +71,7 @@ public class CreditsScreen extends Screen {
 		final float duration = (-nextY + Registry.HEIGHT) / SPEED;
 		Tween.to(this, 0, duration)
 				.target(-nextY + Registry.HEIGHT)
-				.ease(Linear.INOUT)
+				.ease(TweenEquations.easeNone)
 				.setCallback(new CreditsScreenTweenCallback())
 				.start(tweenManager);
 	}
