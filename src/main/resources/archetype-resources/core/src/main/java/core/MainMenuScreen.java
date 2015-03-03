@@ -122,7 +122,6 @@ public class MainMenuScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act(delta);
