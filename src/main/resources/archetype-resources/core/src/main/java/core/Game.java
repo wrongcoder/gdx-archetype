@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.core;
 
+import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -20,6 +21,10 @@ public class Game extends com.badlogic.gdx.Game {
 
 	public Game(final Registry r) {
 		this.r = r;
+	}
+
+	static {
+		Tween.setWaypointsLimit(2);
 	}
 
 	@Override
