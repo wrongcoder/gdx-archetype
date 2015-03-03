@@ -47,9 +47,8 @@ public class CreditsScreen extends Screen {
 		super(r);
 	}
 
-	public Screen setNextScreen(final Screen nextScreen) {
+	public void setNextScreen(final Screen nextScreen) {
 		this.nextScreen = nextScreen;
-		return this;
 	}
 
 	@Override
