@@ -48,11 +48,6 @@ public class LoadingScreen extends Screen {
 	}
 
 	@Override
-	public void hide() {
-		dispose();
-	}
-
-	@Override
 	public void dispose() {
 		batch.dispose();
 		loadingBarRenderer.dispose();

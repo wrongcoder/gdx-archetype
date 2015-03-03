@@ -24,6 +24,7 @@ public abstract class Screen implements com.badlogic.gdx.Screen {
 
 	@Override
 	public void hide() {
+		dispose();
 	}
 
 	@Override

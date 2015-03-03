@@ -76,7 +76,7 @@ public class CreditsScreen extends Screen {
 	}
 
 	@Override
-	public void hide() {
+	public void dispose() {
 		batch.dispose();
 		tweenManager = null;
 		Gdx.input.setInputProcessor(null);

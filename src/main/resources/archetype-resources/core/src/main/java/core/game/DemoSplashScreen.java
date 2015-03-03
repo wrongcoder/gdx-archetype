@@ -66,11 +66,6 @@ public class DemoSplashScreen extends Screen {
 	}
 
 	@Override
-	public void hide() {
-		dispose();
-	}
-
-	@Override
 	public void dispose() {
 		stage.dispose();
 	}
