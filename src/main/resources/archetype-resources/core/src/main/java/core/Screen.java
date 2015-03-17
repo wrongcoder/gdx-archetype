@@ -8,12 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public abstract class Screen implements com.badlogic.gdx.Screen {
 
-	protected final Registry r;
-
-	public Screen(final Registry r) {
-		this.r = r;
-	}
-
 	@Override
 	public void resize(final int width, final int height) {
 	}

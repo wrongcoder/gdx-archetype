@@ -10,12 +10,19 @@ import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import ${package}.core.Game;
 import ${package}.core.PlatformSupport;
 import ${package}.core.Registry;
 
 public class HtmlDriver extends GwtApplication {
 
-	private final Registry r = new Registry(new HtmlPlatformSupport());
+	private final Game game;
+
+	public HtmlDriver() {
+		super();
+		game = new Game();
+		Registry.registerPlatformSupport(new HtmlPlatformSupport());
+	}
 
 	@Override
 	public void onModuleLoad() {
@@ -26,7 +33,7 @@ public class HtmlDriver extends GwtApplication {
 
 	@Override
 	public ApplicationListener getApplicationListener() {
-		return r.game;
+		return game;
 	}
 
 	@Override
@@ -55,7 +62,7 @@ public class HtmlDriver extends GwtApplication {
 	private void setVersionString() {
 		final Element versionElement = Document.get().getElementById("version");
 		if (versionElement != null) {
-			versionElement.setInnerText(r.game.getFullVersion());
+			versionElement.setInnerText(game.getFullVersion());
 		}
 	}
 

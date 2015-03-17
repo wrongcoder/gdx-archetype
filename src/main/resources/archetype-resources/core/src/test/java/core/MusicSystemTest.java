@@ -4,21 +4,19 @@
 package ${package}.core;
 
 import com.badlogic.gdx.audio.Music;
-import org.hamcrest.Description;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatcher;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
-import static ${package}.core.testutils.Matchers.isCloseTo;
-import static ${package}.core.testutils.Matchers.isGreaterThan;
+import static ${package}.core.testutil.Matchers.isCloseTo;
+import static ${package}.core.testutil.Matchers.isGreaterThan;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.atLeastOnce;

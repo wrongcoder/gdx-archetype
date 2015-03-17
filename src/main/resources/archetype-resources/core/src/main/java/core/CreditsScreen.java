@@ -17,6 +17,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class CreditsScreen extends Screen {
 
+	private final Screen nextScreen;
+
 	private SpriteBatch batch;
 	private TweenManager tweenManager;
 	private BitmapFont mainTitleFont;
@@ -25,7 +27,6 @@ public class CreditsScreen extends Screen {
 	private BitmapFont boldFont;
 	private BitmapFont smallFont;
 
-	private Screen nextScreen;
 	private boolean done = false;
 
 	private float top = 0;
@@ -43,11 +44,7 @@ public class CreditsScreen extends Screen {
 			new MessageCreditsText("http://libgdx.badlogicgames.com/")
 	};
 
-	public CreditsScreen(final Registry r) {
-		super(r);
-	}
-
-	public void setNextScreen(final Screen nextScreen) {
+	public CreditsScreen(final Screen nextScreen) {
 		this.nextScreen = nextScreen;
 	}
 
@@ -55,11 +52,11 @@ public class CreditsScreen extends Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		tweenManager = new TweenManager();
-		mainTitleFont = r.assetManager.get(Fonts.SANS_HUGE_BOLD);
-		sectionTitleFont = r.assetManager.get(Fonts.SANS_LARGE_BOLD);
-		normalFont = r.assetManager.get(Fonts.SANS_MEDIUM);
-		boldFont = r.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
-		smallFont = r.assetManager.get(Fonts.SANS_SMALL);
+		mainTitleFont = Registry.assetManager.get(Fonts.SANS_HUGE_BOLD);
+		sectionTitleFont = Registry.assetManager.get(Fonts.SANS_LARGE_BOLD);
+		normalFont = Registry.assetManager.get(Fonts.SANS_MEDIUM);
+		boldFont = Registry.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
+		smallFont = Registry.assetManager.get(Fonts.SANS_SMALL);
 		Gdx.input.setInputProcessor(new CreditsScreenInputHandler());
 
 		float nextY = 0;
@@ -96,7 +93,7 @@ public class CreditsScreen extends Screen {
 		batch.end();
 
 		if (done) {
-			r.game.setScreen(nextScreen);
+			Registry.game().setScreen(nextScreen);
 		}
 	}
 

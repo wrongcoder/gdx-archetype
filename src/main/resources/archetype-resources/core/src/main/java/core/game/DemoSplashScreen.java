@@ -21,20 +21,16 @@ public class DemoSplashScreen extends Screen {
 
 	private Stage stage;
 
-	private Screen nextScreen;
+	private final Screen nextScreen;
 
-	public DemoSplashScreen(final Registry r) {
-		super(r);
-	}
-
-	public void setNextScreen(final Screen nextScreen) {
+	public DemoSplashScreen(final Screen nextScreen) {
 		this.nextScreen = nextScreen;
 	}
 
 	@Override
 	public void show() {
-		final Texture texture = r.assetManager.get(AssetManager.LIBGDX_LOGO);
-		final BitmapFont font = r.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
+		final Texture texture = Registry.assetManager.get(AssetManager.LIBGDX_LOGO);
+		final BitmapFont font = Registry.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
 		stage = new Stage();
 
 		final Image image = new Image(texture);
@@ -57,7 +53,7 @@ public class DemoSplashScreen extends Screen {
 						Gdx.app.postRunnable(new Runnable() {
 							@Override
 							public void run() {
-								r.game.setScreen(nextScreen);
+								Registry.game().setScreen(nextScreen);
 							}
 						});
 					}

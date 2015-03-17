@@ -26,10 +26,6 @@ public class MainMenuScreen extends Screen {
 
 	private Stage stage;
 
-	public MainMenuScreen(final Registry r) {
-		super(r);
-	}
-
 	@Override
 	public void show() {
 		stage = makeMainMenuStage();
@@ -39,8 +35,8 @@ public class MainMenuScreen extends Screen {
 	private Stage makeMainMenuStage() {
 		final Stage stage = new Stage();
 
-		final Skin uiSkin = r.assetManager.get(AssetManager.UI, Skin.class);
-		final Sound buttonClick = r.assetManager.get(BUTTON_CLICK, Sound.class);
+		final Skin uiSkin = Registry.assetManager.get(AssetManager.UI, Skin.class);
+		final Sound buttonClick = Registry.assetManager.get(BUTTON_CLICK, Sound.class);
 
 		final Table table = new Table();
 
@@ -59,9 +55,8 @@ public class MainMenuScreen extends Screen {
 								Gdx.app.postRunnable(new Runnable() {
 									@Override
 									public void run() {
-										final DemoSplashScreen splashScreen = new DemoSplashScreen(r);
-										r.game.setScreen(splashScreen);
-										splashScreen.setNextScreen(MainMenuScreen.this);
+										final DemoSplashScreen splashScreen = new DemoSplashScreen(MainMenuScreen.this);
+										Registry.game().setScreen(splashScreen);
 									}
 								});
 							}
@@ -83,9 +78,8 @@ public class MainMenuScreen extends Screen {
 								Gdx.app.postRunnable(new Runnable() {
 									@Override
 									public void run() {
-										final CreditsScreen creditsScreen = new CreditsScreen(r);
-										r.game.setScreen(creditsScreen);
-										creditsScreen.setNextScreen(MainMenuScreen.this);
+										final CreditsScreen creditsScreen = new CreditsScreen(MainMenuScreen.this);
+										Registry.game().setScreen(creditsScreen);
 									}
 								});
 							}

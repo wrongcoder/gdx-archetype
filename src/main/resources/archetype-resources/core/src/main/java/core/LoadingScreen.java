@@ -25,15 +25,10 @@ public class LoadingScreen extends Screen {
 	private static final float FADE_TIME = 0.2f;
 	private float fadeTimeLeft = FADE_TIME;
 
-	private Screen nextScreen;
+	private final Screen nextScreen;
 
-	public LoadingScreen(final Registry r) {
-		super(r);
-	}
-
-	public Screen setNextScreen(final Screen nextScreen) {
+	public LoadingScreen(final Screen nextScreen) {
 		this.nextScreen = nextScreen;
-		return this;
 	}
 
 	@Override
@@ -41,7 +36,7 @@ public class LoadingScreen extends Screen {
 		batch = new SpriteBatch();
 		loadingBarRenderer = new ShapeRenderer();
 
-		final boolean assetsAlreadyLoaded = r.assetManager.update(10);
+		final boolean assetsAlreadyLoaded = Registry.assetManager.update(10);
 		if (assetsAlreadyLoaded) {
 			nextScreen();
 		}
@@ -55,7 +50,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		final boolean finishedLoading = r.assetManager.update(10);
+		final boolean finishedLoading = Registry.assetManager.update(10);
 		final float fadeAlpha = fadeTimeLeft / FADE_TIME;
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
@@ -75,12 +70,12 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void tryLoadSprites() {
-		if (loadingText == null && r.assetManager.isLoaded(LOADING_TEXT_ASSET)) {
-			loadingText = new Sprite(r.assetManager.<Texture>get(LOADING_TEXT_ASSET));
+		if (loadingText == null && Registry.assetManager.isLoaded(LOADING_TEXT_ASSET)) {
+			loadingText = new Sprite(Registry.assetManager.<Texture>get(LOADING_TEXT_ASSET));
 			loadingText.setPosition(80, 224);
 		}
-		if (loadingBorder == null && r.assetManager.isLoaded(LOADING_BORDER_ASSET)) {
-			loadingBorder = new Sprite(r.assetManager.<Texture>get(LOADING_BORDER_ASSET));
+		if (loadingBorder == null && Registry.assetManager.isLoaded(LOADING_BORDER_ASSET)) {
+			loadingBorder = new Sprite(Registry.assetManager.<Texture>get(LOADING_BORDER_ASSET));
 			loadingBorder.setPosition(144, 80);
 		}
 	}
@@ -99,7 +94,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void drawLoadingBar(final Color fadeColour) {
-		final float progress = r.assetManager.getProgress();
+		final float progress = Registry.assetManager.getProgress();
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		loadingBarRenderer.setColor(fadeColour);
@@ -108,7 +103,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void nextScreen() {
-		r.game.setScreen(nextScreen);
+		Registry.game().setScreen(nextScreen);
 	}
 
 	public static void queueAssets(final AssetManager assetManager) {

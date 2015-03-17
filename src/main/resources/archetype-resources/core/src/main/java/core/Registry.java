@@ -13,25 +13,24 @@ public class Registry {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 
-	public final Game game;
-	public final Logger log;
-	public final AssetManager assetManager;
+	public static final Logger log = new Logger("${artifactId}", Logger.DEBUG);
+	public static final AssetManager assetManager = new AssetManager();
 
-	public final PlatformSupport platformSupport;
+	private static PlatformSupport platformSupport;
 
-	public Registry(final PlatformSupport platformSupport) {
-		// This happens before Gdx initialization
-		this.game = new Game(this);
-		this.log = new Logger("${artifactId}", Logger.DEBUG);
-		this.assetManager = new AssetManager();
-		this.platformSupport = platformSupport;
+	public static Game game() {
+		return (Game) Gdx.app.getApplicationListener();
 	}
 
-	public Preferences getPreferences() {
+	public static PlatformSupport platformSupport() {
+		return platformSupport;
+	}
+
+	public static Preferences getPreferences() {
 		return Gdx.app.getPreferences("${groupId}.${artifactId}");
 	}
 
-	public String getClientId() {
+	public static String getClientId() {
 		final Preferences preferences = getPreferences();
 
 		String clientId = preferences.getString("clientId", "");
@@ -55,6 +54,12 @@ public class Registry {
 		}
 
 		return sb.toString();
+	}
+
+	/** This must be called exactly once from the platform driver */
+	public static void registerPlatformSupport(final PlatformSupport platformSupport) {
+		assert Registry.platformSupport == null;
+		Registry.platformSupport = platformSupport;
 	}
 
 }

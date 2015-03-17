@@ -8,6 +8,7 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import ${package}.core.Game;
 import ${package}.core.PlatformSupport;
 import ${package}.core.Registry;
 
@@ -46,7 +47,7 @@ public class DesktopDriver {
 	}
 
 	private static void start(final boolean production) {
-		final Registry r = new Registry(new DesktopPlatformSupport(production));
+		Registry.registerPlatformSupport(new DesktopPlatformSupport(production));
 
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = Registry.WIDTH;
@@ -59,7 +60,7 @@ public class DesktopDriver {
 		config.addIcon("icons/gamepad-16x.png", Files.FileType.Classpath);
 		config.title = "${projectTitle}";
 
-		new LwjglApplication(r.game, config);
+		new LwjglApplication(new Game(), config);
 	}
 
 	private static class DesktopPlatformSupport implements PlatformSupport {

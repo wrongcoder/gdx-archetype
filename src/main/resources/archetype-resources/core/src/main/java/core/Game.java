@@ -13,15 +13,9 @@ import com.badlogic.gdx.utils.SerializationException;
 
 public class Game extends com.badlogic.gdx.Game {
 
-	private final Registry r;
-
 	private String fullVersion;
 	private String shortVersion;
 	private String versionId;
-
-	public Game(final Registry r) {
-		this.r = r;
-	}
 
 	static {
 		Tween.setWaypointsLimit(2);
@@ -29,11 +23,13 @@ public class Game extends com.badlogic.gdx.Game {
 
 	@Override
 	public void create() {
+		assert Registry.platformSupport() != null;
+
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		loadVersion();
-		r.assetManager.queueAssets();
-		r.platformSupport.initializePlatform();
-		setScreen(new LoadingScreen(r).setNextScreen(new MainMenuScreen(r)));
+		Registry.assetManager.queueAssets();
+		Registry.platformSupport().initializePlatform();
+		setScreen(new LoadingScreen(new MainMenuScreen()));
 	}
 
 	public String getFullVersion() {
@@ -57,7 +53,7 @@ public class Game extends com.badlogic.gdx.Game {
 			shortVersion = versionStrings.shortVersion;
 			versionId = versionStrings.versionId;
 		} catch (final SerializationException e) {
-			r.log.error("Error reading version number", e);
+			Registry.log.error("Error reading version number", e);
 			fullVersion = "(unknown)";
 			shortVersion = "(unknown)";
 			versionId = "unknown";

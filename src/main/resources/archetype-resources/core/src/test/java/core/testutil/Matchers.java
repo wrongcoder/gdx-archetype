@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.core.testutils;
+package ${package}.core.testutil;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
