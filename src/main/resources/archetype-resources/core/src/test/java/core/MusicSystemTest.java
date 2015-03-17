@@ -17,6 +17,8 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
+import static ${package}.core.testutils.Matchers.isCloseTo;
+import static ${package}.core.testutils.Matchers.isGreaterThan;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.atLeastOnce;
@@ -131,7 +133,7 @@ public class MusicSystemTest {
 		system.play(music1);
 		system.update(0);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
-		assertThat(volume1.getValue(), new IsCloseTo(1));
+		assertThat(volume1.getValue(), isCloseTo(1));
 	}
 
 	@Test
@@ -153,7 +155,7 @@ public class MusicSystemTest {
 		system.queue(music1);
 		system.update(0);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
-		assertThat(volume1.getValue(), new IsCloseTo(1));
+		assertThat(volume1.getValue(), isCloseTo(1));
 	}
 
 	@Test
@@ -166,24 +168,24 @@ public class MusicSystemTest {
 		system.update(0);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
 		verify(music2, atLeastOnce()).setVolume(volume2.capture());
-		assertThat(volume1.getValue(), new IsCloseTo(1));
-		assertThat(volume2.getValue(), new IsCloseTo(0));
+		assertThat(volume1.getValue(), isCloseTo(1));
+		assertThat(volume2.getValue(), isCloseTo(0));
 
 		when(music1.isPlaying()).thenReturn(true);
 		when(music2.isPlaying()).thenReturn(true);
 		system.update(MusicSystem.CROSS_FADE_SECONDS / 2);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
 		verify(music2, atLeastOnce()).setVolume(volume2.capture());
-		assertThat(volume1.getValue(), new IsGreaterThan(0.1f));
-		assertThat(volume2.getValue(), new IsGreaterThan(0.1f));
+		assertThat(volume1.getValue(), isGreaterThan(0.1f));
+		assertThat(volume2.getValue(), isGreaterThan(0.1f));
 
 		when(music1.isPlaying()).thenReturn(true);
 		when(music2.isPlaying()).thenReturn(true);
 		system.update(MusicSystem.CROSS_FADE_SECONDS / 2);
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
 		verify(music2, atLeastOnce()).setVolume(volume2.capture());
-		assertThat(volume1.getValue(), new IsCloseTo(0));
-		assertThat(volume2.getValue(), new IsCloseTo(1));
+		assertThat(volume1.getValue(), isCloseTo(0));
+		assertThat(volume2.getValue(), isCloseTo(1));
 	}
 
 	@Test
@@ -203,8 +205,8 @@ public class MusicSystemTest {
 		verify(music3, times(1)).play();
 		verify(music1, atLeastOnce()).setVolume(volume1.capture());
 		verify(music3, atLeastOnce()).setVolume(volume3.capture());
-		assertThat(volume1.getValue(), new IsGreaterThan(0.5f));
-		assertThat(volume3.getValue(), new IsCloseTo(0));
+		assertThat(volume1.getValue(), isGreaterThan(0.5f));
+		assertThat(volume3.getValue(), isCloseTo(0));
 	}
 
 	@Test
@@ -224,47 +226,8 @@ public class MusicSystemTest {
 		verify(music3, times(1)).play();
 		verify(music2, atLeastOnce()).setVolume(volume2.capture());
 		verify(music3, atLeastOnce()).setVolume(volume3.capture());
-		assertThat(volume2.getValue(), new IsGreaterThan(0.5f));
-		assertThat(volume3.getValue(), new IsCloseTo(0));
-	}
-
-	private static class IsCloseTo extends ArgumentMatcher<Float> {
-		private static final float epsilon = 0.001f;
-		private final float target;
-
-		public IsCloseTo(final float target) {
-			this.target = target;
-		}
-
-		@Override
-		public boolean matches(final Object argument) {
-			return Math.abs(target - (Float) argument) < epsilon;
-		}
-
-		@Override
-		public void describeTo(final Description description) {
-			super.describeTo(description);
-			description.appendText(" " + target);
-		}
-	}
-
-	private static class IsGreaterThan extends ArgumentMatcher<Float> {
-		private final float target;
-
-		public IsGreaterThan(final float target) {
-			this.target = target;
-		}
-
-		@Override
-		public boolean matches(final Object argument) {
-			return (Float) argument > target;
-		}
-
-		@Override
-		public void describeTo(final Description description) {
-			super.describeTo(description);
-			description.appendText(" " + target);
-		}
+		assertThat(volume2.getValue(), isGreaterThan(0.5f));
+		assertThat(volume3.getValue(), isCloseTo(0));
 	}
 
 }
