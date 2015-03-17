@@ -19,6 +19,10 @@ import ${package}.core.Screen;
 
 public class DemoSplashScreen extends Screen {
 
+	private static final float FADE_IN_SECONDS = 0.1f;
+	private static final float FADE_HANG_SECONDS = 0.5f;
+	private static final float FADE_OUT_SECONDS = 0.085f;
+
 	private Stage stage;
 
 	private final Screen nextScreen;
@@ -44,9 +48,9 @@ public class DemoSplashScreen extends Screen {
 
 		stage.addAction(Actions.sequence(
 				Actions.alpha(0),
-				Actions.fadeIn(1.0f),
-				Actions.delay(0.5f),
-				Actions.fadeOut(1.0f),
+				Actions.fadeIn(FADE_IN_SECONDS),
+				Actions.delay(FADE_HANG_SECONDS),
+				Actions.fadeOut(FADE_OUT_SECONDS),
 				Actions.run(new Runnable() {
 					@Override
 					public void run() {
