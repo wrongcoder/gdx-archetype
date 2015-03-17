@@ -10,13 +10,19 @@ Before you begin
 -------------------------------------------------------------------------------
 
 1.	You must generate the TextureAtlas assets before running the project
-	for the first time. To do this, run the _compile_ phase of the build:
+	for the first time. To do this, run the _process-resources_ phase of
+	the build:
 
-		${artifactId}${symbol_dollar} mvn compile
+		${artifactId}${symbol_dollar} mvn process-resources
 
-		[INFO] --- exec-maven-plugin:1.2.1:java (pack-textures) @ ${artifactId}-core ---
+		[INFO] --- exec-maven-plugin:1.3.2:java (pack-textures) @ ${artifactId}-core ---
 		Packing....
-		Writing 256x256: /path/to/${artifactId}/core/target/gdx/assets/textures.png
+		Writing 256x64: /path/to/${artifactId}/core/target/gdx/assets/textures.png
+
+		[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ${artifactId}-core ---
+		[INFO] Using 'UTF-8' encoding to copy filtered resources.
+		[INFO] Copying 1 resource to /path/to/${artifactId}/core/target/gdx/assets
+		[INFO] Copying 26 resources to /path/to/${artifactId}/core/target/gdx/assets
 
 		[INFO] ------------------------------------------------------------------------
 		[INFO] BUILD SUCCESS
