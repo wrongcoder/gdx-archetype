@@ -30,6 +30,11 @@
 			<classifier>natives-desktop</classifier>
 		</dependency>
 		<dependency>
+			<groupId>com.badlogicgames.gdx</groupId>
+			<artifactId>gdx-box2d-platform</artifactId>
+			<classifier>natives-desktop</classifier>
+		</dependency>
+		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>${artifactId}-core</artifactId>
 		</dependency>

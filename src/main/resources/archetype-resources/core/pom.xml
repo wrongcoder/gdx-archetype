@@ -21,6 +21,10 @@
 			<artifactId>gdx</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.badlogicgames.gdx</groupId>
+			<artifactId>gdx-box2d</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.vdxp.maven.com.google.code.java-universal-tween-engine</groupId>
 			<artifactId>tween-engine-api</artifactId>
 		</dependency>

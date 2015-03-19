@@ -4,6 +4,7 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit ${googlewebtoolkitVersion}//EN" "https://raw.githubusercontent.com/gwtproject/gwt/${googlewebtoolkitVersion}/distro-source/core/src/gwt-module.dtd">
 <module rename-to="game">
 	<inherits name="com.badlogic.gdx.backends.gdx_backends_gwt"/>
+	<inherits name="com.badlogic.gdx.physics.box2d.box2d-gwt"/>
 	<inherits name="aurelienribon.tweenengine"/>
 
 	<source path="core"/>
