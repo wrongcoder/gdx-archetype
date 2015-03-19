@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import ${package}.core.game.DemoBox2dScreen;
 import ${package}.core.game.DemoSplashScreen;
 
 public class MainMenuScreen extends Screen {
@@ -55,7 +56,8 @@ public class MainMenuScreen extends Screen {
 								Gdx.app.postRunnable(new Runnable() {
 									@Override
 									public void run() {
-										final DemoSplashScreen splashScreen = new DemoSplashScreen(MainMenuScreen.this);
+										final DemoBox2dScreen box2dScreen = new DemoBox2dScreen(MainMenuScreen.this);
+										final DemoSplashScreen splashScreen = new DemoSplashScreen(box2dScreen);
 										Registry.game().setScreen(splashScreen);
 									}
 								});

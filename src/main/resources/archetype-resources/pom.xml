@@ -196,6 +196,7 @@
 				<classifier>sources</classifier>
 				<version>${symbol_dollar}{gdx.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.badlogicgames.gdx</groupId>
 				<artifactId>gdx-box2d</artifactId>
