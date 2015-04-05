@@ -31,6 +31,7 @@ public class DemoBox2dScreen extends Screen {
 	private boolean debugMode;
 	private SpriteBatch debugBatch;
 	private Box2DDebugRenderer debugRenderer;
+	private BitmapFont debugFont;
 
 	private World world;
 	private OrthographicCamera worldCamera;
@@ -58,6 +59,7 @@ public class DemoBox2dScreen extends Screen {
 		debugMode = true;
 		debugBatch = new SpriteBatch();
 		debugRenderer = new Box2DDebugRenderer();
+		debugFont = Registry.assetManager.get(Fonts.MONO_SMALL);
 
 		world = new World(new Vector2(0, -9.8f), true);
 		worldCamera = new OrthographicCamera(Registry.WIDTH * pixelsInMetres, Registry.HEIGHT * pixelsInMetres);
@@ -122,12 +124,11 @@ public class DemoBox2dScreen extends Screen {
 		debugRenderer.render(world, worldCamera.combined);
 
 		debugBatch.begin();
-		final BitmapFont font = Registry.assetManager.get(Fonts.MONO_SMALL);
 		final Counter y = new Counter(590, -16);
-		font.draw(debugBatch, "Debug mode (F3 to toggle)", 10, y.next());
-		font.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, y.next());
-		font.draw(debugBatch, "TargetX=" + mouseX, 10, y.next());
-		font.draw(debugBatch, "PaddleX=" + paddle.getX(), 10, y.next());
+		debugFont.draw(debugBatch, "Debug mode (F3 to toggle)", 10, y.next());
+		debugFont.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, y.next());
+		debugFont.draw(debugBatch, "TargetX=" + mouseX, 10, y.next());
+		debugFont.draw(debugBatch, "PaddleX=" + paddle.getX(), 10, y.next());
 		debugBatch.end();
 	}
 
