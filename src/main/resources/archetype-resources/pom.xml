@@ -211,12 +211,6 @@
 
 			<dependency>
 				<groupId>com.badlogicgames.gdx</groupId>
-				<artifactId>gdx-tools</artifactId>
-				<version>${symbol_dollar}{gdx.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.badlogicgames.gdx</groupId>
 				<artifactId>gdx-backend-lwjgl</artifactId>
 				<version>${symbol_dollar}{gdx.version}</version>
 			</dependency>
@@ -321,6 +315,52 @@
 			<modules>
 				<module>html</module>
 			</modules>
+		</profile>
+		<profile>
+			<id>hiero</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default-cli</id>
+								<goals>
+									<goal>java</goal>
+								</goals>
+								<configuration>
+									<mainClass>com.badlogic.gdx.tools.hiero.Hiero</mainClass>
+									<includePluginDependencies>true</includePluginDependencies>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>com.badlogicgames.gdx</groupId>
+								<artifactId>gdx-tools</artifactId>
+								<version>${symbol_dollar}{gdx.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.badlogicgames.gdx</groupId>
+								<artifactId>gdx</artifactId>
+								<version>${symbol_dollar}{gdx.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.badlogicgames.gdx</groupId>
+								<artifactId>gdx-backend-lwjgl</artifactId>
+								<version>${symbol_dollar}{gdx.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.badlogicgames.gdx</groupId>
+								<artifactId>gdx-platform</artifactId>
+								<version>${symbol_dollar}{gdx.version}</version>
+								<classifier>natives-desktop</classifier>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 	</profiles>
 

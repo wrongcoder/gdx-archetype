@@ -125,6 +125,17 @@ in your web browser.
 Press ^C to stop the web server.
 
 
+Generating font files (Hiero)
+-------------------------------------------------------------------------------
+
+You can use [Hiero](https://github.com/libgdx/libgdx/wiki/Hiero) to generate
+additional font files (*.fnt/*.png) to use in your game.
+
+To run Hiero, run the _exec:java_ goal with the _hiero_ profile activated:
+
+	${artifactId}${symbol_dollar} mvn -P hiero exec:java
+
+
 Distribution
 -------------------------------------------------------------------------------
 
