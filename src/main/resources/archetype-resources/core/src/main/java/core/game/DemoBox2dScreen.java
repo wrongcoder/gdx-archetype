@@ -123,7 +123,7 @@ public class DemoBox2dScreen extends Screen {
 
 		debugBatch.begin();
 		final BitmapFont font = Registry.assetManager.get(Fonts.MONO_SMALL);
-		final Counter y = new Counter(590, -18);
+		final Counter y = new Counter(590, -16);
 		font.draw(debugBatch, "Debug mode (F3 to toggle)", 10, y.next());
 		font.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, y.next());
 		font.draw(debugBatch, "TargetX=" + mouseX, 10, y.next());

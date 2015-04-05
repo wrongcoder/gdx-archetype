@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 /** Shared asset loader */
 public class Fonts {
 
-	public static final String MONO_SMALL = "fonts/liberation-mono-16.fnt";
+	public static final String MONO_SMALL = "fonts/liberation-mono-14.fnt";
 	public static final String SANS_SMALL = "fonts/liberation-sans-14.fnt";
 	public static final String SANS_SMALL_BOLD = "fonts/liberation-sans-14.fnt";
 	public static final String SANS_MEDIUM = "fonts/liberation-sans-18.fnt";
