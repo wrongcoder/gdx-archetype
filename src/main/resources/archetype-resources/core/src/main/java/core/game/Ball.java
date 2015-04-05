@@ -30,7 +30,7 @@ public class Ball {
 
 		final FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = circleShape;
-		fixtureDef.friction = 0;
+		fixtureDef.friction = 0.5f;
 		fixtureDef.restitution = 0.33f;
 
 		body = world.createBody(bodyDef);

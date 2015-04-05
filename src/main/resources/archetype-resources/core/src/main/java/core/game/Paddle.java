@@ -48,7 +48,7 @@ public class Paddle {
 
 		final FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = polygonShape;
-		fixtureDef.friction = 0;
+		fixtureDef.friction = 0.5f;
 		fixtureDef.restitution = 0.85f;
 
 		body = world.createBody(bodyDef);
