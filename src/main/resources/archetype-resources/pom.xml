@@ -16,6 +16,7 @@
 		<project.build.java.target>1.6</project.build.java.target>
 		<gdx.version>1.5.5</gdx.version>
 		<gwt.version>${googlewebtoolkitVersion}</gwt.version>
+		<com.vdxp.gdx.gdx-lib.version>0.0.1.BUILD-SNAPSHOT</com.vdxp.gdx.gdx-lib.version>
 	</properties>
 
 	<repositories>
@@ -29,6 +30,9 @@
 		<repository>
 			<id>gdx-archetype-wrongcoder</id>
 			<url>https://raw.githubusercontent.com/wrongcoder/gdx-archetype/mvn/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -258,6 +262,18 @@
 				<groupId>com.google.gwt</groupId>
 				<artifactId>gwt-servlet</artifactId>
 				<version>${symbol_dollar}{gwt.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.vdxp.gdx</groupId>
+				<artifactId>gdx-lib</artifactId>
+				<version>${symbol_dollar}{com.vdxp.gdx.gdx-lib.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vdxp.gdx</groupId>
+				<artifactId>gdx-lib</artifactId>
+				<version>${symbol_dollar}{com.vdxp.gdx.gdx-lib.version}</version>
+				<classifier>sources</classifier>
 			</dependency>
 
 			<dependency>

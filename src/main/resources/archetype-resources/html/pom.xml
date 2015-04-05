@@ -65,6 +65,11 @@
 			<artifactId>tween-engine-api</artifactId>
 			<classifier>sources</classifier>
 		</dependency>
+		<dependency>
+			<groupId>com.vdxp.gdx</groupId>
+			<artifactId>gdx-lib</artifactId>
+			<classifier>sources</classifier>
+		</dependency>
 	</dependencies>
 
 	<build>

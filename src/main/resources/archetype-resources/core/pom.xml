@@ -29,6 +29,10 @@
 			<artifactId>tween-engine-api</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.vdxp.gdx</groupId>
+			<artifactId>gdx-lib</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
