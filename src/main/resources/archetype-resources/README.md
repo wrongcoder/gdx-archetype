@@ -33,7 +33,7 @@ Before you begin
 	double-click on _compile_.
 
 	You should do this every time you change anything inside the
-	_core/src/main/textures_ directory.
+	_core/src/main/textures_ directory or delete the generated assets.
 
 
 Assets
