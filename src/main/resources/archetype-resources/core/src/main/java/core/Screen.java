@@ -5,33 +5,9 @@ package ${package}.core;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.vdxp.gdx.lib.ScreenAdapter;
 
-public abstract class Screen implements com.badlogic.gdx.Screen {
-
-	@Override
-	public void resize(final int width, final int height) {
-	}
-
-	@Override
-	public void show() {
-	}
-
-	@Override
-	public void hide() {
-		dispose();
-	}
-
-	@Override
-	public void pause() {
-	}
-
-	@Override
-	public void resume() {
-	}
-
-	@Override
-	public void dispose() {
-	}
+public abstract class Screen extends ScreenAdapter {
 
 	public static void drawCentred(final BitmapFont font, final SpriteBatch batch, final String text, final float x, final float y) {
 		final BitmapFont.TextBounds bounds = font.getBounds(text);
