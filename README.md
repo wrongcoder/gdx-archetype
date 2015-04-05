@@ -61,11 +61,11 @@ On a real game project, the html target may feel a bit slower than the desktop t
 1. Generate a project using the archetype
 
     ```shell
-    $ mvn archetype:generate -DarchetypeGroupId=com.vdxp -DarchetypeArtifactId=gdx-archetype -DarchetypeCatalog=https://raw.github.com/wrongcoder/gdx-archetype/mvn/
+    $ mvn archetype:generate -DarchetypeGroupId=com.vdxp.gdx -DarchetypeArtifactId=gdx-archetype -DarchetypeCatalog=https://raw.github.com/wrongcoder/gdx-archetype/mvn/
 
     [INFO] --- maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom ---
     [INFO] Generating project in Interactive mode
-    [INFO] Archetype [com.vdxp:gdx-archetype:1.0.1.RELEASE] found in catalog https://raw.github.com/wrongcoder/gdx-archetype/mvn/
+    [INFO] Archetype [com.vdxp.gdx:gdx-archetype:1.1.0.RELEASE] found in catalog https://raw.github.com/wrongcoder/gdx-archetype/mvn/
     [INFO] Using property: groupId = com.example.demo
     [INFO] Using property: artifactId = demo
     [INFO] Using property: version = 1.0.0.BUILD-SNAPSHOT
