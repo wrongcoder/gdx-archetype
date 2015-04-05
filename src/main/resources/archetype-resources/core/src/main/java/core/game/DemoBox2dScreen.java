@@ -17,6 +17,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import ${package}.core.Fonts;
 import ${package}.core.Registry;
 import ${package}.core.Screen;
+import ${package}.core.util.Counter;
 
 public class DemoBox2dScreen extends Screen {
 
@@ -122,10 +123,11 @@ public class DemoBox2dScreen extends Screen {
 
 		debugBatch.begin();
 		final BitmapFont font = Registry.assetManager.get(Fonts.MONO_SMALL);
-		font.draw(debugBatch, "Debug mode (F3 to toggle)", 10, 590);
-		font.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, 570);
-		font.draw(debugBatch, "TargetX=" + mouseX, 10, 550);
-		font.draw(debugBatch, "PaddleX=" + paddle.getX(), 10, 530);
+		final Counter y = new Counter(590, -18);
+		font.draw(debugBatch, "Debug mode (F3 to toggle)", 10, y.next());
+		font.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, y.next());
+		font.draw(debugBatch, "TargetX=" + mouseX, 10, y.next());
+		font.draw(debugBatch, "PaddleX=" + paddle.getX(), 10, y.next());
 		debugBatch.end();
 	}
 
