@@ -46,8 +46,6 @@ public class DemoBox2dScreen extends Screen {
 	private boolean cancel;
 	private Screen cancelScreen;
 
-	private float mouseX;
-
 	public DemoBox2dScreen(final Screen cancelScreen) {
 		this.cancelScreen = cancelScreen;
 	}
@@ -71,7 +69,6 @@ public class DemoBox2dScreen extends Screen {
 		initWorld();
 
 		Gdx.input.setInputProcessor(new DemoBox2dScreenInputProcessor());
-		mouseX = Gdx.input.getX();
 	}
 
 	private void initWorld() {
@@ -98,7 +95,7 @@ public class DemoBox2dScreen extends Screen {
 	public void render(final float delta) {
 		timeAccumulator += delta;
 		if (timeAccumulator > timeStep) {
-			paddle.moveTo(mouseX, timeStep);
+			paddle.moveTo(Gdx.input.getX(), timeStep);
 			world.step(timeStep, velocityIterations, positionIterations);
 			timeAccumulator -= delta;
 		}
@@ -127,7 +124,6 @@ public class DemoBox2dScreen extends Screen {
 		final Counter y = new Counter(590, -16);
 		debugFont.draw(debugBatch, "Debug mode (F3 to toggle)", 10, y.next());
 		debugFont.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, y.next());
-		debugFont.draw(debugBatch, "TargetX=" + mouseX, 10, y.next());
 		debugFont.draw(debugBatch, "PaddleX=" + paddle.getX(), 10, y.next());
 		debugBatch.end();
 	}
@@ -144,12 +140,6 @@ public class DemoBox2dScreen extends Screen {
 				return true;
 			}
 			return false;
-		}
-
-		@Override
-		public boolean mouseMoved(final int screenX, final int screenY) {
-			mouseX = screenX;
-			return true;
 		}
 	}
 }
