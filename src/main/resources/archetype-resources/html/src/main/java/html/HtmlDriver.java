@@ -38,7 +38,9 @@ public class HtmlDriver extends GwtApplication {
 
 	@Override
 	public GwtApplicationConfiguration getConfig() {
-		return new GwtApplicationConfiguration(Registry.WIDTH, Registry.HEIGHT);
+		final GwtApplicationConfiguration config = new GwtApplicationConfiguration(Registry.WIDTH, Registry.HEIGHT);
+		config.preferFlash = false;
+		return config;
 	}
 
 	private static void centreGameDisplay() {
