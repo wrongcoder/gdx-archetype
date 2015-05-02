@@ -1,7 +1,7 @@
 d:assets:0:application/unknown
 d:fonts:0:application/unknown
-t:fonts/liberation-mono-16.fnt:11427:application/unknown
-i:fonts/liberation-mono-16.png:6355:image/png
+t:fonts/liberation-mono-14.fnt:11581:application/unknown
+i:fonts/liberation-mono-14.png:5600:image/png
 t:fonts/liberation-sans-14-bold.fnt:11353:application/unknown
 i:fonts/liberation-sans-14-bold.png:5802:image/png
 t:fonts/liberation-sans-14.fnt:11317:application/unknown
