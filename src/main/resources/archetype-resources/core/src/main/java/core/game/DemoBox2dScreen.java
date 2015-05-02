@@ -97,7 +97,7 @@ public class DemoBox2dScreen extends Screen {
 		if (timeAccumulator > timeStep) {
 			paddle.moveTo(Gdx.input.getX(), timeStep);
 			world.step(timeStep, velocityIterations, positionIterations);
-			timeAccumulator -= delta;
+			timeAccumulator -= timeStep;
 		}
 
 		Gdx.gl.glClearColor(0, 0, 0, 0);
