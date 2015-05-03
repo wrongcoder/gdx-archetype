@@ -57,7 +57,7 @@ public class DemoBox2dScreen extends Screen {
 		debugMode = true;
 		debugBatch = new SpriteBatch();
 		debugRenderer = new Box2DDebugRenderer();
-		debugFont = Registry.assetManager.get(Fonts.MONO_SMALL);
+		debugFont = Registry.getAsset(Fonts.MONO_SMALL);
 
 		world = new World(new Vector2(0, -9.8f), true);
 		worldCamera = new OrthographicCamera(Registry.WIDTH * pixelsInMetres, Registry.HEIGHT * pixelsInMetres);

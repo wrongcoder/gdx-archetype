@@ -33,8 +33,8 @@ public class DemoSplashScreen extends Screen {
 
 	@Override
 	public void show() {
-		final Texture texture = Registry.assetManager.get(AssetManager.LIBGDX_LOGO);
-		final BitmapFont font = Registry.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
+		final Texture texture = Registry.getAsset(AssetManager.LIBGDX_LOGO);
+		final BitmapFont font = Registry.getAsset(Fonts.SANS_MEDIUM_BOLD);
 		stage = new Stage();
 
 		final Image image = new Image(texture);

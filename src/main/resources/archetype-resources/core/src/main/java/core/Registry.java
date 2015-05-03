@@ -13,16 +13,23 @@ public class Registry {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 
-	public static final Logger log = new Logger("${artifactId}", Logger.DEBUG);
-	public static final AssetManager assetManager = new AssetManager();
-
+	private static Logger logger;
+	private static AssetManager assetManager;
 	private static PlatformSupport platformSupport;
 
 	public static Game game() {
 		return (Game) Gdx.app.getApplicationListener();
 	}
 
-	public static PlatformSupport platformSupport() {
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static AssetManager getAssetManager() {
+		return assetManager;
+	}
+
+	public static PlatformSupport getPlatformSupport() {
 		return platformSupport;
 	}
 
@@ -57,9 +64,47 @@ public class Registry {
 	}
 
 	/** This must be called exactly once from the platform driver */
-	public static void registerPlatformSupport(final PlatformSupport platformSupport) {
+	public static void initialize(final PlatformSupport platformSupport) {
+		assert Registry.logger == null;
+		assert Registry.assetManager == null;
 		assert Registry.platformSupport == null;
+		Registry.logger = new Logger("${artifactId}", Logger.DEBUG);
+		Registry.assetManager = new AssetManager();
 		Registry.platformSupport = platformSupport;
+	}
+
+	// --- Delegates for convenience ---
+
+	public static void logDebug(final String message) {
+		logger.debug(message);
+	}
+
+	public static void logDebug(final String message, final Exception exception) {
+		logger.debug(message, exception);
+	}
+
+	public static void logInfo(final String message) {
+		logger.info(message);
+	}
+
+	public static void logInfo(final String message, final Exception exception) {
+		logger.info(message, exception);
+	}
+
+	public static void logError(final String message) {
+		logger.error(message);
+	}
+
+	public static void logError(final String message, final Throwable exception) {
+		logger.error(message, exception);
+	}
+
+	public static <T> T getAsset(final String fileName) {
+		return assetManager.get(fileName);
+	}
+
+	public static <T> T getAsset(final String fileName, final Class<T> type) {
+		return assetManager.get(fileName, type);
 	}
 
 }

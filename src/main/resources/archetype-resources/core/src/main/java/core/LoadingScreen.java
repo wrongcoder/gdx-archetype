@@ -36,7 +36,7 @@ public class LoadingScreen extends Screen {
 		batch = new SpriteBatch();
 		loadingBarRenderer = new ShapeRenderer();
 
-		final boolean assetsAlreadyLoaded = Registry.assetManager.update(10);
+		final boolean assetsAlreadyLoaded = Registry.getAssetManager().update(10);
 		if (assetsAlreadyLoaded) {
 			nextScreen();
 		}
@@ -50,7 +50,7 @@ public class LoadingScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		final boolean finishedLoading = Registry.assetManager.update(10);
+		final boolean finishedLoading = Registry.getAssetManager().update(10);
 		final float fadeAlpha = fadeTimeLeft / FADE_TIME;
 		final Color fadeColour = new Color(fadeAlpha, fadeAlpha, fadeAlpha, 1);
 
@@ -70,12 +70,12 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void tryLoadSprites() {
-		if (loadingText == null && Registry.assetManager.isLoaded(LOADING_TEXT_ASSET)) {
-			loadingText = new Sprite(Registry.assetManager.<Texture>get(LOADING_TEXT_ASSET));
+		if (loadingText == null && Registry.getAssetManager().isLoaded(LOADING_TEXT_ASSET)) {
+			loadingText = new Sprite(Registry.getAsset(LOADING_TEXT_ASSET, Texture.class));
 			loadingText.setPosition(80, 224);
 		}
-		if (loadingBorder == null && Registry.assetManager.isLoaded(LOADING_BORDER_ASSET)) {
-			loadingBorder = new Sprite(Registry.assetManager.<Texture>get(LOADING_BORDER_ASSET));
+		if (loadingBorder == null && Registry.getAssetManager().isLoaded(LOADING_BORDER_ASSET)) {
+			loadingBorder = new Sprite(Registry.getAsset(LOADING_BORDER_ASSET, Texture.class));
 			loadingBorder.setPosition(144, 80);
 		}
 	}
@@ -94,7 +94,7 @@ public class LoadingScreen extends Screen {
 	}
 
 	private void drawLoadingBar(final Color fadeColour) {
-		final float progress = Registry.assetManager.getProgress();
+		final float progress = Registry.getAssetManager().getProgress();
 		final int width = (int) Math.ceil(480 * progress);
 		loadingBarRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		loadingBarRenderer.setColor(fadeColour);

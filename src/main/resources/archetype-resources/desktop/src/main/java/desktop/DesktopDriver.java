@@ -47,7 +47,7 @@ public class DesktopDriver {
 	}
 
 	private static void start(final boolean production) {
-		Registry.registerPlatformSupport(new DesktopPlatformSupport(production));
+		Registry.initialize(new DesktopPlatformSupport(production));
 
 		final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = Registry.WIDTH;

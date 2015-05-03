@@ -52,11 +52,11 @@ public class CreditsScreen extends Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		tweenManager = new TweenManager();
-		mainTitleFont = Registry.assetManager.get(Fonts.SANS_HUGE_BOLD);
-		sectionTitleFont = Registry.assetManager.get(Fonts.SANS_LARGE_BOLD);
-		normalFont = Registry.assetManager.get(Fonts.SANS_MEDIUM);
-		boldFont = Registry.assetManager.get(Fonts.SANS_MEDIUM_BOLD);
-		smallFont = Registry.assetManager.get(Fonts.SANS_SMALL);
+		mainTitleFont = Registry.getAsset(Fonts.SANS_HUGE_BOLD);
+		sectionTitleFont = Registry.getAsset(Fonts.SANS_LARGE_BOLD);
+		normalFont = Registry.getAsset(Fonts.SANS_MEDIUM);
+		boldFont = Registry.getAsset(Fonts.SANS_MEDIUM_BOLD);
+		smallFont = Registry.getAsset(Fonts.SANS_SMALL);
 		Gdx.input.setInputProcessor(new CreditsScreenInputHandler());
 
 		float nextY = 0;

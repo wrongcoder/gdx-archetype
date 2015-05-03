@@ -21,7 +21,7 @@ public class HtmlDriver extends GwtApplication {
 	public HtmlDriver() {
 		super();
 		game = new Game();
-		Registry.registerPlatformSupport(new HtmlPlatformSupport());
+		Registry.initialize(new HtmlPlatformSupport());
 	}
 
 	@Override

@@ -36,8 +36,8 @@ public class MainMenuScreen extends Screen {
 	private Stage makeMainMenuStage() {
 		final Stage stage = new Stage();
 
-		final Skin uiSkin = Registry.assetManager.get(AssetManager.UI, Skin.class);
-		final Sound buttonClick = Registry.assetManager.get(BUTTON_CLICK, Sound.class);
+		final Skin uiSkin = Registry.getAsset(AssetManager.UI, Skin.class);
+		final Sound buttonClick = Registry.getAsset(BUTTON_CLICK, Sound.class);
 
 		final Table table = new Table();
 

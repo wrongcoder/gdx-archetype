@@ -23,12 +23,14 @@ public class Game extends com.badlogic.gdx.Game {
 
 	@Override
 	public void create() {
-		assert Registry.platformSupport() != null;
+		assert Registry.getLogger() != null;
+		assert Registry.getAssetManager() != null;
+		assert Registry.getPlatformSupport() != null;
 
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		loadVersion();
-		Registry.assetManager.queueAssets();
-		Registry.platformSupport().initializePlatform();
+		Registry.getAssetManager().queueAssets();
+		Registry.getPlatformSupport().initializePlatform();
 		setScreen(new LoadingScreen(new MainMenuScreen()));
 	}
 
@@ -53,7 +55,7 @@ public class Game extends com.badlogic.gdx.Game {
 			shortVersion = versionStrings.shortVersion;
 			versionId = versionStrings.versionId;
 		} catch (final SerializationException e) {
-			Registry.log.error("Error reading version number", e);
+			Registry.logError("Error reading version number", e);
 			fullVersion = "(unknown)";
 			shortVersion = "(unknown)";
 			versionId = "unknown";
