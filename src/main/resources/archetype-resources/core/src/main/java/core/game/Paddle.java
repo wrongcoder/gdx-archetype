@@ -20,12 +20,11 @@ public class Paddle {
 	private final float metresInPixels;
 	private final float pixelsInMetres;
 
-	public static final float pxPaddleHalfWidth = Registry.WIDTH / 8f;
+	public static final float pxPaddleHalfWidth = 100;
 	public static final float pxPaddleHalfHeight = 5;
 
 	public static final float pxMinimumX = -Registry.WIDTH / 2f + Walls.pxWallThickness / 2f + pxPaddleHalfWidth + 5;
 	public static final float pxMaximumX = +Registry.WIDTH / 2f - Walls.pxWallThickness / 2f - pxPaddleHalfWidth - 5;
-	public static final float pxMaximumSpeed = Registry.WIDTH; /* pixels per second */
 
 	public Paddle(final World world, final float metresInPixels, final float pxInitialMouseX) {
 		this.metresInPixels = metresInPixels;
@@ -61,17 +60,18 @@ public class Paddle {
 		return body.getPosition().x / pixelsInMetres;
 	}
 
-	public void moveTo(final float pxMouseX, final float delta) {
+	public void moveTo(final float pxMouseX, final float timeStep) {
 		final float pxWantX = pxMouseX - Registry.WIDTH / 2f;
 		final float pxCurrentX = body.getPosition().x * metresInPixels;
-		final float pxVelocityToHitLeftWall = (pxMinimumX - pxCurrentX) / delta;
-		final float pxVelocityToHitRightWall = (pxMaximumX - pxCurrentX) / delta;
+		final float pxNextSpeed = computeMoveVelocity(pxCurrentX, pxWantX, timeStep);
+		body.setLinearVelocity(pxNextSpeed * pixelsInMetres, 0);
+	}
 
-		final float pxSpeed = clamp((pxWantX - pxCurrentX) / delta,
-				Math.max(-pxMaximumSpeed, pxVelocityToHitLeftWall),
-				Math.min(pxMaximumSpeed, pxVelocityToHitRightWall));
-
-		body.setLinearVelocity(pxSpeed * pixelsInMetres, 0);
+	public float computeMoveVelocity(final float pxCurrentX, final float pxWantX, final float timeStep) {
+		final float pxWantDelta = pxWantX - pxCurrentX;
+		final float pxDeltaToHitLeftWall = pxMinimumX - pxCurrentX;
+		final float pxDeltaToHitRightWall = pxMaximumX - pxCurrentX;
+		return clamp(pxWantDelta, pxDeltaToHitLeftWall, pxDeltaToHitRightWall) / timeStep;
 	}
 
 	public void dispose() {

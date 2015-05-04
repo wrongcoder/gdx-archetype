@@ -11,6 +11,9 @@
 		<requiredProperty key="googlewebtoolkitVersion">
 			<defaultValue>2.6.1</defaultValue>
 		</requiredProperty>
+		<requiredProperty key="powermockVersion">
+			<defaultValue>1.6.2</defaultValue>
+		</requiredProperty>
 	</requiredProperties>
 	<fileSets>
 		<fileSet filtered="true" encoding="UTF-8">

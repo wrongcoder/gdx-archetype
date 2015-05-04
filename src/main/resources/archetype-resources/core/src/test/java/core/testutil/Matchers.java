@@ -13,16 +13,26 @@ public class Matchers {
 		return new FloatIsCloseTo(target);
 	}
 
+	public static Matcher isCloseTo(final float target, final float epsilon) {
+		return new FloatIsCloseTo(target, epsilon);
+	}
+
 	public static Matcher isGreaterThan(final float target) {
 		return new FloatIsGreaterThan(target);
 	}
 
 	public static class FloatIsCloseTo extends ArgumentMatcher<Float> {
-		private static final float epsilon = 0.001f;
+		private final float epsilon;
 		private final float target;
 
 		public FloatIsCloseTo(final float target) {
 			this.target = target;
+			this.epsilon = 0.001f;
+		}
+
+		public FloatIsCloseTo(final float target, final float epsilon) {
+			this.target = target;
+			this.epsilon = epsilon;
 		}
 
 		@Override

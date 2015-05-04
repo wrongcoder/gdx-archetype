@@ -196,7 +196,11 @@
 				<classifier>sources</classifier>
 				<version>${symbol_dollar}{gdx.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>com.badlogicgames.gdx</groupId>
+				<artifactId>gdx-backend-headless</artifactId>
+				<version>${symbol_dollar}{gdx.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.badlogicgames.gdx</groupId>
 				<artifactId>gdx-box2d</artifactId>
@@ -299,6 +303,21 @@
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-all</artifactId>
 				<version>1.10.17</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4-rule</artifactId>
+				<version>${powermockVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-classloading-xstream</artifactId>
+				<version>${powermockVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito</artifactId>
+				<version>${powermockVersion}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
