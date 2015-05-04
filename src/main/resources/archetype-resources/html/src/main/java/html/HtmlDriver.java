@@ -8,11 +8,11 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
 import ${package}.core.Game;
 import ${package}.core.PlatformSupport;
 import ${package}.core.Registry;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 
 public class HtmlDriver extends GwtApplication {
 

@@ -32,7 +32,8 @@ public class VersionStrings {
 				sbShortVersion.append(" ").append("Build ").append(buildNumber);
 			}
 			sbVersionId.append(" ").append(buildNumber);
-		} else if (!commitId.isEmpty()) {
+		}
+		else if (!commitId.isEmpty()) {
 			sbFullVersion.append(" ").append("Commit ").append(commitId);
 			if (versionNumber.isEmpty() || isSnapshotVersion(versionNumber)) {
 				sbShortVersion.append(" ").append("Commit ").append(commitId);
@@ -43,15 +44,19 @@ public class VersionStrings {
 		if (!buildDate.isEmpty()) {
 			if (sbFullVersion.length() > 0) {
 				sbFullVersion.append(" ").append("(").append(buildDate).append(")");
-			} else {
+			}
+			else {
 				sbFullVersion.append(" ").append(buildDate);
 			}
+
 			if (isSnapshotVersion(versionNumber) && buildNumber.isEmpty() && commitId.isEmpty()) {
 				sbShortVersion.append(" ").append("(").append(buildDate).append(")");
 			}
+
 			if (versionNumber.isEmpty() && sbShortVersion.length() == 0) {
 				sbShortVersion.append(" ").append(buildDate);
 			}
+
 			if (sbVersionId.length() == 0) {
 				sbVersionId.append(" ").append(buildDate);
 			}
@@ -63,17 +68,22 @@ public class VersionStrings {
 
 		if (sbFullVersion.length() > 0) {
 			fullVersion = sbFullVersion.toString().substring(1);
-		} else {
+		}
+		else {
 			fullVersion = "";
 		}
+
 		if (sbShortVersion.length() > 0) {
 			shortVersion = sbShortVersion.toString().substring(1);
-		} else {
+		}
+		else {
 			shortVersion = "";
 		}
+
 		if (sbVersionId.length() > 0) {
 			versionId = sbVersionId.toString().substring(1);
-		} else {
+		}
+		else {
 			versionId = "";
 		}
 	}
@@ -82,7 +92,8 @@ public class VersionStrings {
 		final String rawValue = jsonValue.getString(key, "");
 		if (rawValue != null && !rawValue.startsWith("${symbol_dollar}{")) {
 			return rawValue;
-		} else {
+		}
+		else {
 			return "";
 		}
 	}

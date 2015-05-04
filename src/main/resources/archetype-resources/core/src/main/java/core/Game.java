@@ -54,7 +54,8 @@ public class Game extends com.badlogic.gdx.Game {
 			fullVersion = versionStrings.fullVersion;
 			shortVersion = versionStrings.shortVersion;
 			versionId = versionStrings.versionId;
-		} catch (final SerializationException e) {
+		}
+		catch (final SerializationException e) {
 			Registry.logError("Error reading version number", e);
 			fullVersion = "(unknown)";
 			shortVersion = "(unknown)";

@@ -21,7 +21,8 @@ public class DesktopLauncher {
 
 		try {
 			launch();
-		} catch (final Throwable t) {
+		}
+		catch (final Throwable t) {
 			t.printStackTrace();
 			t.printStackTrace(writer);
 			writer.flush();
@@ -40,7 +41,8 @@ public class DesktopLauncher {
 		final File home;
 		if (jarFile.isFile()) {
 			home = jarFile.getParentFile();
-		} else {
+		}
+		else {
 			throw new IllegalStateException("Could not locate JAR");
 		}
 
@@ -50,9 +52,11 @@ public class DesktopLauncher {
 
 		if (javaExe.exists()) {
 			javaExecutablePath = javaExe.getPath();
-		} else if (java.exists()) {
+		}
+		else if (java.exists()) {
 			javaExecutablePath = java.getPath();
-		} else {
+		}
+		else {
 			throw new IllegalStateException("Could not locate Java executable");
 		}
 
@@ -69,12 +73,15 @@ public class DesktopLauncher {
 
 		try {
 			processBuilder.getClass().getMethod("inheritIO").invoke(processBuilder);
-		} catch (final InvocationTargetException e) {
+		}
+		catch (final InvocationTargetException e) {
 			// Unexpected: ProcessBuilder#inheritIO() throws no checked exceptions
 			e.printStackTrace();
-		} catch (final NoSuchMethodException e) {
+		}
+		catch (final NoSuchMethodException e) {
 			// JDK 6
-		} catch (final IllegalAccessException e) {
+		}
+		catch (final IllegalAccessException e) {
 			// Security manager
 		}
 
@@ -94,7 +101,8 @@ public class DesktopLauncher {
 	private static String fixWindowsPath(final String path) {
 		if (path.matches("/[A-Za-z]:/.*")) {
 			return path.substring(1);
-		} else {
+		}
+		else {
 			return path;
 		}
 	}
@@ -102,7 +110,8 @@ public class DesktopLauncher {
 	private static Integer getExitCode(final Process process) {
 		try {
 			return process.exitValue();
-		} catch (final IllegalThreadStateException e) {
+		}
+		catch (final IllegalThreadStateException e) {
 			return null;
 		}
 	}
@@ -110,7 +119,8 @@ public class DesktopLauncher {
 	private static void sleep(final long millis) {
 		try {
 			Thread.sleep(millis);
-		} catch (final InterruptedException e) {
+		}
+		catch (final InterruptedException e) {
 			// Ignore
 		}
 	}

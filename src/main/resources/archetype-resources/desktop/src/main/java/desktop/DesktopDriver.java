@@ -28,7 +28,8 @@ public class DesktopDriver {
 				final PrintStream logStream = new PrintStream(logOutputStream);
 				System.setOut(logStream);
 				System.setErr(logStream);
-			} catch (final FileNotFoundException e) {
+			}
+			catch (final FileNotFoundException e) {
 				System.err.println("Unable to open log file");
 				e.printStackTrace(System.err);
 			}
@@ -40,7 +41,8 @@ public class DesktopDriver {
 
 		try {
 			start(production);
-		} catch (final Throwable t) {
+		}
+		catch (final Throwable t) {
 			System.err.println("Uncaught exception at " + new Date());
 			t.printStackTrace(System.err);
 		}

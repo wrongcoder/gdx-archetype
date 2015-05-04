@@ -52,7 +52,8 @@ public class MusicSystem {
 			previousFadeOutSeconds -= delta;
 			if (previousFadeOutSeconds < 0) {
 				previousMusic.stop();
-			} else {
+			}
+			else {
 				previousMusic.setVolume(previousFadeOutSeconds / CROSS_FADE_SECONDS);
 			}
 		}
@@ -60,7 +61,8 @@ public class MusicSystem {
 			currentFadeInSeconds += delta;
 			if (currentFadeInSeconds > CROSS_FADE_SECONDS) {
 				currentMusic.setVolume(1);
-			} else {
+			}
+			else {
 				currentMusic.setVolume(currentFadeInSeconds / CROSS_FADE_SECONDS);
 			}
 		}
@@ -80,17 +82,20 @@ public class MusicSystem {
 			if (previousFadeOutSeconds > currentFadeInSeconds) {
 				currentMusic.stop();
 				currentMusic = previousMusic;
-			} else {
+			}
+			else {
 				previousMusic.stop();
 				previousFadeOutSeconds = currentFadeInSeconds;
 			}
 			nextMusic.setVolume(0);
 			currentFadeInSeconds = 0;
-		} else if (isPlaying(currentMusic)) { /* previous is not playing */
+		}
+		else if (isPlaying(currentMusic)) { /* previous is not playing */
 			previousFadeOutSeconds = CROSS_FADE_SECONDS;
 			nextMusic.setVolume(0);
 			currentFadeInSeconds = 0;
-		} else { /* neither are playing */
+		}
+		else { /* neither are playing */
 			nextMusic.setVolume(1);
 			currentFadeInSeconds = CROSS_FADE_SECONDS;
 		}
