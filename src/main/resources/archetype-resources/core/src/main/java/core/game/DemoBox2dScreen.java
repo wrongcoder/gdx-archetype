@@ -12,11 +12,14 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import ${package}.core.Fonts;
 import ${package}.core.Registry;
 import ${package}.core.Screen;
+import ${package}.core.box2d.BodyUserData;
 import ${package}.core.util.Counter;
 
 public class DemoBox2dScreen extends Screen {
@@ -37,7 +40,10 @@ public class DemoBox2dScreen extends Screen {
 	private OrthographicCamera worldCamera;
 	private SpriteBatch worldBatch;
 	private ShapeRenderer worldRenderer;
-	private float timeAccumulator = 0;
+	private Array<Body> worldBodyList;
+	private float timeStepAccumulator = 0;
+	private float timeStepAlpha = 1;
+	private int timeStepSkipped = 0;
 
 	private Walls walls;
 	private Ball ball;
@@ -65,6 +71,7 @@ public class DemoBox2dScreen extends Screen {
 		worldBatch.setProjectionMatrix(worldCamera.combined);
 		worldRenderer = new ShapeRenderer();
 		worldRenderer.setProjectionMatrix(worldCamera.combined);
+		worldBodyList = new Array<Body>();
 
 		initWorld();
 
@@ -86,6 +93,7 @@ public class DemoBox2dScreen extends Screen {
 		world.dispose();
 		worldBatch.dispose();
 		worldRenderer.dispose();
+		worldBodyList.clear();
 
 		debugBatch.dispose();
 		debugRenderer.dispose();
@@ -93,15 +101,36 @@ public class DemoBox2dScreen extends Screen {
 
 	@Override
 	public void render(final float delta) {
-		timeAccumulator += delta;
-		if (timeAccumulator > timeStep) {
+		timeStepAccumulator += delta;
+		if (timeStepAccumulator > timeStep) {
 			paddle.moveTo(Gdx.input.getX(), timeStep);
 			world.step(timeStep, velocityIterations, positionIterations);
-			timeAccumulator -= timeStep;
+			world.getBodies(worldBodyList);
+			for (final Body body : worldBodyList) {
+				final BodyUserData userData = (BodyUserData) body.getUserData();
+				userData.update();
+			}
+			timeStepAccumulator -= timeStep;
+			timeStepAlpha = 0;
+
+			while (timeStepAccumulator > timeStep) {
+				timeStepSkipped += 1;
+				timeStepAccumulator -= timeStep;
+			}
+		}
+		else {
+			timeStepAlpha += delta / timeStep;
 		}
 
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		worldBatch.begin();
+		for (final Body body : worldBodyList) {
+			final BodyUserData userData = (BodyUserData) body.getUserData();
+			userData.draw(worldBatch, timeStepAlpha);
+		}
+		worldBatch.end();
 
 		if (debugMode) {
 			renderDebug();
@@ -125,6 +154,7 @@ public class DemoBox2dScreen extends Screen {
 		debugFont.draw(debugBatch, "Debug mode (F3 to toggle)", 10, y.next());
 		debugFont.draw(debugBatch, "MouseX=" + Gdx.input.getX(), 10, y.next());
 		debugFont.draw(debugBatch, "PaddleX=" + paddle.getX(), 10, y.next());
+		debugFont.draw(debugBatch, "FPS=" + Gdx.graphics.getFramesPerSecond() + "  Skipped=" + timeStepSkipped, 10, y.next());
 		debugBatch.end();
 	}
 

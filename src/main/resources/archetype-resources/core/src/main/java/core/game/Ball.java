@@ -3,19 +3,31 @@
 #set( $symbol_escape = '\' )
 package ${package}.core.game;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
+import ${package}.core.AssetManager;
+import ${package}.core.Registry;
+import ${package}.core.box2d.AbstractBodyUserData;
 
 public class Ball {
 
 	private final World world;
 	private final Body body;
 
+	private final Sprite sprite;
+
 	public Ball(final World world, final float metresInPixels) {
 		final float pixelsInMetres = 1f / metresInPixels;
+
+		final TextureAtlas textureAtlas = Registry.getAsset(AssetManager.TEXTURES);
+		sprite = textureAtlas.createSprite("demo/ball");
+		sprite.setScale(pixelsInMetres);
 
 		this.world = world;
 
@@ -35,6 +47,13 @@ public class Ball {
 
 		body = world.createBody(bodyDef);
 		body.createFixture(fixtureDef);
+		body.setUserData(new AbstractBodyUserData(body) {
+			@Override
+			protected void draw(final SpriteBatch worldBatch, final float alpha, final float mX, final float mY) {
+				sprite.setCenter(mX, mY);
+				sprite.draw(worldBatch);
+			}
+		});
 
 		circleShape.dispose();
 	}
