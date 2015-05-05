@@ -26,8 +26,8 @@ i:libgdx-logo.png:78970:image/png
 d:loading-screen:0:application/unknown
 i:loading-screen/border.png:400:image/png
 i:loading-screen/text.png:1019:image/png
-t:textures.atlas:736:application/unknown
-i:textures.png:699:image/png
+t:textures.atlas:929:application/unknown
+i:textures.png:1521:image/png
 d:ui:0:application/unknown
 a:ui/button.wav:5442:audio/x-wav
 t:ui.json:910:application/unknown
