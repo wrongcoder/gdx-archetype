@@ -10,6 +10,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<com.badlogicgames.gdx.version>1.5.5</com.badlogicgames.gdx.version>
+		<com.google.gwt.version>2.6.1</com.google.gwt.version>
+		<org.powermock.version>1.6.2</org.powermock.version>
+		<org.springframework.springloaded.version>1.2.1.RELEASE</org.springframework.springloaded.version>
 	</properties>
 
 	<name>LibGDX archetype</name>
@@ -42,6 +46,30 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>META-INF/maven/archetype-metadata.xml</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>META-INF/maven/archetype-metadata.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
 	</build>
 
 </project>

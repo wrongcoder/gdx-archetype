@@ -5,14 +5,17 @@
                       xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
 	<requiredProperties>
 		<requiredProperty key="projectTitle"/>
-		<requiredProperty key="springloadedVersion">
-			<defaultValue>1.2.1.RELEASE</defaultValue>
+		<requiredProperty key="gdxVersion">
+			<defaultValue>${com.badlogicgames.gdx.version}</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="googlewebtoolkitVersion">
-			<defaultValue>2.6.1</defaultValue>
+			<defaultValue>${com.google.gwt.version}</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="springloadedVersion">
+			<defaultValue>${org.springframework.springloaded.version}</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="powermockVersion">
-			<defaultValue>1.6.2</defaultValue>
+			<defaultValue>${org.powermock.version}</defaultValue>
 		</requiredProperty>
 	</requiredProperties>
 	<fileSets>
