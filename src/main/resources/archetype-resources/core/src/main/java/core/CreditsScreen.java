@@ -13,6 +13,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class CreditsScreen extends Screen {
@@ -126,6 +127,8 @@ public class CreditsScreen extends Screen {
 
 	private class MainTitleText extends CreditsText {
 		private final String titleText;
+
+		private GlyphLayout glyphLayout;
 		private float x;
 		private float y;
 
@@ -135,20 +138,22 @@ public class CreditsScreen extends Screen {
 
 		@Override
 		public float init(final float y) {
-			final BitmapFont.TextBounds textBounds = mainTitleFont.getBounds(titleText);
-			this.x = (Registry.WIDTH - textBounds.width) / 2;
+			this.glyphLayout = new GlyphLayout(mainTitleFont, titleText);
+			this.x = (Registry.WIDTH - glyphLayout.width) / 2;
 			this.y = y;
-			return y - (textBounds.height + 30);
+			return y - (glyphLayout.height + 30);
 		}
 
 		@Override
 		public void draw(final float top) {
-			mainTitleFont.draw(batch, titleText, x, top + y);
+			mainTitleFont.draw(batch, glyphLayout, x, top + y);
 		}
 	}
 
 	private class SectionTitleText extends CreditsText {
 		private final String titleText;
+
+		private GlyphLayout glyphLayout;
 		private float x;
 		private float y;
 
@@ -158,15 +163,15 @@ public class CreditsScreen extends Screen {
 
 		@Override
 		public float init(final float y) {
-			final BitmapFont.TextBounds textBounds = sectionTitleFont.getBounds(titleText);
-			this.x = (Registry.WIDTH - textBounds.width) / 2;
+			this.glyphLayout = new GlyphLayout(sectionTitleFont, titleText);
+			this.x = (Registry.WIDTH - glyphLayout.width) / 2;
 			this.y = y;
-			return y - (textBounds.height + 50);
+			return y - (glyphLayout.height + 50);
 		}
 
 		@Override
 		public void draw(final float top) {
-			sectionTitleFont.draw(batch, titleText, x, top + y);
+			sectionTitleFont.draw(batch, glyphLayout, x, top + y);
 		}
 	}
 
@@ -178,6 +183,8 @@ public class CreditsScreen extends Screen {
 
 	private class MessageCreditsText extends CreditsText {
 		private final String messageText;
+
+		private GlyphLayout glyphLayout;
 		private float x;
 		private float y;
 
@@ -187,15 +194,15 @@ public class CreditsScreen extends Screen {
 
 		@Override
 		public float init(final float y) {
-			final BitmapFont.TextBounds textBounds = normalFont.getBounds(messageText);
-			this.x = (Registry.WIDTH - textBounds.width) / 2;
+			this.glyphLayout = new GlyphLayout(normalFont, messageText);
+			this.x = (Registry.WIDTH - glyphLayout.width) / 2;
 			this.y = y;
-			return y - (textBounds.height + 8);
+			return y - (glyphLayout.height + 8);
 		}
 
 		@Override
 		public void draw(final float top) {
-			normalFont.draw(batch, messageText, x, top + y);
+			normalFont.draw(batch, glyphLayout, x, top + y);
 		}
 	}
 
@@ -204,12 +211,15 @@ public class CreditsScreen extends Screen {
 		private final String usageText;
 		private final String noteText;
 
+		private GlyphLayout identityGlyphLayout;
+		private GlyphLayout usageGlyphLayout;
+		private GlyphLayout noteGlyphLayout;
 		private float identityX, identityY;
 		private float usageX, usageY;
 		private float noteX, noteY;
 
 		private MusicCreditsText(final String artist, final String title, final String usageText, final String noteText) {
-			this.identityText = artist + " - " + "${symbol_escape}"" + title + "${symbol_escape}"";
+			this.identityText = artist + " - " + "\"" + title + "\"";
 			this.usageText = usageText;
 			this.noteText = noteText;
 		}
@@ -222,23 +232,23 @@ public class CreditsScreen extends Screen {
 		public float init(final float y) {
 			float nextY = y;
 
-			final BitmapFont.TextBounds identityTextBounds = boldFont.getBounds(identityText);
-			identityX = (Registry.WIDTH - identityTextBounds.width) / 2;
+			identityGlyphLayout = new GlyphLayout(boldFont, identityText);
+			identityX = (Registry.WIDTH - identityGlyphLayout.width) / 2;
 			identityY = nextY;
-			nextY -= identityTextBounds.height + 8;
+			nextY -= identityGlyphLayout.height + 8;
 
 			if (usageText != null) {
-				final BitmapFont.TextBounds usageTextBounds = normalFont.getBounds(usageText);
-				usageX = (Registry.WIDTH - usageTextBounds.width) / 2;
+				usageGlyphLayout = new GlyphLayout(normalFont, usageText);
+				usageX = (Registry.WIDTH - usageGlyphLayout.width) / 2;
 				usageY = nextY;
-				nextY -= usageTextBounds.height + 8;
+				nextY -= usageGlyphLayout.height + 8;
 			}
 
 			if (noteText != null) {
-				final BitmapFont.TextBounds noteTextBounds = smallFont.getBounds(noteText);
-				noteX = (Registry.WIDTH - noteTextBounds.width) / 2;
+				noteGlyphLayout = new GlyphLayout(smallFont, usageText);
+				noteX = (Registry.WIDTH - noteGlyphLayout.width) / 2;
 				noteY = nextY;
-				nextY -= noteTextBounds.height + 8;
+				nextY -= noteGlyphLayout.height + 8;
 			}
 
 			return nextY;
@@ -246,12 +256,12 @@ public class CreditsScreen extends Screen {
 
 		@Override
 		public void draw(final float top) {
-			boldFont.draw(batch, identityText, identityX, top + identityY);
-			if (usageText != null) {
-				normalFont.draw(batch, usageText, usageX, top + usageY);
+			boldFont.draw(batch, identityGlyphLayout, identityX, top + identityY);
+			if (usageGlyphLayout != null) {
+				normalFont.draw(batch, usageGlyphLayout, usageX, top + usageY);
 			}
-			if (noteText != null) {
-				smallFont.draw(batch, noteText, noteX, top + noteY);
+			if (noteGlyphLayout != null) {
+				smallFont.draw(batch, noteGlyphLayout, noteX, top + noteY);
 			}
 		}
 	}
