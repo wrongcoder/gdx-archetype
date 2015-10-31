@@ -230,7 +230,7 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>io.github.appbundler</groupId>
+				<groupId>sh.tak.appbundler</groupId>
 				<artifactId>appbundle-maven-plugin</artifactId>
 				<executions>
 					<execution>
