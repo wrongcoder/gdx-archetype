@@ -7,4 +7,4 @@ POM_DIR="$SCRIPT_DIR/../../.."
 [ -f "$POM_DIR/pom.xml" ] || { echo "Was this script moved? Redefine POM_DIR"; exit 1; }
 cd "$POM_DIR"
 
-mvn clean deploy -DaltDeploymentRepository=local::default::file:../gdx-archetype-mvn
+mvn clean deploy -DaltDeploymentRepository=local::default::file:../maven
