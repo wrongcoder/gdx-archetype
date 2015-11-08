@@ -52,7 +52,7 @@
 			</excludes>
 		</fileSet>
 		<fileSet>
-			<directory>${symbol_dollar}{project.basedir}/src/main/scripts</directory>
+			<directory>${symbol_dollar}{project.basedir}/src/main/extra</directory>
 			<outputDirectory>/</outputDirectory>
 			<filtered>true</filtered>
 			<lineEnding>crlf</lineEnding>
