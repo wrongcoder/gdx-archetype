@@ -34,6 +34,12 @@ public class Game extends com.badlogic.gdx.Game {
 		setScreen(new LoadingScreen(new MainMenuScreen()));
 	}
 
+	@Override
+	public void dispose() {
+		super.dispose();
+		Registry.getAssetManager().dispose();
+	}
+
 	public String getFullVersion() {
 		return fullVersion;
 	}
