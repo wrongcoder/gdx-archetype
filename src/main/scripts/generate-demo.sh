@@ -7,6 +7,10 @@ POM_DIR="$SCRIPT_DIR/../../.."
 [ -d "$SCRIPT_DIR" ] || { echo "Cannot locate this script (looks like it's in $SCRIPT_DIR)"; exit 1; }
 [ -f "$POM_DIR/pom.xml" ] || { echo "Was this script moved? Redefine POM_DIR"; exit 1; }
 
+cd "$POM_DIR"
+
+mvn install -Darchetype.test.skip
+
 cd "$POM_DIR/.."
 
 if [ -d demo -a -f demo/.gitignore ]; then
