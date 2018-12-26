@@ -13,7 +13,7 @@ Double-click on ${symbol_dollar}{project.parent.name}.app to start the game.
 Linux:
 Double-click on ${symbol_dollar}{project.parent.artifactId}.jar to start the game.
 
-If it doesn't work, you may need to install Java: http://java.com/en/download/index.jsp
+If it doesn't work, you may need to install Java: https://java.com/en/download/index.jsp
 
 3D graphics support is required.
 
