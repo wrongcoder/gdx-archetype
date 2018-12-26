@@ -16,11 +16,10 @@ import com.google.gwt.dom.client.Element;
 
 public class HtmlDriver extends GwtApplication {
 
-	private final Game game;
+	private Game game;
 
 	public HtmlDriver() {
 		super();
-		game = new Game();
 		Registry.initialize(new HtmlPlatformSupport());
 	}
 
@@ -32,7 +31,8 @@ public class HtmlDriver extends GwtApplication {
 	}
 
 	@Override
-	public ApplicationListener getApplicationListener() {
+	public ApplicationListener createApplicationListener() {
+		game = new Game();
 		return game;
 	}
 

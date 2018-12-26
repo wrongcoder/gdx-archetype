@@ -10,8 +10,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<com.badlogicgames.gdx.version>1.7.1</com.badlogicgames.gdx.version>
-		<com.google.gwt.version>2.6.1</com.google.gwt.version>
+		<com.badlogicgames.gdx.version>1.9.9</com.badlogicgames.gdx.version>
+		<com.google.gwt.version>2.8.0</com.google.gwt.version>
 		<org.powermock.version>1.7.4</org.powermock.version>
 		<org.springframework.springloaded.version>1.2.6.RELEASE</org.springframework.springloaded.version>
 	</properties>
